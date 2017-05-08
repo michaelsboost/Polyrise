@@ -1,0 +1,47 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', serif;
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/sea-bay-waterfront-beach-50594.jpeg');
+  background: linear-gradient(to bottom, rgba(250,191,255,1) 0%, rgba(158,179,255,0.23) 100%),
+    url('../img/sea-bay-waterfront-beach-50594.jpeg');
+  background-size: cover;
+}
+.hero h1, .hero h2 {
+  color: #fff;
+}
+.hero h2 {
+  font-family: 'Arvo', serif;
+}
+.vcenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn--custom {
+  background: #c488fb;
+}
+.btn--default:hover, .btn--custom:hover {
+  opacity: 1;
+}
+
+/* Animations */
+.bounceInUp {
+  animation: bounceInUp 1s;
+}
+.bounceInUp1s {
+  animation-delay: .1s;
+}
+.bounceInUp2s {
+  animation-delay: .2s;
+}
+.bounceInUp3s {
+  animation-delay: .3s;
+}

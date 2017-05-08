@@ -1,0 +1,339 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+/* Menu Bars */
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 15px 14px 15px;
+  font-size: 1.2em;
+  background: #fff;
+  font-family: 'Lato', serif;
+  border-bottom: 1px solid #9f9da6;
+}
+.topbar .header {
+  position: relative;
+/*  margin-left: -102px;*/
+  margin-left: -98px;
+  font-family: 'Lato', serif;
+}
+.rightbar {
+  font-family: 'Open Sans', serif;
+  font-size: 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  width: 300px;
+  background: #35444c;
+}
+.rightbar .filterblocks {
+  font-size: 1.2em;
+  padding: 1em;
+  background: #242e34;
+}
+.rightbar .filterblocks select {
+  -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
+  -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
+  border: 0 !important;  /*REMOVES BORDER*/
+  
+/*
+  padding: 10px;
+  margin: -10px 0;
+*/
+  padding: 5px;
+  margin: -5px 0;
+  background: #009688;
+}
+.rightbar .block-container {
+  position: absolute;
+  top: 66px;
+  width: 100%;
+  bottom: 0;
+  overflow: auto;
+  padding: 1em;
+}
+.rightbar .block-container .addblock {
+  text-align: center;
+}
+.rightbar .block-container .addblock img {
+  cursor: pointer;
+  width: 100%;
+}
+.rightbar .block-container .addblock .grid {
+  width: 100%;
+  background: #fff;
+}
+
+/* Canvas */
+.canvas {
+  position: absolute;
+  top: 66px;
+  bottom: 0;
+  width: 100%;
+/*  background: #afe2f2;*/
+  background: #fff;
+  overflow: auto;
+}
+.canvasbtns {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 1em;
+  color: #fff;
+  border-radius: 100%;
+  padding: 13px 20px;
+  font-size: 20px;
+  box-shadow: 0 4px 20px -6px #000;
+}
+.editstyle {
+  padding: 8px 13px;
+  margin: 92px 25px;
+  background: #2196f3;
+  font-size: 16px;
+}
+.addblocks {
+  background: #f44336;
+}
+.canvas .grid {
+  position: relative;
+}
+.blockbar {
+  position: absolute;
+  text-align: right;
+  margin: 0 -35px -39px 0;
+  top: 0;
+  right: 0;
+}
+.blockbar a {
+  display: inline-block;
+  cursor: pointer;
+/*  margin: -2px;*/
+  margin: -2px 0px;
+  padding: 5px 12px;
+  width: 51px;
+  font-size: 21px;
+  color: #fff;
+  background: #2196f3;
+  text-align: center;
+}
+.blockbar a:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.blockbar a:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.blockbar .dragblock {
+  background: #26a69a;
+}
+.blockbar .delblock {
+  background: #f44336;
+}
+.canvas .sort-placer {
+  border-top: 5px dashed #26a69a;
+}
+.blockmenu {
+  color: #fff;
+  background: #35444c;
+}
+
+/* Modules */
+.module-bg {
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 9999!important;
+}
+.column > div {
+  display: table;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: auto;
+  font-size: 16px;
+  background: #000;
+  background: rgba(34, 66, 108, 0.5);
+}
+nav {
+  display: table-cell;
+  vertical-align: middle;
+  z-index: 1;
+}
+.column > div > nav > div {
+  padding: 2em;
+  border-radius: 0.4em;
+  background: #fff;
+  height: 95%;
+  overflow: auto;
+}
+.column > div > nav > div h4 {
+  color: #999da1;
+}
+.column > div > nav > div textarea {
+  min-height: 131px;
+  resize: vertical;
+}
+.btn--green {
+  background: #26a69a;
+}
+.btn--blue {
+  background: #2196f3;
+}
+.btn--red {
+  background: #f44336;
+}
+input#cookiesAlert {
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+}
+input#cookiesAlert + label {
+  display: inline-block;
+  position: relative;
+  box-shadow: inset 0 0 0px 1px #d5d5d5;
+  text-indent: -5000px;
+  height: 30px;
+  width: 50px;
+  border-radius: 15px;
+}
+input#cookiesAlert + label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 30px;
+  width: 30px;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  background: rgba(19, 191, 17, 0);
+  transition: .25s ease-in-out;
+}
+input#cookiesAlert + label:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 30px;
+  width: 30px;
+  top: 0;
+  left: 0px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: .25s ease-in-out;
+}
+input#cookiesAlert:checked + label:before {
+  width: 50px;
+  background: #13bf11;
+}
+input#cookiesAlert:checked + label:after {
+  left: 20px;
+  box-shadow: inset 0 0 0 1px #13bf11, 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+.bounceIn {
+  animation: bounceIn 1s;
+  animation-delay: .1s;
+}
+.bounceInDown {
+  animation: bounceInDown 1s;
+  animation-delay: .1s;
+}
+.slideInLeft {
+  animation: slideInLeft 1s;
+  animation-delay: .1s;
+}
+.slideInRight {
+  animation: slideInRight 1s;
+  animation-delay: .1s;
+}
+.slideInDown {
+  animation: slideInDown 1s;
+  animation-delay: .1s;
+}
+.slideOutRight {
+  animation: slideOutRight 1s;
+  animation-delay: .1s;
+}
+
+/* Typography */
+.capitalize {
+  text-transform: capitalize;
+}
+.small {
+  font-size: small;
+}
+.x-small {
+  font-size: x-small;
+}
+.xx-small {
+  font-size: xx-small;
+}
+.medium {
+  font-size: medium;
+}
+.large {
+  font-size: large;
+}
+.larger {
+  font-size: larger;
+}
+.x-large {
+  font-size: x-large;
+}
+.xx-large {
+  font-size: xx-large;
+}
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.fl {
+  float: left;
+}
+.fn {
+  float: none;
+}
+.fr {
+  float: right;
+}
+.ib {
+  display: inline-block;
+}
+
+/* Misc */
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+.pointer {
+  cursor: pointer;
+}
+.default {
+  cursor: default;
+}
+.hide {
+  display: none;
+}
+.favicon {
+  width: 32px;
+  height: 32px;
+}

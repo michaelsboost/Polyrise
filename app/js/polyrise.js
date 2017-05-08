@@ -1,0 +1,166 @@
+// Global Variables
+var gridCode;
+function editableFunctions() {
+  // $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
+  $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
+  
+  $(".grid").on("click touchstart mouseover", function() {
+    $(".blockbar").addClass("hide");
+    $(this).children().first().removeClass("hide");
+    return false;
+  }).on("mouseout", function() {
+    return false;
+  });
+  $("[data-del=block]").click(function() {
+    var removeElm = $(this).parent().parent();
+
+    alertify.confirm("Are you sure you wish to proceed?<br><br>This cannot be undone!", function(){
+      removeElm.remove();
+    },
+    function() {
+      // User clicked cancel
+    }).set('title', "Remove Block?");
+  });
+  
+  $("[data-call=canvas]").sortable({
+    handle: $("[data-drag=block]"),
+    placeholder: "sort-placer",
+    cursor: "move"
+  });
+  
+
+  $("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", function(e) {
+    $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
+  });
+  $("[data-open=blocks]").on("click touchstart", function() {
+    $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
+    $(".blockbar").addClass("hide");
+  });
+}
+
+// AlertifyJS Global Defaults
+alertify.defaults = {
+  // dialogs defaults
+  autoReset:true,
+  basic:false,
+  closable:true,
+  closableByDimmer:true,
+  frameless:false,
+  maintainFocus:true, // <== global default not per instance, applies to all dialogs
+  maximizable:true,
+  modal:true,
+  movable:true,
+  moveBounded:false,
+  overflow:true,
+  padding: true,
+  pinnable:true,
+  pinned:true,
+  preventBodyShift:false, // <== global default not per instance, applies to all dialogs
+  resizable:true,
+  startMaximized:false,
+  transition:'pulse',
+
+  // notifier defaults
+  notifier:{
+    // auto-dismiss wait time (in seconds)  
+    delay:5,
+    // default position
+    position:'bottom-left',
+    // adds a close button to notifier messages
+    closeButton: false
+  },
+
+  // language resources 
+  glossary:{
+    // dialogs default title
+    title:'AlertifyJS',
+    // ok button text
+    ok: 'OK',
+    // cancel button text
+    cancel: 'Cancel'            
+  },
+
+  // theme settings
+  theme:{
+    // class name attached to prompt dialog input textbox.
+    input:'ajs-input',
+    // class name attached to ok button
+    ok:'ajs-ok',
+    // class name attached to cancel button 
+    cancel:'ajs-cancel'
+  }
+};
+
+// Style Filter for Content Blocks
+$("#blocktypes option").each(function() {
+  $(this).text(this.value);
+});
+$("#blocktypes").resizeselect();
+$("#blocktypes").on("change", function() {
+  $(".block-container [data-filter]").addClass("hide");
+  $(".block-container [data-filter="+ this.value +"]").removeClass("hide");
+
+  if (this.value === "all")
+    $(".block-container [data-filter]").removeClass("hide");
+    return false
+});
+
+// Open & Close Blocks
+$(".blockbar").addClass("hide");
+$("[data-open=blocks]").on("click touchstart", function() {
+  $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
+});
+$("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", function(e) {
+  $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
+});
+$("[data-call=topbar]").on("click touchstart touchmove", function(e) {
+  if ($(e.target).attr("data-toggle") === "settings") {
+    return false;
+  }
+  
+  $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
+});
+
+// Open & Close Settings
+$("[data-toggle=settings]").click(function() {
+  $("[data-project=settings]").fadeToggle();
+  $(".blockbar").addClass("hide");
+});
+
+// Drag/Drop/Sort Canvas Blocks
+/*
+$(".addblock img").draggable({
+  start: function() {
+    gridCode = $(this).next().val();
+    console.log(gridCode)
+  },
+  helper: function() {
+    return $(this).next().clone().appendTo("[data-call=canvas]").css({
+      "zIndex": 5
+    }).show();
+  },
+  cursor: "move",
+  containment: "document"
+});
+$("[data-call=canvas]").droppable({
+  drop: function(evt, ui) {
+    ui.draggable.css({
+      top: 0,
+      left: 0
+    });
+    $(this).append(gridCode);
+    reloadFunctions();
+  }
+});
+*/
+
+$(".addblock img").click(function() {
+  $("[data-call=canvas]").append($(this).next().val());
+  editableFunctions();
+});
+editableFunctions();
+
+// Export Zip File
+$("[data-action=download]").click(function() {
+  alertify.message("coming soon...");
+});
