@@ -48,45 +48,7 @@
     </div>
 
     <!-- Canvas -->
-    <div class="canvas" data-call="canvas">
-      <div class="grid" data-call="article1"><div class="blockbar"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div><div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div><div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>
-        <div class="blockbar hide">
-          <a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block">
-            <i class="fa fa-arrows-v"></i>
-          </a>
-          <a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block">
-            <i class="fa fa-gear"></i>
-          </a>
-          <a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block">
-            <i class="fa fa-trash"></i>
-          </a>
-        </div>
-        <div class="panel--centered centered grid__col--12">
-          <h1 class="headline-primary--grouped" contenteditable="">Take a look at this amazing headline</h1>
-          <h2 class="headline-secondary--grouped" contenteditable="">Don't forget about the subtitle</h2>
-        </div>
-      </div>
-            <div class="grid" data-call="article2"><div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div><div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>
-          <div class="grid__col--12">
-            <hr style="background: #f39c12; padding: 2px; border: 0;">
-            <p contenteditable=""><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque natus eligendi, debitis, consectetur possimus, quidem eum exercitationem dolores, quae autem repellat deleniti reiciendis ex itaque aliquid. Sequi, itaque! Veniam.</p>
-            <hr style="background: #f39c12; padding: 2px; border: 0;">
-          </div>
-        </div>
-                    <div class="grid" data-call="article-btns"><div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>
-          <div class="grid__col--6 panel--centered">
-            <a class="btn--default" contenteditable="">
-              Download for Windows
-            </a>
-          </div>
-          <div class="grid__col--6 panel--centered">
-            <a class="btn--success" contenteditable="">
-              Download for Mac
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="canvas" data-call="canvas"></div>
 
     <!-- Add & Style Blocks -->
     <a class="pointer canvasbtns editstyle hint--rounded hint--bounce hint--info hint--left" aria-label="Edit Styles!" data-open="blocks">
@@ -194,7 +156,13 @@
           </div>
           <div class="addblock">
             <img src="blocks/article-blockquote.png">
-            <textarea class="hide" data-block="code"></textarea>
+            <textarea class="hide" data-block="code">
+              <div class="grid" data-call="article-blockquote">
+                <div class="panel--centered grid__col--12">
+                  <blockquote contentEditable>You know what really gets me going? A really nice set of block quotes.  That's right, block quotes that say, "Hey, I'm an article you want to read and nurture."</blockquote>
+                </div>
+              </div>
+            </textarea>
           </div>
           <div class="addblock">
             <img src="blocks/article-2-cols.png">
@@ -217,23 +185,6 @@
                   <hr style="background: #f39c12; padding: 2px; border: 0;">
                   <p contenteditable><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque natus eligendi, debitis, consectetur possimus, quidem eum exercitationem dolores, quae autem repellat deleniti reiciendis ex itaque aliquid. Sequi, itaque! Veniam.</p>
                   <hr style="background: #f39c12; padding: 2px; border: 0;">
-                </div>
-              </div>
-            </textarea>
-          </div>
-          <div class="addblock">
-            <img src="blocks/article-btns.png">
-            <textarea class="hide" data-block="code">
-              <div class="grid" data-call="article-btns">
-                <div class="grid__col--6 panel--centered">
-                  <a class="btn--default" contenteditable style="width: 100%;">
-                    Download for Windows
-                  </a>
-                </div>
-                <div class="grid__col--6 panel--centered">
-                  <a class="btn--success" contenteditable style="width: 100%;">
-                    Download for Mac
-                  </a>
                 </div>
               </div>
             </textarea>
@@ -418,11 +369,20 @@
       </div>
     </div>
     
+    <!-- Parameters for Blocks -->
+    <div class="blockmenu hide" data-place="parameters">
+      hello world
+    </div>
+    
     <script src="../libraries/alertifyjs/alertify.min.js"></script>
     <script src="../libraries/jquery/jquery.js"></script>
     <script src="../libraries/jqueryui/jquery.ui.touch-punch.min.js"></script>
     <script src="../libraries/jqueryui/jqueryui.min.js"></script>
     <script src="js/resizeselect.js"></script>
+    <script src="../libraries/jszip/Blob.js"></script>
+    <script src="../libraries/jszip/FileSaver.js"></script>
+    <script src="../libraries/jszip/jszip-utils.js"></script>
+    <script src="../libraries/jszip/jszip.min.js"></script>
     <script src="js/polyrise.js"></script>
   </body>
 </html>

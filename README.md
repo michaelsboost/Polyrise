@@ -1,6 +1,8 @@
 # Polyrise
 Free Mobile Website Builder Software!
 
+## Polyrise is a proof of concept; not an active project!
+
 ### Version
 0.0.1
 

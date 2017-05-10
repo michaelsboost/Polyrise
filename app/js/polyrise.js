@@ -1,15 +1,23 @@
 // Global Variables
 var gridCode;
 function editableFunctions() {
-  // $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
-  $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
+  $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
+  // $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
   
   $(".grid").on("click touchstart mouseover", function() {
+    // $(".blockmenu").addClass("hide");
     $(".blockbar").addClass("hide");
+    // $(".blockmenu").removeClass("hide");
     $(this).children().first().removeClass("hide");
+    
+    // $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 47)
+    
     return false;
   }).on("mouseout", function() {
     return false;
+  });
+  $("[data-edit=block]").click(function() {
+    alertify.message('coming soon...');
   });
   $("[data-del=block]").click(function() {
     var removeElm = $(this).parent().parent();
@@ -27,7 +35,6 @@ function editableFunctions() {
     placeholder: "sort-placer",
     cursor: "move"
   });
-  
 
   $("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", function(e) {
     $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
@@ -162,5 +169,28 @@ editableFunctions();
 
 // Export Zip File
 $("[data-action=download]").click(function() {
-  alertify.message("coming soon...");
+  JSZipUtils.getBinaryContent("../assets/libraries.zip", function(err, data) {
+    if(err) {
+      throw err // or handle err
+    }
+    var YourName = sitetitle.value;
+    $(".canvas .grid .blockbar").remove();
+    $(".canvas .grid .blockmenu").remove();
+    $(".canvas [contentEditable").addClass("editable").removeAttr("contentEditable");
+    var canvasHTML = $(".canvas").html();
+    $(".canvas .editable").attr("contentEditable", true);
+    editableFunctions();
+
+    var zip = new JSZip(data);
+
+    zip.file("css/polyrise.css", "");
+    zip.file("index.html", '<!DOCTYPE html>\n<html>\n  <head>\n    <title>'+sitetitle.value+'</title>\n    <meta charset="UTF-8">\n    <meta http-quiv="X-UA-Compatible" content="IE=9" />\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n   <meta name="viewport" content="width=device-width, initial-scale=1">\n    <link rel="apple-touch-icon"href="favicon.png">\n    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">\n   <link rel="stylesheet" href="libraries/polyui/polyui.css">\n   <link rel="stylesheet" href="css/polyrise.css">\n  </head>\n  <body>\n    '+ analyticscode.value +'\n    '+ canvasHTML +'\n    \n    <script src="libraries/jquery/jquery.js"></script>\n    <script src="js/polyrise.js"></script>\n  </body>\n</html>');
+    zip.file("js/polyrise.js", "");
+
+    // Export application
+    var content = zip.generate({type:"blob"});
+    saveAs(content, YourName.replace(/ /g, "-").toLowerCase() + ".zip");
+    endExportMSG();
+    return false;
+  });
 });

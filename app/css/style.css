@@ -139,7 +139,17 @@ html, body {
 .canvas .sort-placer {
   border-top: 5px dashed #26a69a;
 }
+.grid > .blockmenu {
+  display: none;
+}
 .blockmenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   color: #fff;
   background: #35444c;
 }
