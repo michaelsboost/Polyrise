@@ -147,7 +147,7 @@ html, body {
 }
 .blockmenu {
   position: absolute;
-  top: 0;
+  top: 66px;
   right: 0;
   width: 300px;
   bottom: 0;

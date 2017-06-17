@@ -30,6 +30,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+    
+    <!-- Main Quill library -->
+    <script src="//cdn.quilljs.com/1.2.6/quill.js"></script>
+    <script src="//cdn.quilljs.com/1.2.6/quill.min.js"></script>
+
+    <!-- Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.2.6/quill.bubble.css" rel="stylesheet">
+
+    <!-- Core build with no theme, formatting, non-essential modules -->
+    <link href="//cdn.quilljs.com/1.2.6/quill.core.css" rel="stylesheet">
+    <script src="//cdn.quilljs.com/1.2.6/quill.core.js"></script>
   </head>
   <body>
     <!-- Top Bar -->
@@ -54,7 +66,7 @@
     <div class="topbar slideInDownDelay default header">Polyrise</div>
 
     <!-- Canvas -->
-    <div class="canvas" data-call="canvas"></div>
+    <div id="editor" class="canvas" data-call="canvas"></div>
 
     <!-- Add & Style Blocks -->
     <a class="pointer slideInRightDelay2 canvasbtns editstyle hint--rounded hint--bounce hint--info hint--left" aria-label="Edit Styles!" data-open="blocks" data-call="styles">
@@ -402,7 +414,12 @@
     
     <!-- Parameters for Blocks -->
     <div class="blockmenu hide" data-place="parameters">
-      hello world
+      Top Padding
+      Bottom Padding
+      Background Color
+      Background Image
+      Color
+      Opacity
     </div>
     
     <script src="../libraries/alertifyjs/alertify.min.js"></script>

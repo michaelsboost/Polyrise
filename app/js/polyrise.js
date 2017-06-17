@@ -10,7 +10,7 @@ function editableFunctions() {
     // $(".blockmenu").removeClass("hide");
     $(this).children().first().removeClass("hide");
     
-    // $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 47)
+    $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 47)
     
     return false;
   }).on("mouseout", function() {
@@ -43,6 +43,33 @@ function editableFunctions() {
     $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
     $(".blockbar").addClass("hide");
   });
+  
+  var toolbarOptions = [
+    [{ 'font': [] }],
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+//    [{ 'size': ['huge', 'large', false, 'small'] }],  // custom dropdown
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'align': [] }],
+
+    ['clean']                                         // remove formatting button
+  ];
+  
+//  var quill = new Quill('#editor', {
+//    modules: {
+//      toolbar: toolbarOptions
+//    },
+//    theme: 'snow'
+//  });
+//  var editor = new Quill('.canvas > .grid');
 }
 
 // AlertifyJS Global Defaults
@@ -122,7 +149,7 @@ $("[data-call=styles]").on("click touchstart", function() {
   $("#blocktypes").val("styles").trigger("change");
 });
 $("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", function(e) {
-  $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
+  $("[data-content=blocks]").animate({right: -300 + "px"}, 150);
 });
 $("[data-call=topbar]").on("click touchstart touchmove", function(e) {
   if ($(e.target).attr("data-toggle") === "settings") {
