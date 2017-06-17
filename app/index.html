@@ -33,28 +33,34 @@
   </head>
   <body>
     <!-- Top Bar -->
-    <div class="topbar tc" data-call="topbar">
-      <a class="pointer fl" data-toggle="settings">
+    <div class="topbar slideInDown tc" data-call="topbar">
+      <a class="pointer slideInLeftDelay fl" data-open="settings" data-hover="settings">
         <i class="fa fa-bars"></i>
         
         &nbsp; index.html
       </a>
       
-      <a class="default header">Polyrise</a>
 <!--       hint--error, hint--info, hint--warning, hint--success-->
+<!--
       <a class="pointer fr x-large hint--rounded hint--bounce hint--info hint--left" aria-label="Export your website!" data-action="download">
         <i class="fa fa-save"></i>
       </a>
+-->
+      <a class="pointer slideInRightDelay fr x-large hint--rounded hint--bounce hint--info hint--left" aria-label="Export your website!" data-open="publish">
+        <i class="fa fa-cloud-upload"></i> &nbsp;
+        Publish
+      </a>
     </div>
+    <div class="topbar slideInDownDelay default header">Polyrise</div>
 
     <!-- Canvas -->
     <div class="canvas" data-call="canvas"></div>
 
     <!-- Add & Style Blocks -->
-    <a class="pointer canvasbtns editstyle hint--rounded hint--bounce hint--info hint--left" aria-label="Edit Styles!" data-open="blocks">
+    <a class="pointer slideInRightDelay2 canvasbtns editstyle hint--rounded hint--bounce hint--info hint--left" aria-label="Edit Styles!" data-open="blocks" data-call="styles">
       <i class="fa fa-paint-brush"></i>
     </a>
-    <a class="pointer canvasbtns addblocks hint--rounded hint--bounce hint--error hint--left" aria-label="Add Block to Page" data-open="blocks">
+    <a class="pointer slideInRight canvasbtns addblocks hint--rounded hint--bounce hint--error hint--left" aria-label="Add Block to Page" data-open="blocks">
       <i class="fa fa-plus"></i>
     </a>
 
@@ -326,7 +332,7 @@
     </div>
     
     <!-- Modules -->
-    <div class="module-bg column hide" data-project="settings">
+    <div class="module-bg column hide" data-toggle="settings">
       <div>
         <nav>
           <div class="grid tc">
@@ -362,7 +368,32 @@
             </h4>
             
             <p>
-              <a class="btn--green pointer" data-toggle="settings">Close</a>
+              <a class="btn--green pointer" data-open="settings">Close</a>
+            </p>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="module-bg column hide" data-toggle="publish">
+      <div>
+        <nav>
+          <div class="grid">
+            <h2>Publish!</h2>
+             
+            <hr>
+          
+            <input id="locally" class="ib" type="radio" name="publish" checked>
+            <label for="locally" class="ib">
+              Locally
+            </label><br>
+            <input id="githubpages" class="ib" type="radio" name="publish">
+            <label for="githubpages" class="ib">
+              Github Pages
+            </label>
+
+            <p class="tc">
+              <a class="btn--green pointer" data-open="publish" data-export="publish">Save</a>
+              <a class="btn--green pointer" data-open="publish">Close</a>
             </p>
           </div>
         </nav>

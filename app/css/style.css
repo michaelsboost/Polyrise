@@ -17,11 +17,14 @@ html, body {
   font-family: 'Lato', serif;
   border-bottom: 1px solid #9f9da6;
 }
-.topbar .header {
-  position: relative;
-/*  margin-left: -102px;*/
-  margin-left: -98px;
+.topbar.header {
+  left: 150px;
+  width: calc(100% - 300px);
+/*  height: 66px;*/
+  text-align: center;
   font-family: 'Lato', serif;
+  background: transparent;
+  border: 0;
 }
 .rightbar {
   font-family: 'Open Sans', serif;
@@ -160,6 +163,9 @@ html, body {
   background: rgba(255, 255, 255, 0.25);
   z-index: 9999!important;
 }
+.module-bg input[type=radio] {
+  width: 27px;
+}
 .column > div {
   display: table;
   position: absolute;
@@ -260,12 +266,28 @@ input#cookiesAlert:checked + label:after {
   animation: slideInLeft 1s;
   animation-delay: .1s;
 }
+.slideInLeftDelay {
+  animation: slideInLeft 2s;
+  animation-delay: .1s;
+}
 .slideInRight {
   animation: slideInRight 1s;
   animation-delay: .1s;
 }
+.slideInRightDelay {
+  animation: slideInRight 2s;
+  animation-delay: .1s;
+}
+.slideInRightDelay2 {
+  animation: slideInRight 2s;
+  animation-delay: 0s;
+}
 .slideInDown {
   animation: slideInDown 1s;
+  animation-delay: .1s;
+}
+.slideInDownDelay {
+  animation: slideInDown 2s;
   animation-delay: .1s;
 }
 .slideOutRight {
