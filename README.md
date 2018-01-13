@@ -22,8 +22,8 @@ MIT
 
 ### Free Software, Hell Yeah!
 
-- [WebDGap](https://mikethedj4.github.io/WebDGap/)
-- [kodeWeave](https://mikethedj4.github.io/kodeWeave/)
+- [WebDGap](https://michaelsboost.github.io/WebDGap/)
+- [kodeWeave](https://michaelsboost.github.io/kodeWeave/)
 - [AngularJS](http://angularjs.org)
 - [jQuery](http://jquery.com)
 - [Codemirror](http://codemirror.net/)
@@ -32,11 +32,11 @@ MIT
 - [JSZip](https://stuk.github.io/jszip/)
 - [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 - [Poly UI Kit](https://github.com/Guilh/Poly)
-- [CodePen](http://codepen.io/mikethedj4)
+- [CodePen](http://codepen.io/michaelsboost)
 
 ### Author
 
-- [michael schwartz](http://mikethedj4.github.io/)
+- [michael schwartz](http://michaelsboost.github.io/)
 
 ### Development
 
@@ -46,4 +46,4 @@ You can submit a pull request or simply share the project :)
 
 Of course Polyrise is free and open source, so you can always fork the project and have fun :)
 
-If Polyrise was at all helpful for you. You can show your appreciation by [Donating via SquareCash](https://cash.me/$mschwar4) and/or [PayPal](https://www.paypal.me/mikethedj4)
+If Polyrise was at all helpful for you. You can show your appreciation by [Donating via SquareCash](https://cash.me/$michaelsboost) and/or [PayPal](https://www.paypal.me/mikethedj4)
