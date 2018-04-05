@@ -12,7 +12,8 @@ Polyrise uses a number of open source projects to work properly:
 
 * [Poly UI Kit](https://github.com/Guilh/Poly) - Used for the application's user interface
 * [jQuery](http://jquery.com/) - duh
-* [JSZip](https://stuk.github.io/jszip/) - export your project's files
+* [JSZip](https://stuk.github.io/jszip/) - Export your project's files
+* [Quill](https://quilljs.com/) - Powerful WYSIWYG rich text editor
 * [AlertifyJS](http://alertifyjs.com/) - For the awesome and stylish alert notification dialogs
 * [animate.css](https://daneden.github.io/animate.css/) - For the animation effects
 * [hint.css](https://github.com/chinchang/hint.css) - For the stylish tooltips

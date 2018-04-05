@@ -1,5 +1,6 @@
 // Global Variables
-var gridCode;
+var holder = document.querySelector(".favicon"),
+    gridCode;
 function editableFunctions() {
   $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
   // $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash"></i></a></div>');
@@ -17,7 +18,7 @@ function editableFunctions() {
     return false;
   });
   $("[data-edit=block]").click(function() {
-    alertify.message('coming soon...');
+    alertify.message('Edit block properties here');
   });
   $("[data-del=block]").click(function() {
     var removeElm = $(this).parent().parent();
@@ -125,6 +126,38 @@ alertify.defaults = {
   }
 };
 
+// Converts Image To Base64
+function loadFavIcon(file) {
+  var reader = new FileReader();
+
+  reader.onload = function(e) {
+    document.querySelector(".favicon").src = e.target.result;
+  }
+  reader.readAsDataURL(file);
+};
+
+// Load new fav icon by triggering loadFavIcon() Func
+$("[data-load=favicon]").on("change", function(evt) {
+  var file = evt.target.files[0];
+  loadFavIcon(file);
+});
+
+// Drag and drop image load
+holder.ondragover = function () {
+  this.className = "pointer favicon fr hover";
+  return false;
+}
+holder.ondragend = function () {
+  this.className = "pointer favicon fr";
+  return false;
+}
+holder.ondrop = function(e) {
+  this.className = "pointer favicon fr";
+  e.preventDefault();
+  var file = e.dataTransfer.files[0];
+  loadFavIcon(file);
+}
+
 // Style Filter for Content Blocks
 $("#blocktypes option").each(function() {
   $(this).text(this.value);
@@ -167,10 +200,6 @@ $("[data-open=settings]").click(function() {
   $("[data-toggle=settings]").fadeToggle();
   $(".blockbar").addClass("hide");
 });
-$("[data-open=publish]").click(function() {
-  $("[data-toggle=publish]").fadeToggle();
-  $(".blockbar").addClass("hide");
-});
 
 // Drag/Drop/Sort Canvas Blocks
 /*
@@ -207,32 +236,28 @@ editableFunctions();
 
 // Export Zip File
 $("[data-export=publish]").click(function() {
-  if (locally.checked) {
-    JSZipUtils.getBinaryContent("../assets/libraries.zip", function(err, data) {
-      if(err) {
-        throw err // or handle err
-      }
-      var YourName = sitetitle.value;
-      $(".canvas .grid .blockbar").remove();
-      $(".canvas .grid .blockmenu").remove();
-      $(".canvas [contentEditable").addClass("editable").removeAttr("contentEditable");
-      var canvasHTML = $(".canvas").html();
-      $(".canvas .editable").attr("contentEditable", true);
-      editableFunctions();
+  JSZipUtils.getBinaryContent("../assets/libraries.zip", function(err, data) {
+    if(err) {
+      throw err // or handle err
+    }
+    var YourName = sitetitle.value;
+    $(".canvas .grid .blockbar").remove();
+    $(".canvas .grid .blockmenu").remove();
+    $(".canvas [contentEditable").addClass("editable").removeAttr("contentEditable");
+    var canvasHTML = $(".canvas").html();
+    $(".canvas .editable").attr("contentEditable", true);
+    editableFunctions();
 
-      var zip = new JSZip(data);
+    var zip = new JSZip(data);
 
-      zip.file("css/polyrise.css", "");
-      zip.file("index.html", '<!DOCTYPE html>\n<html>\n  <head>\n    <title>'+sitetitle.value+'</title>\n    <meta charset="UTF-8">\n    <meta http-quiv="X-UA-Compatible" content="IE=9" />\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n   <meta name="viewport" content="width=device-width, initial-scale=1">\n    <link rel="apple-touch-icon"href="favicon.png">\n    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">\n   <link rel="stylesheet" href="libraries/polyui/polyui.css">\n   <link rel="stylesheet" href="css/polyrise.css">\n  </head>\n  <body>\n    '+ analyticscode.value +'\n    '+ canvasHTML +'\n    \n    <script src="libraries/jquery/jquery.js"></script>\n    <script src="js/polyrise.js"></script>\n  </body>\n</html>');
-      zip.file("js/polyrise.js", "");
+    zip.file("css/polyrise.css", "");
+    zip.file("index.html", '<!DOCTYPE html>\n<html>\n  <head>\n    <title>'+sitetitle.value+'</title>\n    <meta charset="UTF-8">\n    <meta http-quiv="X-UA-Compatible" content="IE=9" />\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n   <meta name="viewport" content="width=device-width, initial-scale=1">\n    <link rel="apple-touch-icon"href="favicon.png">\n    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">\n   <link rel="stylesheet" href="libraries/polyui/polyui.css">\n   <link rel="stylesheet" href="css/polyrise.css">\n  </head>\n  <body>\n    '+ analyticscode.value +'\n    '+ canvasHTML +'\n    \n    <script src="libraries/jquery/jquery.js"></script>\n    <script src="js/polyrise.js"></script>\n  </body>\n</html>');
+    zip.file("js/polyrise.js", "");
 
-      // Export application
-      var content = zip.generate({type:"blob"});
-      saveAs(content, YourName.replace(/ /g, "-").toLowerCase() + ".zip");
-      endExportMSG();
-      return false;
-    });
-  } else if (githubpages.checked) {
-    alertify.message("coming soon...");
-  }
+    // Export application
+    var content = zip.generate({type:"blob"});
+    saveAs(content, YourName.replace(/ /g, "-").toLowerCase() + ".zip");
+    endExportMSG();
+    return false;
+  });
 });

@@ -368,4 +368,9 @@ input#cookiesAlert:checked + label:after {
 .favicon {
   width: 32px;
   height: 32px;
+  opacity: .5;
+  transition: all ease 150ms;
+}
+.favicon:hover, .favicon.hover {
+  opacity: .8;
 }

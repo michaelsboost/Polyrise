@@ -58,7 +58,7 @@
         <i class="fa fa-save"></i>
       </a>
 -->
-      <a class="pointer slideInRightDelay fr x-large hint--rounded hint--bounce hint--info hint--left" aria-label="Export your website!" data-open="publish">
+      <a class="pointer slideInRightDelay fr x-large hint--rounded hint--bounce hint--info hint--left" aria-label="Export your website!" data-export="publish">
         <i class="fa fa-cloud-upload"></i> &nbsp;
         Publish
       </a>
@@ -360,7 +360,7 @@
             <h4 class="tl">
               Favicon: 
               <label for="favicon">
-                <img class="pointer favicon fr" src="../img/favicon.png" data-drop="favicon">
+                <img class="pointer favicon fr" src="upload.svg" data-drop="favicon" width="32" height="32">
               </label>
               <input id="favicon" type="file" class="hide" data-load="favicon" accept="image/*">
             </h4>
@@ -381,31 +381,6 @@
             
             <p>
               <a class="btn--green pointer" data-open="settings">Close</a>
-            </p>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <div class="module-bg column hide" data-toggle="publish">
-      <div>
-        <nav>
-          <div class="grid">
-            <h2>Publish!</h2>
-             
-            <hr>
-          
-            <input id="locally" class="ib" type="radio" name="publish" checked>
-            <label for="locally" class="ib">
-              Locally
-            </label><br>
-            <input id="githubpages" class="ib" type="radio" name="publish">
-            <label for="githubpages" class="ib">
-              Github Pages
-            </label>
-
-            <p class="tc">
-              <a class="btn--green pointer" data-open="publish" data-export="publish">Save</a>
-              <a class="btn--green pointer" data-open="publish">Close</a>
             </p>
           </div>
         </nav>
