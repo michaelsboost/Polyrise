@@ -1,3 +1,11 @@
+/*
+  Version: 0.0.1
+  Polyrise, copyright (c) by Michael Schwartz and others
+  Distributed under an MIT license: https://github.com/michaelsboost/Polyrise/blob/gh-pages/LICENSE
+  
+  This is Polyrise (https://michaelsboost.github.io/Polyrise/), Free Mobile Website Builder Software
+*/
+
 /* globals */
 html, body {
   height: 100%;
@@ -104,11 +112,19 @@ html, body {
 
 /* custom buttons */
 .header [class^="btn--"],
-.pricingtables [class^="btn--"] {
+.pricingtables [class^="btn--"],
+.roundedbtn,
+.roundedbtnmin {
   border-radius: 100px;
   opacity: 1;
-  min-width: 100%;
   transition: all ease 300ms;
+}
+.header [class^="btn--"],
+.roundedbtnmin {
+  min-width: 210px;
+}
+.pricingtables [class^="btn--"] {
+  min-width: 100%;
 }
 .header .circlebtn,
 .pricingtables .circlebtn {
@@ -120,7 +136,9 @@ html, body {
   outline: 0;
 }
 .header [class^="btn--"]:hover,
-.pricingtables [class^="btn--"]:hover {
+.pricingtables [class^="btn--"]:hover,
+.roundedbtn:hover,
+.roundedbtnmin:hover {
   opacity: 1;
 }
 .btn--pink {
@@ -269,8 +287,13 @@ html, body {
 .dg {
   display: grid;
 }
+@media (max-width: 768px) {
+  .dg {
+    display: block;
+  }
+}
 .imgarticle img {
-  height: 270px;
+  height: 190px;
   width: auto;
 }
 @media (max-width: 768px) {
