@@ -103,13 +103,15 @@ html, body {
 }
 
 /* custom buttons */
-.header [class^="btn--"] {
+.header [class^="btn--"],
+.pricingtables [class^="btn--"] {
   border-radius: 100px;
   opacity: 1;
-  min-width: 210px;
+  min-width: 100%;
   transition: all ease 300ms;
 }
-.header .circlebtn {
+.header .circlebtn,
+.pricingtables .circlebtn {
   color: #000;
   background: #fff;
   padding: .8em 1em;
@@ -117,7 +119,8 @@ html, body {
   font-size: 2em;
   outline: 0;
 }
-.header [class^="btn--"]:hover {
+.header [class^="btn--"]:hover,
+.pricingtables [class^="btn--"]:hover {
   opacity: 1;
 }
 .btn--pink {
@@ -278,4 +281,28 @@ html, body {
 }
 .txtonimg h2 {
   margin: -78px 0 0 23px;
+}
+/*
+.pricingtable .dollar {
+  font-weight: 700;
+  vertical-align: top;
+  font-size: calc( 1.175rem + (1.5 - 1.175) * ((100vw - 43rem) / (48 - 20)));
+  line-height: calc( 1.4 * (1.175rem + (1.5 - 1.175) * ((100vw - 43rem) / (48 - 20))));
+}
+.pricingtable .quanity {
+  font-weight: 700;
+  font-size: calc( 2.1374999999999997rem + (4.25 - 2.1374999999999997) * ((100vw - 43rem) / (48 - 20)));
+  line-height: calc( 1.4 * (2.1374999999999997rem + (4.25 - 2.1374999999999997) * ((100vw - 43rem) / (48 - 20))));
+}
+*/
+.pricingtable .dollar {
+  font-weight: 700;
+  vertical-align: top;
+  font-size: 2rem;
+  line-height: calc( 1.4 * (1.175rem + (1.5 - 1.175) * ((100vw - 43rem) / (48 - 20))));
+}
+.pricingtable .quanity {
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: calc( 1.4 * (2.1374999999999997rem + (4.25 - 2.1374999999999997) * ((100vw - 43rem) / (48 - 20))));
 }
