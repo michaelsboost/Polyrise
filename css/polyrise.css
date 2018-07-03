@@ -266,8 +266,15 @@ html, body {
 .dg {
   display: grid;
 }
-.imgsameheight270p img {
+.imgarticle img {
   height: 270px;
+  width: auto;
+}
+@media (max-width: 768px) {
+  .imgarticle img {
+    width: 291px;
+    height: auto;
+  }
 }
 .txtonimg h2 {
   margin: -78px 0 0 23px;
