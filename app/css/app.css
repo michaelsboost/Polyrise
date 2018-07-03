@@ -37,6 +37,7 @@ html, body {
   color: #fff;
   width: 300px;
   background: #35444c;
+  z-index: 2;
 }
 .rightbar .filterblocks {
   font-size: 1.2em;
@@ -70,6 +71,7 @@ html, body {
 .rightbar .block-container .addblock img {
   cursor: pointer;
   width: 100%;
+  margin: 0 0 0.5em 0;
 }
 .rightbar .block-container .addblock .grid {
   width: 100%;
