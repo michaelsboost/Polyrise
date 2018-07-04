@@ -275,6 +275,11 @@ $("[data-call=canvas]").droppable({
 
 // Add a new block
 $(".addblock img").click(function() {
+  if ($(this).hasClass("comingsoon")) {
+    alertify.error("Sorry: This block is not yet available...");
+    return false;
+  }
+  
   $("[data-call=canvas]").append($(this).next().val());
   editableFunctions();
 });
