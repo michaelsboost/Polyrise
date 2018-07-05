@@ -358,6 +358,55 @@ input#cookiesAlert:checked + label:after {
   display: inline-block;
 }
 
+/* Tooltip Menu */
+.editorbar {
+  position: absolute;
+  display: inline-block;
+  background: #fff;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 0 8px;
+}
+.editorbar * {
+  text-decoration: none;
+}
+.editorbar button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  border: 0;
+  color: #999;
+  transition: all ease 300ms;
+}
+.editorbar button:hover {
+  background: #ddd;
+  color: #000;
+}
+.arrow {
+  width: 70px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  bottom: -16px;
+}
+.arrow:after {
+  background: #fff;
+  border: 2px solid #fff;
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 6px 5px 9px -9px black,
+              5px 6px 9px -9px black;
+  transform:  rotate(45deg) scale(.65);
+}
+
 /* Misc */
 .table {
   display: table;

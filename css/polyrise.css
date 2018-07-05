@@ -42,7 +42,6 @@ html, body {
   background-size: 100% 100%;
 }
 .bg-overlay3 {
-  display: none;
   box-shadow: inset 0 0 0 100em rgba(100, 122, 206, 0.25);
 }
 
@@ -97,6 +96,11 @@ html, body {
   .mouse {
     display: none;
   }
+}
+
+/* header */
+.header {
+  position: relative;
 }
 
 /* center content vertically and horizontally */

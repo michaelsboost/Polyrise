@@ -27,7 +27,7 @@ if (site.substring(0, 7) === "http://") {
 }
 
 // fadeIn background-overlay
-$(".bg-overlay, .bg-overlay2, .bg-overlay3").fadeIn();
+$(".bg-overlay, .bg-overlay2").fadeIn();
 
 // Share This Page
 $("[data-shareTo]").on("click", function() {

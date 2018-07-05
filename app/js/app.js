@@ -5,11 +5,201 @@ var gridCode,
       return $.get(url, null, function(data) {
         el.value = data;
       }, "text");
-    };
+    },
+    btnDefaultW  = $(".btneditorbar").width(),
+    btnDefaultH  = $(".btneditorbar").height(),
+    btnDefaultOH = $(".btneditorbar").outerHeight(),
+    defaultW  = $(".headereditorbar").width(),
+    defaultW  = $(".headereditorbar").width(),
+    defaultH  = $(".headereditorbar").height(),
+    defaultOH = $(".headereditorbar").outerHeight(),
+    toClose2Left  = false,
+    toClose2Right = false;
 
 // Set Required Polyrise Code as variable to be saved
 grabFileCode('../css/polyrise.css', cssCode);
 grabFileCode('../js/polyrise.js', jsCode);
+  
+// wysiwyg menu actions
+$(".editorbar button:not([data-exec])").on('click', function() {
+  console.error('Error: no function for wysiwyg actions');
+  return false;
+});
+$(".editorbar button[data-exec]").on('click', function() {
+  document.execCommand($(this).data('exec'), false, null);
+  return false;
+});
+
+// WYSIWYG Bubble Editor
+function initBubbleBar() {
+  // first positioning
+  // for buttons
+  $('[data-call=canvas] [class^="btn--"]').on("click touchstart", function(e) {
+      btnEB     = $(".btneditorbar");
+      headerEB  = $(".headereditorbar");
+      headerEB.hide();
+      btnEB.show();
+
+    // position right away
+    var linkPosition = $(this).offset();
+
+    function positionEditor() {
+      // to close to the left?
+      if (linkPosition.left < defaultW / 2) {
+        toClose2Left = true;
+        toClose2Right = false;
+      } else if (window.innerWidth - defaultW + 200 <= linkPosition.left) {
+        toClose2Left = false;
+        toClose2Right = true;
+      } else {
+        toClose2Left = false;
+        toClose2Right = false;
+      }
+
+      // to close to top?
+      if (linkPosition.top <= 20) {
+        $(".editorbar").css({
+          top: 108 - defaultOH - 13
+        });
+
+        if (toClose2Left === true) {
+          $(".editorbar").css({
+            left: 0
+          });
+
+          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
+        } else if (toClose2Right === true) {
+          $(".editorbar").css({
+            left: window.innerWidth - defaultW - 30
+          });
+
+          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
+        } else {
+          $(".editorbar").css({
+            left: linkPosition.left - (defaultW / 2)
+          });
+          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px)');
+        }
+        return false;
+      } else {
+        $(".editorbar").css({
+          top: linkPosition.top - defaultOH - 13
+        });
+
+        if (toClose2Left === true) {
+          $(".editorbar").css({
+            left: 0
+          });
+          $(".arrow").css('transform', 'translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
+        } else if (toClose2Right === true) {
+          $(".editorbar").css({
+            left: window.innerWidth - defaultW - 30
+          });
+
+          $(".arrow").css('transform', 'translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
+        } else {
+          $(".editorbar").css({
+            left: linkPosition.left - (defaultW / 2)
+          });
+          $(".arrow").css('transform', '');
+        }
+      }
+    }
+    positionEditor();
+    return false;
+  });
+  // for headers
+  $('[data-call=canvas]').find('h1, h2, h3, h4, h5, h6, p').on("click touchstart", function(e) {
+      btnEB     = $(".btneditorbar");
+      headerEB  = $(".headereditorbar");
+      btnEB.hide();
+      headerEB.show();
+
+    // position right away
+    var linkPosition = $(this).offset();
+
+    function positionEditor() {
+      // to close to the left?
+      if (linkPosition.left < defaultW / 2) {
+        toClose2Left = true;
+        toClose2Right = false;
+      } else if (window.innerWidth - defaultW + 200 <= linkPosition.left) {
+        toClose2Left = false;
+        toClose2Right = true;
+      } else {
+        toClose2Left = false;
+        toClose2Right = false;
+      }
+
+      // to close to top?
+      if (linkPosition.top <= 20) {
+        $(".editorbar").css({
+          top: 108 - defaultOH - 13
+        });
+
+        if (toClose2Left === true) {
+          $(".editorbar").css({
+            left: 0
+          });
+
+          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
+        } else if (toClose2Right === true) {
+          $(".editorbar").css({
+            left: window.innerWidth - defaultW - 30
+          });
+
+          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
+        } else {
+          $(".editorbar").css({
+            left: linkPosition.left - (defaultW / 2)
+          });
+          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px)');
+        }
+        return false;
+      } else {
+        $(".editorbar").css({
+          top: linkPosition.top - defaultOH - 13
+        });
+
+        if (toClose2Left === true) {
+          $(".editorbar").css({
+            left: 0
+          });
+          $(".arrow").css('transform', 'translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
+        } else if (toClose2Right === true) {
+          $(".editorbar").css({
+            left: window.innerWidth - defaultW - 30
+          });
+
+          $(".arrow").css('transform', 'translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
+        } else {
+          $(".editorbar").css({
+            left: linkPosition.left - (defaultW / 2)
+          });
+          $(".arrow").css('transform', '');
+        }
+      }
+    }
+    positionEditor();
+    return false;
+  });
+  
+  // hide bubble editor
+  $('[data-call=canvas] *').not('.editorbar, .editorbar *, [class^="btn--"], h1, h2, h3, h4, h5, h6, p').on('click', function() {
+    $(".btneditorbar, .headereditorbar").hide();
+  });
+  
+  // disable tab key
+  $('[contenteditable]').keydown(function(e) {
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == 9) {
+      e.preventDefault();
+    }
+  });
+
+  return false;
+}
+initBubbleBar();
 
 // Added blocks should be editable
 function editableFunctions() {
@@ -32,6 +222,7 @@ function editableFunctions() {
   });
   $("[data-edit=block]").click(function() {
     alertify.message('Edit block properties here');
+    $(".editorbar").hide();
   });
   $("[data-del=block]").click(function() {
     var removeElm = $(this).parent().parent();
@@ -42,6 +233,7 @@ function editableFunctions() {
     function() {
       // User clicked cancel
     }).set('title', "Remove Block?");
+    $(".editorbar").hide();
   });
   
   $("[data-call=canvas]").sortable({
@@ -58,22 +250,11 @@ function editableFunctions() {
     $(".blockbar").addClass("hide");
   });
   
-  // WYSIWYG Editor
-  $('.tooltip').tooltipster({
-    theme: 'tooltipster-light'
-  });
-  
-//  $.tooltipster.startSelectable(
-//	'p',
-//	function(instance, text) {
-//		return text;
-//	},
-//	{ animation: 'slide' }
-//  );
-//  $.tooltipster.stopSelectable('#p3');
-  
   // required by polyrise design
-  $(".bg-overlay, .bg-overlay2, .bg-overlay3").fadeIn();
+  $(".bg-overlay, .bg-overlay2").fadeIn();
+  
+  // initialize WYSIWYG Editor
+  initBubbleBar();
 }
 
 // AlertifyJS Global Defaults
@@ -262,7 +443,15 @@ $("[data-call=canvas]").droppable({
 
 // Add a new block
 $(".addblock img").click(function() {
-  if ($(this).hasClass("comingsoon")) {
+  if ($(this).hasClass("newdoc")) {
+    alertify.confirm("Are you sure you wish to proceed?<br><br>This cannot be undone!", function(){
+      $("[data-call=canvas]").empty();
+    },
+    function() {
+      // User clicked cancel
+    }).set('title', "Start a blank design?");
+    return false;
+  } else if ($(this).hasClass("comingsoon")) {
     alertify.error("Sorry: This block is not yet available...");
     return false;
   }
