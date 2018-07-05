@@ -109,7 +109,7 @@ function initBubbleBar() {
     return false;
   });
   // for headers
-  $('[data-call=canvas]').find('h1, h2, h3, h4, h5, h6, p').on("click touchstart", function(e) {
+  $('[data-call=canvas]').find('h1, h2, h3, h4, h5, h6, p').not('.ignorebubble').on("click touchstart", function(e) {
       btnEB     = $(".btneditorbar");
       headerEB  = $(".headereditorbar");
       btnEB.hide();
