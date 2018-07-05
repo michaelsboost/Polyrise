@@ -360,12 +360,13 @@ input#cookiesAlert:checked + label:after {
 
 /* Tooltip Menu */
 .editorbar {
-  position: absolute;
-  display: inline-block;
-  background: #fff;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 0 8px;
+  padding: 12px 3px;
+  text-align: center;
+  white-space: nowrap;
+/*
+  overflow-y: hidden;
+  overflow-x: auto;
+*/
 }
 .editorbar * {
   text-decoration: none;
@@ -384,7 +385,7 @@ input#cookiesAlert:checked + label:after {
   background: #ddd;
   color: #000;
 }
-.arrow {
+.editorbar .arrow {
   width: 70px;
   height: 16px;
   overflow: hidden;
@@ -393,7 +394,7 @@ input#cookiesAlert:checked + label:after {
   margin-left: -35px;
   bottom: -16px;
 }
-.arrow:after {
+.editorbar .arrow:after {
   background: #fff;
   border: 2px solid #fff;
   content: "";

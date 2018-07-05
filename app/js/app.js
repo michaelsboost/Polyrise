@@ -21,172 +21,76 @@ grabFileCode('../css/polyrise.css', cssCode);
 grabFileCode('../js/polyrise.js', jsCode);
   
 // wysiwyg menu actions
-$(".editorbar button:not([data-exec])").on('click', function() {
-  console.error('Error: no function for wysiwyg actions');
-  return false;
-});
 $(".editorbar button[data-exec]").on('click', function() {
   document.execCommand($(this).data('exec'), false, null);
   return false;
 });
+  
+// remove selected element
+$("[data-editorbar=delete]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $(".selected").remove();
+    $(".editorbar").hide();
+  }
+});
+$("[data-notavail]").click(function() {
+  console.error('Error: no function for wysiwyg actions');
+  return false;
+});
 
 // WYSIWYG Bubble Editor
-function initBubbleBar() {
-  // first positioning
+function runBubbleBar() {
+  // display bubble editor
   // for buttons
   $('[data-call=canvas] [class^="btn--"]').on("click touchstart", function(e) {
-      btnEB     = $(".btneditorbar");
-      headerEB  = $(".headereditorbar");
-      headerEB.hide();
-      btnEB.show();
-
-    // position right away
-    var linkPosition = $(this).offset();
-
-    function positionEditor() {
-      // to close to the left?
-      if (linkPosition.left < defaultW / 2) {
-        toClose2Left = true;
-        toClose2Right = false;
-      } else if (window.innerWidth - defaultW + 200 <= linkPosition.left) {
-        toClose2Left = false;
-        toClose2Right = true;
-      } else {
-        toClose2Left = false;
-        toClose2Right = false;
-      }
-
-      // to close to top?
-      if (linkPosition.top <= 20) {
-        $(".editorbar").css({
-          top: 108 - defaultOH - 13
-        });
-
-        if (toClose2Left === true) {
-          $(".editorbar").css({
-            left: 0
-          });
-
-          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
-        } else if (toClose2Right === true) {
-          $(".editorbar").css({
-            left: window.innerWidth - defaultW - 30
-          });
-
-          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
-        } else {
-          $(".editorbar").css({
-            left: linkPosition.left - (defaultW / 2)
-          });
-          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px)');
-        }
-        return false;
-      } else {
-        $(".editorbar").css({
-          top: linkPosition.top - defaultOH - 13
-        });
-
-        if (toClose2Left === true) {
-          $(".editorbar").css({
-            left: 0
-          });
-          $(".arrow").css('transform', 'translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
-        } else if (toClose2Right === true) {
-          $(".editorbar").css({
-            left: window.innerWidth - defaultW - 30
-          });
-
-          $(".arrow").css('transform', 'translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
-        } else {
-          $(".editorbar").css({
-            left: linkPosition.left - (defaultW / 2)
-          });
-          $(".arrow").css('transform', '');
-        }
-      }
+    $(".headereditorbar").hide();
+    $(".btneditorbar").show();
+    
+    if ( $(".selected").is(":visible") ) {
+      $(".selected").removeClass("selected");
     }
-    positionEditor();
+
+    $(e.target).addClass("selected");
+    
+    if ($(".selected").is(":first-child")) {
+      $("[data-editorbar=moveleft]").hide();
+    } else if ($(".selected").is(":last-child")) {
+      $("[data-editorbar=moveright]").hide();
+    } else {
+      $("[data-editorbar=moveright]").show();
+      $("[data-editorbar=moveleft]").show();
+    }
+    
     return false;
   });
   // for headers
-  $('[data-call=canvas]').find('h1, h2, h3, h4, h5, h6, p').not('.ignorebubble').on("click touchstart", function(e) {
-      btnEB     = $(".btneditorbar");
-      headerEB  = $(".headereditorbar");
-      btnEB.hide();
-      headerEB.show();
-
-    // position right away
-    var linkPosition = $(this).offset();
-
-    function positionEditor() {
-      // to close to the left?
-      if (linkPosition.left < defaultW / 2) {
-        toClose2Left = true;
-        toClose2Right = false;
-      } else if (window.innerWidth - defaultW + 200 <= linkPosition.left) {
-        toClose2Left = false;
-        toClose2Right = true;
-      } else {
-        toClose2Left = false;
-        toClose2Right = false;
-      }
-
-      // to close to top?
-      if (linkPosition.top <= 20) {
-        $(".editorbar").css({
-          top: 108 - defaultOH - 13
-        });
-
-        if (toClose2Left === true) {
-          $(".editorbar").css({
-            left: 0
-          });
-
-          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
-        } else if (toClose2Right === true) {
-          $(".editorbar").css({
-            left: window.innerWidth - defaultW - 30
-          });
-
-          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px) translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
-        } else {
-          $(".editorbar").css({
-            left: linkPosition.left - (defaultW / 2)
-          });
-          $(".arrow").css('transform', 'rotate(180deg) translateY('+ parseInt(defaultH * 2 / 1.25) + 'px)');
-        }
-        return false;
-      } else {
-        $(".editorbar").css({
-          top: linkPosition.top - defaultOH - 13
-        });
-
-        if (toClose2Left === true) {
-          $(".editorbar").css({
-            left: 0
-          });
-          $(".arrow").css('transform', 'translateX(-'+ parseInt(defaultW / 2 - 20) + 'px)');
-        } else if (toClose2Right === true) {
-          $(".editorbar").css({
-            left: window.innerWidth - defaultW - 30
-          });
-
-          $(".arrow").css('transform', 'translateX('+ parseInt(defaultW / 2 - 18) + 'px)');
-        } else {
-          $(".editorbar").css({
-            left: linkPosition.left - (defaultW / 2)
-          });
-          $(".arrow").css('transform', '');
-        }
-      }
+  $('[data-call=canvas]').find('h1[contenteditable], h2[contenteditable], h3[contenteditable], h4[contenteditable], h5[contenteditable], h6[contenteditable], p[contenteditable]').not('.ignorebubble').on("click touchstart", function(e) {
+    $(".headereditorbar").show();
+    $(".btneditorbar").hide();
+    
+    if ( $(".selected").is(":visible") ) {
+      $(".selected").removeClass("selected");
     }
-    positionEditor();
+
+    $(e.target).addClass("selected");
+    
+    if ($(".selected").is(":first-child")) {
+      $("[data-editorbar=moveup]").hide();
+    } else if ($(".selected").is(":last-child")) {
+      $("[data-editorbar=movedown]").hide();
+    } else {
+      $("[data-editorbar=movedown]").show();
+      $("[data-editorbar=moveup]").show();
+    }
     return false;
   });
   
   // hide bubble editor
   $('[data-call=canvas] *').not('.editorbar, .editorbar *, [class^="btn--"], h1, h2, h3, h4, h5, h6, p').on('click', function() {
     $(".btneditorbar, .headereditorbar").hide();
+  });
+  $("[data-editorbar=close]").click(function() {
+    $(".editorbar").hide();
   });
   
   // disable tab key
@@ -199,7 +103,7 @@ function initBubbleBar() {
 
   return false;
 }
-initBubbleBar();
+runBubbleBar();
 
 // Added blocks should be editable
 function editableFunctions() {
@@ -254,7 +158,7 @@ function editableFunctions() {
   $(".bg-overlay, .bg-overlay2").fadeIn();
   
   // initialize WYSIWYG Editor
-  initBubbleBar();
+  runBubbleBar();
 }
 
 // AlertifyJS Global Defaults

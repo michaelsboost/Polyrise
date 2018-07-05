@@ -64,6 +64,65 @@
       </a>
     </div>
     <div class="topbar slideInDownDelay default header">Polyrise</div>
+    <!-- Custom tooltip menu -->
+    <div class="topbar editorbar headereditorbar hide">
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move up" data-editorbar="moveup" data-notavail>
+        <i class="fa fa-arrow-up"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Bold" data-exec="bold">
+        <i class="fa fa-bold"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Italic" data-exec="italic">
+        <i class="fa fa-italic"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="link" data-notavail>
+        <i class="fa fa-link"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Add" data-editorbar="addbutton" data-notavail>
+        <i class="fa fa-plus"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom chosencolor" aria-label="Color" style="color: #4d9dc6;" data-editorbar="color" data-notavail>
+        <i class="fa fa-circle"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Delete" data-editorbar="delete">
+        <i class="fa fa-trash"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Icon" data-editorbar="icon" data-notavail>
+        <i class="fa fa-sun-o"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move down" data-editorbar="movedown" data-notavail>
+        <i class="fa fa-arrow-down"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Close" data-editorbar="close">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div class="topbar editorbar btneditorbar hide">
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move left" data-editorbar="moveleft" data-notavail>
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="link" data-notavail>
+        <i class="fa fa-link"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Add" data-editorbar="addbutton" data-notavail>
+        <i class="fa fa-plus"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom chosencolor" aria-label="Color" style="color: #4d9dc6;" data-editorbar="color" data-notavail>
+        <i class="fa fa-circle"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Delete" data-editorbar="delete">
+        <i class="fa fa-trash"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Icon" data-editorbar="icon" data-notavail>
+        <i class="fa fa-sun-o"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move right" data-editorbar="moveright" data-notavail>
+        <i class="fa fa-arrow-right"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Close" data-editorbar="close">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
 
     <!-- Canvas -->
     <div id="editor" class="canvas" data-call="canvas"></div>
@@ -134,14 +193,14 @@
                           <h1 class="bounceInUp bounceInUp1s whitetxt" contenteditable>FULL SCREEN INTRO</h1>
                           <h2 class="bounceInUp bounceInUp2s whitetxt" contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio at praesentium accusantium, aperiam incidunt sed ducimus quae earum a sapiente voluptatum, repudiandae sit accusamus doloremque nobis corrupti aut quis minus!</h2>
 
-                          <p style="margin-bottom: 4em;">
+                          <div style="margin-bottom: 4em;">
                             <a class="btn--blue bounceInUp bounceInUp3s" href="http://michaelsboost.github.io/Polyrise/" contenteditable>
                               Learn More
                             </a>
                             <a class="btn--borderwhite bounceInUp bounceInUp3s" href="http://michaelsboost.github.io/Polyrise/" target="_blank" contenteditable>
                               Live Demo
                             </a>
-                          </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -167,14 +226,14 @@
                             <h2 class="bounceInUp bounceInUp1s whitetxt" contenteditable>FULL SCREEN INTRO</h2>
                             <h1 class="bounceInUp bounceInUp2s whitetxt" contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio at praesentium accusantium, aperiam incidunt sed ducimus quae earum a sapiente voluptatum, repudiandae sit accusamus doloremque nobis corrupti aut quis minus!</h1>
 
-                            <p style="margin-bottom: 4em;">
+                            <div style="margin-bottom: 4em;">
                               <a class="btn--red bounceInUp bounceInUp3s" href="http://michaelsboost.github.io/Polyrise/" contenteditable>
                                 Learn More
                               </a>
                               <a class="btn--borderwhite bounceInUp bounceInUp3s" href="http://michaelsboost.github.io/Polyrise/" target="_blank" contenteditable>
                                 Live Demo
                               </a>
-                            </p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1913,64 +1972,6 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Custom tooltip menu -->
-    <div class="editorbar headereditorbar hide">
-      <div class="arrow"></div>
-
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Move up">
-        <i class="fa fa-arrow-up"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Bold" data-exec="bold">
-        <i class="fa fa-bold"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Italic" data-exec="italic">
-        <i class="fa fa-italic"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Link">
-        <i class="fa fa-link"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Add">
-        <i class="fa fa-plus"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top chosencolor" aria-label="Color" style="color: #4d9dc6;">
-        <i class="fa fa-circle"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Delete">
-        <i class="fa fa-trash"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Icon">
-        <i class="fa fa-sun-o"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Move down">
-        <i class="fa fa-arrow-down"></i>
-      </button>
-    </div>
-    <div class="editorbar btneditorbar hide">
-      <div class="arrow"></div>
-
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Move left">
-        <i class="fa fa-arrow-left"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Link">
-        <i class="fa fa-link"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Add">
-        <i class="fa fa-plus"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top chosencolor" aria-label="Color" style="color: #4d9dc6;">
-        <i class="fa fa-circle"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Delete">
-        <i class="fa fa-trash"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Icon">
-        <i class="fa fa-sun-o"></i>
-      </button>
-      <button class="hint--rounded hint--no-animate hint--top" aria-label="Move right">
-        <i class="fa fa-arrow-right"></i>
-      </button>
     </div>
     
     <script src="../libraries/alertifyjs/alertify.min.js"></script>
