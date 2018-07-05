@@ -170,6 +170,17 @@ $(".buttonswatches button").on('click', function() {
     $('.buttonswatches').slideUp();
   }
 });
+// align color picker for txt
+$("[data-editorbar=color]").click(function() {
+  // first center swatches dropdown
+  $('.colorpicker').css('left', parseInt($('.chosentxtcolor').offset().left + $('.chosentxtcolor').width() * 1.5) + 'px');
+  // now display it
+  $('.colorpicker').slideToggle();
+
+  if ( $(".selected").is(":visible") ) {
+    $('.colorpicker').css('left', parseInt($('.chosentxtcolor').offset().left + $('.chosentxtcolor').width() * 1.5) + 'px');
+  }
+});
 
 // WYSIWYG Bubble Editor
 function runBubbleBar() {
@@ -178,6 +189,11 @@ function runBubbleBar() {
   $('[data-call=canvas] [class^="btn--"]').on("click touchstart", function(e) {
     $(".headereditorbar").hide();
     $(".btneditorbar").show();
+    
+    // check and see if color picker is visible
+    if ( $(".colorpicker").is(":visible") ) {
+      $('.colorpicker').slideUp();
+    }
     
     // check and see if button swatches are visible
     if ( $(".buttonswatches").is(":visible") ) {
@@ -223,6 +239,11 @@ function runBubbleBar() {
     $(".headereditorbar").show();
     $(".btneditorbar").hide();
     
+    // check and see if color picker is visible
+    if ( $(".colorpicker").is(":visible") ) {
+      $('.colorpicker').slideUp();
+    }
+    
     // check and see if button swatches are visible
     if ( $(".buttonswatches").is(":visible") ) {
       $('.buttonswatches').slideUp();
@@ -245,11 +266,33 @@ function runBubbleBar() {
       $("[data-editorbar=moveup]").show();
       $("[data-editorbar=movedown]").show();
     }
+    
+    // detect text's color
+    var color = $('.selected').css('color');
+    $('.chosentxtcolor').css('color', color);
+
+    // add color picker onload
+    $(".colorpicker").empty().append('<div class="arrow"></div><input type="text" class="picker" value="'+ color +'">');
+    $(".colorpicker .picker").minicolors({
+      format: 'hex',
+      inline: true,
+      swatches: ['#fff', '#000', '#c488fb', '#3380ff', '#ff3366', '#f7ed4a', '#59524b', '#879a9f', '#b1a374', '#333', '#b072e8', '#339dff', '#e50039', '#d2c609', '#59524b', '#617479', '#8b7d4e'],
+      change: function(value, opacity) {
+        $('.chosentxtcolor').css('color', this.value);
+        $('.selected').css('color', this.value);
+      }
+    });
+    
     return false;
   });
   
   // hide bubble editor
   $("[data-editorbar=close]").click(function() {
+    // check and see if color picker is visible
+    if ( $(".colorpicker").is(":visible") ) {
+      $('.colorpicker').slideUp();
+    }
+    
     // check and see if button swatches are visible
     if ( $(".buttonswatches").is(":visible") ) {
       $('.buttonswatches').slideUp();
@@ -581,3 +624,6 @@ $("[data-export=publish]").click(function(e) {
     return false;
   });
 });
+
+// add a theme block onload for testing
+$("[data-filter=header] .addblock:first img")[0].click();

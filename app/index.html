@@ -26,8 +26,7 @@
     <link rel="stylesheet" href="../libraries/animateCSS/animate.min.css">
     <link rel="stylesheet" href="../libraries/hintCSS/hint.min.css">
     <link rel="stylesheet" href="../libraries/lity/lity.css">
-    <link rel="stylesheet" href="../libraries/tooltipster/dist/css/tooltipster.bundle.min.css">
-    <link rel="stylesheet" href="../libraries/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css">
+    <link rel="stylesheet" href="../libraries/jqueryminicolors/jquery.minicolors.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="../css/polyrise.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i">
@@ -36,19 +35,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
   </head>
   <body>
-    <!--custom html tooltip-->
-<!--
-    <span class="tooltip" data-tooltip-content="#tooltip_content">
-      This span has a tooltip with HTML when you hover over it!
-    </span>
-
-    <div class="tooltip_templates">
-      <span id="tooltip_content">
-        <img src="myimage.png" /> <strong>This is the content of my tooltip!</strong>
-      </span>
-    </div>
--->
-   
     <!-- Top Bar -->
     <div class="topbar slideInDown tc" data-call="topbar">
       <a class="pointer slideInLeftDelay fl" data-open="settings">
@@ -64,7 +50,8 @@
       </a>
     </div>
     <div class="topbar slideInDownDelay default header">Polyrise</div>
-    <!-- Custom tooltip menu -->
+
+    <!-- Custom wysiwyg editor -->
     <div class="topbar editorbar headereditorbar hide">
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move up" data-editorbar="moveup">
         <i class="fa fa-arrow-up"></i>
@@ -78,7 +65,7 @@
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="link" data-notavail>
         <i class="fa fa-link"></i>
       </button>
-      <button class="hint--rounded hint--no-animate hint--bottom chosentxtcolor" aria-label="Color" style="color: #4d9dc6;" data-editorbar="color" data-notavail>
+      <button class="hint--rounded hint--no-animate hint--bottom chosentxtcolor" aria-label="Color" style="color: #4d9dc6;" data-editorbar="color">
         <i class="fa fa-circle"></i>
       </button>
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Delete" data-editorbar="delete">
@@ -120,7 +107,9 @@
         <i class="fa fa-times"></i>
       </button>
     </div>
-    <div class="buttonswatches hide">
+    
+    <!-- Custom dropdown menus  -->
+    <div class="bardropdown buttonswatches hide">
       <div class="arrow"></div>
       
       <button class="btnpink">
@@ -181,6 +170,7 @@
         <i class="fa fa-circle-o"></i>
       </button>
     </div>
+    <div class="bardropdown colorpicker hide"></div>
 
     <!-- Canvas -->
     <div id="editor" class="canvas" data-call="canvas"></div>
@@ -2042,9 +2032,7 @@
     <script src="../libraries/jszip/jszip-utils.js"></script>
     <script src="../libraries/jszip/jszip.min.js"></script>
     <script src="../libraries/lity/lity.js"></script>
-    <script src="../libraries/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
-    <script src="../libraries/tooltipster/dist/js/plugins/tooltipster/selectableText/tooltipster-selectableText.js"></script>
-    <script src="../libraries/tooltipster/dist/js/plugins/tooltipster/SVG/tooltipster-SVG.min.js"></script>
+    <script src="../libraries/jqueryminicolors/jquery.minicolors.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

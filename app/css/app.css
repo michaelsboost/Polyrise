@@ -409,28 +409,17 @@ input#cookiesAlert:checked + label:after {
   transform:  rotate(45deg) scale(.65);
 }
 
-/* button styles swatch menu */
-.buttonswatches {
+/* default dropdown styles */
+.bardropdown {
   display: inline-block;
-  width: 200px;
   position: absolute;
   z-index: 3;
   background: #fff;
   left: 50%;
-  margin-left: -100px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.buttonswatches button {
-  display: inline-block;
-  cursor: pointer;
-  font-size: 15px;
-  padding: 10px 12px;
-  border-radius: 3px;
-  border: 0;
-  background: none;
-}
-.buttonswatches .arrow {
+.bardropdown .arrow {
   width: 70px;
   height: 16px;
   overflow: hidden;
@@ -439,7 +428,7 @@ input#cookiesAlert:checked + label:after {
   margin-left: -35px;
   top: -16px;
 }
-.buttonswatches .arrow:after {
+.bardropdown .arrow:after {
   background: #fff;
   border: 2px solid #fff;
   content: "";
@@ -450,6 +439,30 @@ input#cookiesAlert:checked + label:after {
   height: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transform:  rotate(45deg) scale(.65);
+}
+
+/* button styles swatch menu */
+.buttonswatches {
+  width: 200px;
+  margin-left: -100px;
+}
+.buttonswatches button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  border: 0;
+  background: none;
+}
+
+/* color picker for text */
+.colorpicker {
+  width: 175px;
+  margin-left: -87.5px;
+}
+.minicolors-panel {
+  border: 0;
 }
 
 /* custom button styles */
@@ -511,7 +524,7 @@ input#cookiesAlert:checked + label:after {
   color: #000;
 }
 
-/* Misc */
+/* misc */
 .table {
   display: table;
   width: 100%;

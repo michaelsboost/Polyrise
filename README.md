@@ -25,7 +25,6 @@ MIT
 
 - Make dialog window for all links
 - Make dialog window to add/replace icons
-- Color picker for selected text
 - Edit properties panel
 
 ### Free Software, Hell Yeah!
