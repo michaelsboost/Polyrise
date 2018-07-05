@@ -290,10 +290,21 @@ html, body {
 .btn--borderwhite {
   background: none;
   border: 2px solid #fff;
+  color: #fff;
 }
 .btn--borderwhite:hover {
   background: #fff;
   color: #000;
+}
+.btn--borderlightgray {
+  background: none;
+  color: #808080;
+  border: 2px solid #808080;
+}
+.btn--borderlightgray:hover {
+  border: 2px solid #808080;
+  background: #808080;
+  color: #fff;
 }
 .btn--borderblack {
   color: #000;
@@ -304,6 +315,52 @@ html, body {
   background: #000;
   color: #fff;
 }
+.btn--borderdefault {
+  color: #52bab3;
+  background: none;
+  border: 2px solid #52bab3;
+}
+.btn--borderdefault:hover {
+  background: #52bab3;
+  color: #fff;
+}
+.btn--bordersuccess {
+  color: #5ece7f;
+  background: none;
+  border: 2px solid #5ece7f;
+}
+.btn--bordersuccess:hover {
+  background: #5ece7f;
+  color: #fff;
+}
+.btn--bordererror {
+  color: #e67478;
+  background: none;
+  border: 2px solid #e67478;
+}
+.btn--bordererror:hover {
+  background: #e67478;
+  color: #fff;
+}
+.btn--borderwarning {
+  color: #ff784f;
+  background: none;
+  border: 2px solid #ff784f;
+}
+.btn--borderwarning:hover {
+  background: #ff784f;
+  color: #fff;
+}
+.btn--borderinfo {
+  color: #9279c3;
+  background: none;
+  border: 2px solid #9279c3;
+}
+.btn--borderinfo:hover {
+  background: #9279c3;
+  color: #fff;
+}
+
 
 /* Typography */
 .capitalize {

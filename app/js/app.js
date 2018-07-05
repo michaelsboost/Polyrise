@@ -132,10 +132,15 @@ $("[data-editorbar=buttonswatches]").click(function() {
     $('.buttonswatches').css('left', parseInt($('.chosencolor').offset().left + $('.chosencolor').width() * 1.5) + 'px');
   }
 });
-$(".buttonswatches button").on('click', function() {
+$(".buttonswatches button").on('click', function(e) {
   if ( $(".selected").is(":visible") ) {
     var str = this.className;
     var arr = [
+      "btn--default",
+      "btn--success",
+      "btn--error",
+      "btn--warning",
+      "btn--info",
       "btn--pink",
       "btn--blue",
       "btn--red",
@@ -146,6 +151,11 @@ $(".buttonswatches button").on('click', function() {
       "btn--white",
       "btn--white2",
       "btn--black",
+      "btn--borderdefault",
+      "btn--bordersuccess",
+      "btn--bordererror",
+      "btn--borderwarning",
+      "btn--borderinfo",
       "btn--borderpink",
       "btn--borderblue",
       "btn--borderred",
@@ -154,18 +164,23 @@ $(".buttonswatches button").on('click', function() {
       "btn--bordergray",
       "btn--bordercamo",
       "btn--borderwhite",
+      "btn--borderlightgray",
       "btn--borderblack",
     ];
+    var remainderC = document.querySelector('.selected').className;
     
     // remove current style
     $.each(arr, function(i, v){
       $('.selected').removeClass(v);
+      remainderC = document.querySelector('.selected').className;
     });
     
     // add new style
-    var remainderC = document.querySelector('.selected').className;
     document.querySelector('.selected').className = 'btn--' + str.substr(3, str.length) + " " + remainderC;
-    
+
+    // update swatch color
+    $('.chosencolor').css('color', $(e.target).css('color'));
+
     // style has changed now hide button style swatches
     $('.buttonswatches').slideUp();
   }
