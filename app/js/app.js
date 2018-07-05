@@ -19,7 +19,7 @@ var gridCode,
 // Set Required Polyrise Code as variable to be saved
 grabFileCode('../css/polyrise.css', cssCode);
 grabFileCode('../js/polyrise.js', jsCode);
-  
+
 // wysiwyg menu actions
 $(".editorbar button[data-exec]").on('click', function() {
   document.execCommand($(this).data('exec'), false, null);
@@ -121,6 +121,52 @@ $("[data-editorbar=moveright]").click(function() {
     runBubbleBar();
   }
 });
+// show and align color swatches for buttons
+$("[data-editorbar=buttonswatches]").click(function() {
+  // first center swatches dropdown
+  $('.buttonswatches').css('left', parseInt($('.chosencolor').offset().left + $('.chosencolor').width() * 1.5) + 'px');
+  // now display it
+  $('.buttonswatches').slideToggle();
+
+  if ( $(".selected").is(":visible") ) {
+    $('.buttonswatches').css('left', parseInt($('.chosencolor').offset().left + $('.chosencolor').width() * 1.5) + 'px');
+  }
+});
+$(".buttonswatches button").on('click', function() {
+  if ( $(".selected").is(":visible") ) {
+    var str = this.className;
+    var arr = [
+      "btn--pink",
+      "btn--blue",
+      "btn--red",
+      "btn--yellow",
+      "btn--darkbrown",
+      "btn--gray",
+      "btn--camo",
+      "btn--white",
+      "btn--white2",
+      "btn--black",
+      "btn--borderpink",
+      "btn--borderblue",
+      "btn--borderred",
+      "btn--borderyellow",
+      "btn--borderdarkbrown",
+      "btn--bordergray",
+      "btn--bordercamo",
+      "btn--borderwhite",
+      "btn--borderblack",
+    ];
+    
+    // remove current style
+    $.each(arr, function(i, v){
+      $('.selected').removeClass(v);
+    });
+    
+    // add new style
+    var remainderC = document.querySelector('.selected').className;
+    document.querySelector('.selected').className = 'btn--' + str.substr(3, str.length) + " " + remainderC;
+  }
+});
 
 // WYSIWYG Bubble Editor
 function runBubbleBar() {
@@ -130,6 +176,12 @@ function runBubbleBar() {
     $(".headereditorbar").hide();
     $(".btneditorbar").show();
     
+    // check and see if button swatches are visible
+    if ( $(".buttonswatches").is(":visible") ) {
+      $('.buttonswatches').slideUp();
+    }
+    
+    // check and see if selected element is visible
     if ( $(".selected").is(":visible") ) {
       $(".selected").removeClass("selected");
     }
@@ -168,6 +220,12 @@ function runBubbleBar() {
     $(".headereditorbar").show();
     $(".btneditorbar").hide();
     
+    // check and see if button swatches are visible
+    if ( $(".buttonswatches").is(":visible") ) {
+      $('.buttonswatches').slideUp();
+    }
+    
+    // check and see if selected element is visible
     if ( $(".selected").is(":visible") ) {
       $(".selected").removeClass("selected");
     }
@@ -189,6 +247,16 @@ function runBubbleBar() {
   
   // hide bubble editor
   $("[data-editorbar=close]").click(function() {
+    // check and see if button swatches are visible
+    if ( $(".buttonswatches").is(":visible") ) {
+      $('.buttonswatches').slideUp();
+    }
+    
+    // check and see if selected element is visible
+    if ( $(".selected").is(":visible") ) {
+      $(".selected").removeClass("selected");
+    }
+    
     $(".editorbar").hide();
     $("[data-editorbar=moveup]").show();
     $("[data-editorbar=movedown]").show();

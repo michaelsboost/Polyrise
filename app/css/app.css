@@ -380,6 +380,7 @@ input#cookiesAlert:checked + label:after {
   border: 0;
   color: #999;
   transition: all ease 300ms;
+  background: none;
 }
 .editorbar button:hover {
   background: #ddd;
@@ -406,6 +407,108 @@ input#cookiesAlert:checked + label:after {
   box-shadow: 6px 5px 9px -9px black,
               5px 6px 9px -9px black;
   transform:  rotate(45deg) scale(.65);
+}
+
+/* button styles swatch menu */
+.buttonswatches {
+  display: inline-block;
+  width: 200px;
+  position: absolute;
+  z-index: 3;
+  background: #fff;
+  left: 50%;
+  margin-left: -100px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.buttonswatches button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  border: 0;
+  background: none;
+}
+.buttonswatches .arrow {
+  width: 70px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  top: -16px;
+}
+.buttonswatches .arrow:after {
+  background: #fff;
+  border: 2px solid #fff;
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 5px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transform:  rotate(45deg) scale(.65);
+}
+
+/* custom button styles */
+.btnpink {
+  color: #c488fb;
+}
+.btnblue {
+  color: #3380ff;
+}
+.btnred {
+  color: #ff3366;
+}
+.btnyellow {
+  color: #f7ed4a;
+}
+.btndarkbrown {
+  color: #59524b;
+}
+.btngray {
+  color: #879a9f;
+}
+.btncamo {
+  color: #b1a374;
+}
+.btnwhite {
+  color: #fff;
+}
+.btnwhite2 {
+  color: #fff;
+}
+.btnblack {
+  color: #333;
+}
+.btnborderpink {
+  color: #b072e8;
+}
+.btnborderblue {
+  color: #339dff;
+}
+.btnborderred {
+  color: #e50039;
+}
+.btnborderyellow {
+  color: #d2c609;
+}
+.btnborderdarkbrown {
+  color: #59524b;
+}
+.btnbordergray {
+  color: #617479;
+}
+.btnbordercamo {
+  color: #8b7d4e;
+}
+.btnborderwhite {
+  color: #fff;
+}
+.btnborderblack {
+  color: #000;
 }
 
 /* Misc */
