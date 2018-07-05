@@ -515,6 +515,7 @@ $("#blocktypes").on("change", function() {
 $(".blockbar").addClass("hide");
 $("[data-open=blocks]").on("click touchstart", function() {
   $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
+  $("[data-editorbar=close]").trigger('click');
 });
 $("[data-call=styles]").on("click touchstart", function() {
   $("#blocktypes").val("styles").trigger("change");
@@ -523,10 +524,6 @@ $("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", f
   $("[data-content=blocks]").animate({right: -300 + "px"}, 150);
 });
 $("[data-call=topbar]").on("click touchstart touchmove", function(e) {
-  if ($(e.target).attr("data-toggle") === "settings") {
-    return false;
-  }
-  
   $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
 });
 
