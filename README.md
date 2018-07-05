@@ -23,8 +23,9 @@ MIT
 
 ### To Do
 
-- Make dialog window for all links
 - Make dialog window to add/replace icons
+- Make dialog window to change image source and browse for stock images (this dialog can also detect and set image hyperlinks)
+- Make dialog window for all links
 - Edit properties panel
 
 ### Free Software, Hell Yeah!
