@@ -291,7 +291,7 @@ function runBubbleBar() {
     $(".colorpicker .picker").minicolors({
       format: 'hex',
       inline: true,
-      swatches: ['#fff', '#000', '#c488fb', '#3380ff', '#ff3366', '#f7ed4a', '#59524b', '#879a9f', '#b1a374', '#333', '#b072e8', '#339dff', '#e50039', '#d2c609', '#59524b', '#617479', '#8b7d4e'],
+      swatches: ['#fff', '#000', '#c488fb', '#3380ff', '#ff3366', '#f7ed4a', '#59524b', '#879a9f', '#b1a374', '#333', '#b072e8', '#339dff', '#e50039', '#d2c609', '#59524b', '#617479', '#8b7d4e', '#52bab3', '#5ece7f', '#e67478', '#ff784f', '#9279c3', '#808080'],
       change: function(value, opacity) {
         $('.chosentxtcolor').css('color', this.value);
         $('.selected').css('color', this.value);

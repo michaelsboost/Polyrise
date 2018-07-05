@@ -464,6 +464,10 @@ input#cookiesAlert:checked + label:after {
 .minicolors-panel {
   border: 0;
 }
+.minicolors-theme-default .minicolors-swatches .minicolors-swatch {
+  width: 17px;
+  height: 17px;
+}
 
 /* custom button styles */
 .btndefault {
