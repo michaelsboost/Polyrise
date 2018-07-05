@@ -27,6 +27,11 @@ $(".editorbar button[data-exec]").on('click', function() {
 });
   
 // remove selected element
+$("[data-notavail]").click(function() {
+  alertify.error('Error: no function for this wysiwyg action');
+  console.error('Error: no function for this wysiwyg action');
+  return false;
+});
 $("[data-editorbar=delete]").click(function() {
   if ( $(".selected").is(":visible") ) {
     $(".selected").remove();
@@ -72,10 +77,49 @@ $("[data-editorbar=movedown]").click(function() {
     runBubbleBar();
   }
 });
-$("[data-notavail]").click(function() {
-  alertify.error('Error: no function for this wysiwyg action');
-  console.error('Error: no function for this wysiwyg action');
-  return false;
+// move element left
+$("[data-editorbar=moveleft]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $(".selected").prev().addClass('tempclass');
+    $($(".selected").clone()).insertBefore('.tempclass');
+    $('.selected')[1].remove();
+    $('.tempclass').removeClass('tempclass');
+    
+    if ($(".selected").is(":first-child")) {
+      $("[data-editorbar=moveleft]").hide();
+      $("[data-editorbar=moveright]").show();
+    } else if ($(".selected").is(":last-child")) {
+      $("[data-editorbar=moveleft]").show();
+      $("[data-editorbar=moveright]").hide();
+    } else {
+      $("[data-editorbar=moveright]").show();
+      $("[data-editorbar=moveleft]").show();
+    }
+    
+    runBubbleBar();
+  }
+});
+// move element right
+$("[data-editorbar=moveright]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $(".selected").next().addClass('tempclass');
+    $($(".selected").clone()).insertAfter('.tempclass');
+    $('.selected')[0].remove();
+    $('.tempclass').removeClass('tempclass');
+    
+    if ($(".selected").is(":first-child")) {
+      $("[data-editorbar=moveleft]").hide();
+      $("[data-editorbar=moveright]").show();
+    } else if ($(".selected").is(":last-child")) {
+      $("[data-editorbar=moveleft]").show();
+      $("[data-editorbar=moveright]").hide();
+    } else {
+      $("[data-editorbar=moveright]").show();
+      $("[data-editorbar=moveleft]").show();
+    }
+    
+    runBubbleBar();
+  }
 });
 
 // WYSIWYG Bubble Editor
