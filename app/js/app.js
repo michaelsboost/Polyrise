@@ -55,7 +55,9 @@ function runBubbleBar() {
     
     if ($(".selected").is(":first-child")) {
       $("[data-editorbar=moveleft]").hide();
+      $("[data-editorbar=moveright]").show();
     } else if ($(".selected").is(":last-child")) {
+      $("[data-editorbar=moveleft]").show();
       $("[data-editorbar=moveright]").hide();
     } else {
       $("[data-editorbar=moveright]").show();
@@ -77,21 +79,25 @@ function runBubbleBar() {
     
     if ($(".selected").is(":first-child")) {
       $("[data-editorbar=moveup]").hide();
+      $("[data-editorbar=movedown]").show();
     } else if ($(".selected").is(":last-child")) {
+      $("[data-editorbar=moveup]").show();
       $("[data-editorbar=movedown]").hide();
     } else {
-      $("[data-editorbar=movedown]").show();
       $("[data-editorbar=moveup]").show();
+      $("[data-editorbar=movedown]").show();
     }
     return false;
   });
   
   // hide bubble editor
-  $('[data-call=canvas] *').not('.editorbar, .editorbar *, [class^="btn--"], h1, h2, h3, h4, h5, h6, p').on('click', function() {
-    $(".btneditorbar, .headereditorbar").hide();
-  });
   $("[data-editorbar=close]").click(function() {
     $(".editorbar").hide();
+    $("[data-editorbar=moveup]").show();
+    $("[data-editorbar=movedown]").show();
+  });
+  $('[data-call=canvas] *').not('.editorbar, .editorbar *, [class^="btn--"], h1, h2, h3, h4, h5, h6, p').on('click', function() {
+    $("[data-editorbar=close]").trigger('click');
   });
   
   // disable tab key
