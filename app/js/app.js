@@ -165,6 +165,9 @@ $(".buttonswatches button").on('click', function() {
     // add new style
     var remainderC = document.querySelector('.selected').className;
     document.querySelector('.selected').className = 'btn--' + str.substr(3, str.length) + " " + remainderC;
+    
+    // style has changed now hide button style swatches
+    $('.buttonswatches').slideUp();
   }
 });
 

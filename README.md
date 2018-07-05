@@ -21,6 +21,13 @@ Polyrise uses a number of open source projects to work properly:
 ### License
 MIT
 
+### To Do
+
+- Make dialog window for all links
+- Make dialog window to add/replace icons
+- Color picker for selected text
+- Edit properties panel
+
 ### Free Software, Hell Yeah!
 
 - [WebDGap](https://michaelsboost.github.io/WebDGap/)
