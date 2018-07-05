@@ -33,6 +33,45 @@ $("[data-editorbar=delete]").click(function() {
     $(".editorbar").hide();
   }
 });
+// duplicate selected element
+$("[data-editorbar=add]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $($(".selected").clone()).insertAfter('.selected');
+    runBubbleBar();
+  }
+});
+// move element up
+$("[data-editorbar=moveup]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $(".selected").prev().addClass('tempclass');
+    $($(".selected").clone()).insertBefore('.tempclass');
+    $('.selected')[1].remove();
+    $('.tempclass').removeClass('tempclass');
+    
+    if ($('.selected').is(":first-child")) {
+      $("[data-editorbar=moveup]").hide();
+      $("[data-editorbar=movedown]").show();
+    }
+    
+    runBubbleBar();
+  }
+});
+// move element down
+$("[data-editorbar=movedown]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $(".selected").next().addClass('tempclass');
+    $($(".selected").clone()).insertAfter('.tempclass');
+    $('.selected')[0].remove();
+    $('.tempclass').removeClass('tempclass');
+    
+    if ($('.selected').is(":last-child")) {
+      $("[data-editorbar=movedown]").hide();
+      $("[data-editorbar=moveup]").show();
+    }
+    
+    runBubbleBar();
+  }
+});
 $("[data-notavail]").click(function() {
   alertify.error('Error: no function for this wysiwyg action');
   console.error('Error: no function for this wysiwyg action');
