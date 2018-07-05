@@ -304,8 +304,13 @@ function runBubbleBar() {
       inline: true,
       swatches: ['#fff', '#000', '#c488fb', '#3380ff', '#ff3366', '#f7ed4a', '#59524b', '#879a9f', '#b1a374', '#333', '#b072e8', '#339dff', '#e50039', '#d2c609', '#59524b', '#617479', '#8b7d4e', '#52bab3', '#5ece7f', '#e67478', '#ff784f', '#9279c3', '#808080'],
       change: function(value, opacity) {
-        $('.chosentxtcolor').css('color', this.value);
-        $('.selected').css('color', this.value);
+        if (!window.getSelection().toString()) {
+          console.log("no text selected changing selected elements text's color");
+          $('.chosentxtcolor').css('color', this.value);
+          $('.selected').css('color', this.value);
+        } else {
+          document.execCommand("ForeColor", false, this.value);
+        }
       }
     });
     
@@ -586,7 +591,8 @@ $(".iconmodule button").on('click', function() {
     $('.selectedicon').attr('class', $(this).find('i').attr('class'));
     $("[data-module=icons]").fadeOut();
   } else {
-    // document.execCommand('insertHTML');
+    document.execCommand('insertHTML', false, '<i class="'+ $(this).find('i').attr('class') +'"></i>');
+    $("[data-module=icons]").fadeOut();
   }
 });
 
