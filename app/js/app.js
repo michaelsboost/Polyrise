@@ -147,6 +147,20 @@ function runBubbleBar() {
       $("[data-editorbar=moveleft]").show();
     }
     
+    // detect button's background
+    var borderStr = $('.selected').css('border-width')
+    if (borderStr.substr(0, borderStr.length - 2) === "0") {
+      if ($('.chosencolor i').hasClass('fa-circle-o')) {
+        $('.chosencolor i').addClass('fa-circle').removeClass('fa-circle-o');
+      }
+      $('.chosencolor').css('color', $('.selected').css('background-color'));
+    } else {
+      if ($('.chosencolor i').hasClass('fa-circle')) {
+        $('.chosencolor i').addClass('fa-circle-o').removeClass('fa-circle');
+      }
+      $('.chosencolor').css('color', $('.selected').css('border-color'));
+    }
+    
     return false;
   });
   // for headers
