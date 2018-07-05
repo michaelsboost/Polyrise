@@ -361,6 +361,10 @@ html, body {
   color: #fff;
 }
 
+/* can choose between rounded borders or not */
+.noroundedcorners {
+  border-radius: 0!important;
+}
 /* Typography */
 .capitalize {
   text-transform: capitalize;

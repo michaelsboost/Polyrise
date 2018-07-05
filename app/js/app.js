@@ -14,7 +14,8 @@ var gridCode,
     defaultH  = $(".headereditorbar").height(),
     defaultOH = $(".headereditorbar").outerHeight(),
     toClose2Left  = false,
-    toClose2Right = false;
+    toClose2Right = false,
+    isIcon        = false;
 
 // Set Required Polyrise Code as variable to be saved
 grabFileCode('../css/polyrise.css', cssCode);
@@ -185,6 +186,15 @@ $(".buttonswatches button").on('click', function(e) {
     $('.buttonswatches').slideUp();
   }
 });
+// toggle rounded corners
+$("[data-editorbar=togglecorners]").click(function() {
+  if ( $(".selected").is(":visible") ) {
+    $(".selected").toggleClass('noroundedcorners');
+
+    // style has changed now hide button style swatches
+    $('.buttonswatches').slideUp();
+  }
+});
 // align color picker for txt
 $("[data-editorbar=color]").click(function() {
   // first center swatches dropdown
@@ -204,6 +214,7 @@ function runBubbleBar() {
   $('[data-call=canvas] [class^="btn--"]').on("click touchstart", function(e) {
     $(".headereditorbar").hide();
     $(".btneditorbar").show();
+    isIcon = false;
     
     // check and see if color picker is visible
     if ( $(".colorpicker").is(":visible") ) {
@@ -299,6 +310,14 @@ function runBubbleBar() {
     });
     
     return false;
+  });
+  $('[data-call=canvas] .fa').on('click', function() {
+    isIcon = true;
+    $('[data-action=addicon]').text('Replace Icon').hide();
+    $('.currenticon h1 i').attr('class', this.className);
+    $('.currenticon').show();
+    $('[data-module=icons]').fadeIn();
+    $(this).addClass('selectedicon');
   });
   
   // hide bubble editor
@@ -542,10 +561,33 @@ $("[data-call=topbar]").on("click touchstart touchmove", function(e) {
   $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
 });
 
-// Open & Close Settings
-$("[data-open=settings]").click(function() {
-  $("[data-toggle=settings]").fadeToggle();
+// Open & Close Modules
+$("[data-toggle]").on('click', function() {
+  if ($('.selectedicon').is(':visible')) {
+    $('.selectedicon').removeClass('selectedicon');
+  }
+  $("[data-module=" + $(this).attr('data-toggle') +"]").fadeToggle();
   $(".blockbar").addClass("hide");
+});
+
+// Search icons
+$("#searchicons").on("keyup", function(e) {
+  if (!this.value) {
+    $("#icons button").removeClass('hide');
+  } else {
+    $("#icons button").addClass('hide');
+    $("#icons button i span:contains('"+ this.value +"')").parent().parent().removeClass('hide');
+  }
+});
+// Add new icon
+$(".iconmodule button").on('click', function() {
+  if (isIcon) {
+    $('.currenticon h1 i').attr('class', $(this).find('i').attr('class'));
+    $('.selectedicon').attr('class', $(this).find('i').attr('class'));
+    $("[data-module=icons]").fadeOut();
+  } else {
+    // document.execCommand('insertHTML');
+  }
 });
 
 // Drag/Drop/Sort Canvas Blocks
@@ -638,4 +680,4 @@ $("[data-export=publish]").click(function(e) {
 });
 
 // add a theme block onload for testing
-$("[data-filter=header] .addblock:first img")[0].click();
+$("[data-filter=header] .addblock img")[4].click();

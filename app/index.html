@@ -37,7 +37,7 @@
   <body>
     <!-- Top Bar -->
     <div class="topbar slideInDown tc" data-call="topbar">
-      <a class="pointer slideInLeftDelay fl" data-open="settings">
+      <a class="pointer slideInLeftDelay fl" data-toggle="settings">
         <i class="fa fa-bars"></i>
         
         &nbsp; index.html
@@ -94,10 +94,13 @@
       <button class="hint--rounded hint--no-animate hint--bottom chosencolor" aria-label="Color" style="color: #4d9dc6;" data-editorbar="buttonswatches">
         <i class="fa fa-circle"></i>
       </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Toggle corners" data-editorbar="togglecorners">
+        <i class="fa fa-square"></i>
+      </button>
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Delete" data-editorbar="delete">
         <i class="fa fa-trash"></i>
       </button>
-      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Insert icon" data-editorbar="icon" data-notavail>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Insert icon" data-toggle="icons">
         <i class="fa fa-sun-o"></i>
       </button>
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move right" data-editorbar="moveright">
@@ -1978,7 +1981,7 @@
     </div>
     
     <!-- Modules -->
-    <div class="module-bg column hide" data-toggle="settings">
+    <div class="module-bg column hide" data-module="settings">
       <div>
         <nav>
           <div class="grid tc">
@@ -2014,7 +2017,1990 @@
             </h4>
             
             <p>
-              <a class="btn--green pointer" data-open="settings">Close</a>
+              <a class="btn--green pointer" data-toggle="settings">Close</a>
+            </p>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="module-bg column iconmodule hide" data-module="icons">
+      <div>
+        <nav>
+          <div class="grid tc">
+            <div class="currenticon hide">
+             <h4>
+               Your Current Icon:
+             </h4>
+             <h1>
+               <i class="fa fa-plus"></i>
+             </h1>
+            </div>
+           <h4 class="tl">
+             <input type="text" id="searchicons" class="form__input" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome">
+           </h4>
+           <div id="icons">
+             <h1>
+<!--
+fa fa-address-book
+fa fa-address-book-o
+fa fa-address-card
+fa fa-address-card-o
+fa fa-bandcamp
+fa fa-bath
+fa fa-bathtub
+fa fa-drivers-license
+fa fa-drivers-license-o
+fa fa-eercast
+fa fa-envelope-open
+fa fa-envelope-open-o
+fa fa-etsy
+fa fa-free-code-camp
+fa fa-grav
+fa fa-handshake-o
+fa fa-id-badge
+fa fa-id-card
+fa fa-id-card-o
+fa fa-imdb
+fa fa-linode
+fa fa-meetup
+fa fa-microchip
+fa fa-podcast
+fa fa-quora
+fa fa-ravelry
+fa fa-s15
+fa fa-shower
+fa fa-snowflake-o
+fa fa-superpowers
+fa fa-telegram
+fa fa-thermometer
+fa fa-thermometer-0
+fa fa-thermometer-1
+fa fa-thermometer-2
+fa fa-thermometer-3
+fa fa-thermometer-4
+fa fa-thermometer-empty
+fa fa-thermometer-full
+fa fa-thermometer-half
+fa fa-thermometer-quarter
+fa fa-thermometer-three-quarters
+fa fa-times-rectangle
+fa fa-times-rectangle-o
+fa fa-user-circle
+fa fa-user-circle-o
+fa fa-user-o
+fa fa-vcard
+fa fa-vcard-o
+fa fa-window-close
+fa fa-window-close-o
+fa fa-window-maximize
+fa fa-window-minimize
+fa fa-window-restore
+fa fa-wpexplorer
+fa fa-address-book
+fa fa-address-book-o
+fa fa-address-card
+fa fa-address-card-o
+fa fa-adjust
+fa fa-american-sign-language-interpreting
+fa fa-anchor
+fa fa-archive
+fa fa-area-chart
+fa fa-arrows
+fa fa-arrows-h
+fa fa-arrows-v
+fa fa-asl-interpreting
+fa fa-assistive-listening-systems
+fa fa-asterisk
+fa fa-at
+fa fa-audio-description
+fa fa-automobile
+fa fa-balance-scale
+fa fa-ban
+fa fa-bank
+fa fa-bar-chart
+fa fa-bar-chart-o
+fa fa-barcode
+fa fa-bars
+fa fa-bath
+fa fa-bathtub
+fa fa-battery
+fa fa-battery-0
+fa fa-battery-1
+fa fa-battery-2
+fa fa-battery-3
+fa fa-battery-4
+fa fa-battery-empty
+fa fa-battery-full
+fa fa-battery-half
+fa fa-battery-quarter
+fa fa-battery-three-quarters
+fa fa-bed
+fa fa-beer
+fa fa-bell
+fa fa-bell-o
+fa fa-bell-slash
+fa fa-bell-slash-o
+fa fa-bicycle
+fa fa-binoculars
+fa fa-birthday-cake
+fa fa-blind
+fa fa-bluetooth
+fa fa-bluetooth-b
+fa fa-bolt
+fa fa-bomb
+fa fa-book
+fa fa-bookmark
+fa fa-bookmark-o
+fa fa-braille
+fa fa-briefcase
+fa fa-bug
+fa fa-building
+fa fa-building-o
+fa fa-bullhorn
+fa fa-bullseye
+fa fa-bus
+fa fa-cab
+fa fa-calculator
+fa fa-calendar
+fa fa-calendar-check-o
+fa fa-calendar-minus-o
+fa fa-calendar-o
+fa fa-calendar-plus-o
+fa fa-calendar-times-o
+fa fa-camera
+fa fa-camera-retro
+fa fa-car
+fa fa-caret-square-o-down
+fa fa-caret-square-o-left
+fa fa-caret-square-o-right
+fa fa-caret-square-o-up
+fa fa-cart-arrow-down
+fa fa-cart-plus
+fa fa-cc
+fa fa-certificate
+fa fa-check
+fa fa-check-circle
+fa fa-check-circle-o
+fa fa-check-square
+fa fa-check-square-o
+fa fa-child
+fa fa-circle
+fa fa-circle-o
+fa fa-circle-o-notch
+fa fa-circle-thin
+fa fa-clock-o
+fa fa-clone
+fa fa-close
+fa fa-cloud
+fa fa-cloud-download
+fa fa-cloud-upload
+fa fa-code
+fa fa-code-fork
+fa fa-coffee
+fa fa-cog
+fa fa-cogs
+fa fa-comment
+fa fa-comment-o
+fa fa-commenting
+fa fa-commenting-o
+fa fa-comments
+fa fa-comments-o
+fa fa-compass
+fa fa-copyright
+fa fa-creative-commons
+fa fa-credit-card
+fa fa-credit-card-alt
+fa fa-crop
+fa fa-crosshairs
+fa fa-cube
+fa fa-cubes
+fa fa-cutlery
+fa fa-dashboard
+fa fa-database
+fa fa-deaf
+fa fa-deafness
+fa fa-desktop
+fa fa-diamond
+fa fa-dot-circle-o
+fa fa-download
+fa fa-drivers-license
+fa fa-drivers-license-o
+fa fa-edit
+fa fa-ellipsis-h
+fa fa-ellipsis-v
+fa fa-envelope
+fa fa-envelope-o
+fa fa-envelope-open
+fa fa-envelope-open-o
+fa fa-envelope-square
+fa fa-eraser
+fa fa-exchange
+fa fa-exclamation
+fa fa-exclamation-circle
+fa fa-exclamation-triangle
+fa fa-external-link
+fa fa-external-link-square
+fa fa-eye
+fa fa-eye-slash
+fa fa-eyedropper
+fa fa-fax
+fa fa-feed
+fa fa-female
+fa fa-fighter-jet
+fa fa-file-archive-o
+fa fa-file-audio-o
+fa fa-file-code-o
+fa fa-file-excel-o
+fa fa-file-image-o
+fa fa-file-movie-o
+fa fa-file-pdf-o
+fa fa-file-photo-o
+fa fa-file-picture-o
+fa fa-file-powerpoint-o
+fa fa-file-sound-o
+fa fa-file-video-o
+fa fa-file-word-o
+fa fa-file-zip-o
+fa fa-film
+fa fa-filter
+fa fa-fire
+fa fa-fire-extinguisher
+fa fa-flag
+fa fa-flag-checkered
+fa fa-flag-o
+fa fa-flash
+fa fa-flask
+fa fa-folder
+fa fa-folder-o
+fa fa-folder-open
+fa fa-folder-open-o
+fa fa-frown-o
+fa fa-futbol-o
+fa fa-gamepad
+fa fa-gavel
+fa fa-gear
+fa fa-gears
+fa fa-gift
+fa fa-glass
+fa fa-globe
+fa fa-graduation-cap
+fa fa-group
+fa fa-hand-grab-o
+fa fa-hand-lizard-o
+fa fa-hand-paper-o
+fa fa-hand-peace-o
+fa fa-hand-pointer-o
+fa fa-hand-rock-o
+fa fa-hand-scissors-o
+fa fa-hand-spock-o
+fa fa-hand-stop-o
+fa fa-handshake-o
+fa fa-hard-of-hearing
+fa fa-hashtag
+fa fa-hdd-o
+fa fa-headphones
+fa fa-heart
+fa fa-heart-o
+fa fa-heartbeat
+fa fa-history
+fa fa-home
+fa fa-hotel
+fa fa-hourglass
+fa fa-hourglass-1
+fa fa-hourglass-2
+fa fa-hourglass-3
+fa fa-hourglass-end
+fa fa-hourglass-half
+fa fa-hourglass-o
+fa fa-hourglass-start
+fa fa-i-cursor
+fa fa-id-badge
+fa fa-id-card
+fa fa-id-card-o
+fa fa-image
+fa fa-inbox
+fa fa-industry
+fa fa-info
+fa fa-info-circle
+fa fa-institution
+fa fa-key
+fa fa-keyboard-o
+fa fa-language
+fa fa-laptop
+fa fa-leaf
+fa fa-legal
+fa fa-lemon-o
+fa fa-level-down
+fa fa-level-up
+fa fa-life-bouy
+fa fa-life-buoy
+fa fa-life-ring
+fa fa-life-saver
+fa fa-lightbulb-o
+fa fa-line-chart
+fa fa-location-arrow
+fa fa-lock
+fa fa-low-vision
+fa fa-magic
+fa fa-magnet
+fa fa-mail-forward
+fa fa-mail-reply
+fa fa-mail-reply-all
+fa fa-male
+fa fa-map
+fa fa-map-marker
+fa fa-map-o
+fa fa-map-pin
+fa fa-map-signs
+fa fa-meh-o
+fa fa-microchip
+fa fa-microphone
+fa fa-microphone-slash
+fa fa-minus
+fa fa-minus-circle
+fa fa-minus-square
+fa fa-minus-square-o
+fa fa-mobile
+fa fa-mobile-phone
+fa fa-money
+fa fa-moon-o
+fa fa-mortar-board
+fa fa-motorcycle
+fa fa-mouse-pointer
+fa fa-music
+fa fa-navicon
+fa fa-newspaper-o
+fa fa-object-group
+fa fa-object-ungroup
+fa fa-paint-brush
+fa fa-paper-plane
+fa fa-paper-plane-o
+fa fa-paw
+fa fa-pencil
+fa fa-pencil-square
+fa fa-pencil-square-o
+fa fa-percent
+fa fa-phone
+fa fa-phone-square
+fa fa-photo
+fa fa-picture-o
+fa fa-pie-chart
+fa fa-plane
+fa fa-plug
+fa fa-plus
+fa fa-plus-circle
+fa fa-plus-square
+fa fa-plus-square-o
+fa fa-podcast
+fa fa-power-off
+fa fa-print
+fa fa-puzzle-piece
+fa fa-qrcode
+fa fa-question
+fa fa-question-circle
+fa fa-question-circle-o
+fa fa-quote-left
+fa fa-quote-right
+fa fa-random
+fa fa-recycle
+fa fa-refresh
+fa fa-registered
+fa fa-remove
+fa fa-reorder
+fa fa-reply
+fa fa-reply-all
+fa fa-retweet
+fa fa-road
+fa fa-rocket
+fa fa-rss
+fa fa-rss-square
+fa fa-s15
+fa fa-search
+fa fa-search-minus
+fa fa-search-plus
+fa fa-send
+fa fa-send-o
+fa fa-server
+fa fa-share
+fa fa-share-alt
+fa fa-share-alt-square
+fa fa-share-square
+fa fa-share-square-o
+fa fa-shield
+fa fa-ship
+fa fa-shopping-bag
+fa fa-shopping-basket
+fa fa-shopping-cart
+fa fa-shower
+fa fa-sign-in
+fa fa-sign-language
+fa fa-sign-out
+fa fa-signal
+fa fa-signing
+fa fa-sitemap
+fa fa-sliders
+fa fa-smile-o
+fa fa-snowflake-o
+fa fa-soccer-ball-o
+fa fa-sort
+fa fa-sort-alpha-asc
+fa fa-sort-alpha-desc
+fa fa-sort-amount-asc
+fa fa-sort-amount-desc
+fa fa-sort-asc
+fa fa-sort-desc
+fa fa-sort-down
+fa fa-sort-numeric-asc
+fa fa-sort-numeric-desc
+fa fa-sort-up
+fa fa-space-shuttle
+fa fa-spinner
+fa fa-spoon
+fa fa-square
+fa fa-square-o
+fa fa-star
+fa fa-star-half
+fa fa-star-half-empty
+fa fa-star-half-full
+fa fa-star-half-o
+fa fa-star-o
+fa fa-sticky-note
+fa fa-sticky-note-o
+fa fa-street-view
+fa fa-suitcase
+fa fa-sun-o
+fa fa-support
+fa fa-tablet
+fa fa-tachometer
+fa fa-tag
+fa fa-tags
+fa fa-tasks
+fa fa-taxi
+fa fa-television
+fa fa-terminal
+fa fa-thermometer
+fa fa-thermometer-0
+fa fa-thermometer-1
+fa fa-thermometer-2
+fa fa-thermometer-3
+fa fa-thermometer-4
+fa fa-thermometer-empty
+fa fa-thermometer-full
+fa fa-thermometer-half
+fa fa-thermometer-quarter
+fa fa-thermometer-three-quarters
+fa fa-thumb-tack
+fa fa-thumbs-down
+fa fa-thumbs-o-down
+fa fa-thumbs-o-up
+fa fa-thumbs-up
+fa fa-ticket
+fa fa-times
+fa fa-times-circle
+fa fa-times-circle-o
+fa fa-times-rectangle
+fa fa-times-rectangle-o
+fa fa-tint
+fa fa-toggle-down
+fa fa-toggle-left
+fa fa-toggle-off
+fa fa-toggle-on
+fa fa-toggle-right
+fa fa-toggle-up
+fa fa-trademark
+fa fa-trash
+fa fa-trash-o
+fa fa-tree
+fa fa-trophy
+fa fa-truck
+fa fa-tty
+fa fa-tv
+fa fa-umbrella
+fa fa-universal-access
+fa fa-university
+fa fa-unlock
+fa fa-unlock-alt
+fa fa-unsorted
+fa fa-upload
+fa fa-user
+fa fa-user-circle
+fa fa-user-circle-o
+fa fa-user-o
+fa fa-user-plus
+fa fa-user-secret
+fa fa-user-times
+fa fa-users
+fa fa-vcard
+fa fa-vcard-o
+fa fa-video-camera
+fa fa-volume-control-phone
+fa fa-volume-down
+fa fa-volume-off
+fa fa-volume-up
+fa fa-warning
+fa fa-wheelchair
+fa fa-wheelchair-alt
+fa fa-wifi
+fa fa-window-close
+fa fa-window-close-o
+fa fa-window-maximize
+fa fa-window-minimize
+fa fa-window-restore
+fa fa-wrench
+fa fa-american-sign-language-interpreting
+fa fa-asl-interpreting
+fa fa-assistive-listening-systems
+fa fa-audio-description
+fa fa-blind
+fa fa-braille
+fa fa-cc
+fa fa-deaf
+fa fa-deafness
+fa fa-hard-of-hearing
+fa fa-low-vision
+fa fa-question-circle-o
+fa fa-sign-language
+fa fa-signing
+fa fa-tty
+fa fa-universal-access
+fa fa-volume-control-phone
+fa fa-wheelchair
+fa fa-wheelchair-alt
+fa fa-hand-grab-o
+fa fa-hand-lizard-o
+fa fa-hand-o-down
+fa fa-hand-o-left
+fa fa-hand-o-right
+fa fa-hand-o-up
+fa fa-hand-paper-o
+fa fa-hand-peace-o
+fa fa-hand-pointer-o
+fa fa-hand-rock-o
+fa fa-hand-scissors-o
+fa fa-hand-spock-o
+fa fa-hand-stop-o
+fa fa-thumbs-down
+fa fa-thumbs-o-down
+fa fa-thumbs-o-up
+fa fa-thumbs-up
+fa fa-ambulance
+fa fa-automobile
+fa fa-bicycle
+fa fa-bus
+fa fa-cab
+fa fa-car
+fa fa-fighter-jet
+fa fa-motorcycle
+fa fa-plane
+fa fa-rocket
+fa fa-ship
+fa fa-space-shuttle
+fa fa-subway
+fa fa-taxi
+fa fa-train
+fa fa-truck
+fa fa-wheelchair
+fa fa-wheelchair-alt
+fa fa-genderless
+fa fa-intersex
+fa fa-mars
+fa fa-mars-double
+fa fa-mars-stroke
+fa fa-mars-stroke-h
+fa fa-mars-stroke-v
+fa fa-mercury
+fa fa-neuter
+fa fa-transgender
+fa fa-transgender-alt
+fa fa-venus
+fa fa-venus-double
+fa fa-venus-mars
+fa fa-file
+fa fa-file-archive-o
+fa fa-file-audio-o
+fa fa-file-code-o
+fa fa-file-excel-o
+fa fa-file-image-o
+fa fa-file-movie-o
+fa fa-file-o
+fa fa-file-pdf-o
+fa fa-file-photo-o
+fa fa-file-picture-o
+fa fa-file-powerpoint-o
+fa fa-file-sound-o
+fa fa-file-text
+fa fa-file-text-o
+fa fa-file-video-o
+fa fa-file-word-o
+fa fa-file-zip-o
+fa fa-circle-o-notch
+fa fa-cog
+fa fa-gear
+fa fa-refresh
+fa fa-spinner
+fa fa-check-square
+fa fa-check-square-o
+fa fa-circle
+fa fa-circle-o
+fa fa-dot-circle-o
+fa fa-minus-square
+fa fa-minus-square-o
+fa fa-plus-square
+fa fa-plus-square-o
+fa fa-square
+fa fa-square-o
+fa fa-cc-amex
+fa fa-cc-diners-club
+fa fa-cc-discover
+fa fa-cc-jcb
+fa fa-cc-mastercard
+fa fa-cc-paypal
+fa fa-cc-stripe
+fa fa-cc-visa
+fa fa-credit-card
+fa fa-credit-card-alt
+fa fa-google-wallet
+fa fa-paypal
+fa fa-area-chart
+fa fa-bar-chart
+fa fa-bar-chart-o
+fa fa-line-chart
+fa fa-pie-chart
+fa fa-bitcoin
+fa fa-btc
+fa fa-cny
+fa fa-dollar
+fa fa-eur
+fa fa-euro
+fa fa-gbp
+fa fa-gg
+fa fa-gg-circle
+fa fa-ils
+fa fa-inr
+fa fa-jpy
+fa fa-krw
+fa fa-money
+fa fa-rmb
+fa fa-rouble
+fa fa-rub
+fa fa-ruble
+fa fa-rupee
+fa fa-shekel
+fa fa-sheqel
+fa fa-try
+fa fa-turkish-lira
+fa fa-usd
+fa fa-viacoin
+fa fa-won
+fa fa-yen
+fa fa-align-center
+fa fa-align-justify
+fa fa-align-left
+fa fa-align-right
+fa fa-bold
+fa fa-chain
+fa fa-chain-broken
+fa fa-clipboard
+fa fa-columns
+fa fa-copy
+fa fa-cut
+fa fa-dedent
+fa fa-eraser
+fa fa-file
+fa fa-file-o
+fa fa-file-text
+fa fa-file-text-o
+fa fa-files-o
+fa fa-floppy-o
+fa fa-font
+fa fa-header
+fa fa-indent
+fa fa-italic
+fa fa-link
+fa fa-list
+fa fa-list-alt
+fa fa-list-ol
+fa fa-list-ul
+fa fa-outdent
+fa fa-paperclip
+fa fa-paragraph
+fa fa-paste
+fa fa-repeat
+fa fa-rotate-left
+fa fa-rotate-right
+fa fa-save
+fa fa-scissors
+fa fa-strikethrough
+fa fa-subscript
+fa fa-superscript
+fa fa-table
+fa fa-text-height
+fa fa-text-width
+fa fa-th
+fa fa-th-large
+fa fa-th-list
+fa fa-underline
+fa fa-undo
+fa fa-unlink
+fa fa-angle-double-down
+fa fa-angle-double-left
+fa fa-angle-double-right
+fa fa-angle-double-up
+fa fa-angle-down
+fa fa-angle-left
+fa fa-angle-right
+fa fa-angle-up
+fa fa-arrow-circle-down
+fa fa-arrow-circle-left
+fa fa-arrow-circle-o-down
+fa fa-arrow-circle-o-left
+fa fa-arrow-circle-o-right
+fa fa-arrow-circle-o-up
+fa fa-arrow-circle-right
+fa fa-arrow-circle-up
+fa fa-arrow-down
+fa fa-arrow-left
+fa fa-arrow-right
+fa fa-arrow-up
+fa fa-arrows
+fa fa-arrows-alt
+fa fa-arrows-h
+fa fa-arrows-v
+fa fa-caret-down
+fa fa-caret-left
+fa fa-caret-right
+fa fa-caret-square-o-down
+fa fa-caret-square-o-left
+fa fa-caret-square-o-right
+fa fa-caret-square-o-up
+fa fa-caret-up
+fa fa-chevron-circle-down
+fa fa-chevron-circle-left
+fa fa-chevron-circle-right
+fa fa-chevron-circle-up
+fa fa-chevron-down
+fa fa-chevron-left
+fa fa-chevron-right
+fa fa-chevron-up
+fa fa-exchange
+fa fa-hand-o-down
+fa fa-hand-o-left
+fa fa-hand-o-right
+fa fa-hand-o-up
+fa fa-long-arrow-down
+fa fa-long-arrow-left
+fa fa-long-arrow-right
+fa fa-long-arrow-up
+fa fa-toggle-down
+fa fa-toggle-left
+fa fa-toggle-right
+fa fa-toggle-up
+fa fa-arrows-alt
+fa fa-backward
+fa fa-compress
+fa fa-eject
+fa fa-expand
+fa fa-fast-backward
+fa fa-fast-forward
+fa fa-forward
+fa fa-pause
+fa fa-pause-circle
+fa fa-pause-circle-o
+fa fa-play
+fa fa-play-circle
+fa fa-play-circle-o
+fa fa-random
+fa fa-step-backward
+fa fa-step-forward
+fa fa-stop
+fa fa-stop-circle
+fa fa-stop-circle-o
+fa fa-youtube-play
+fa fa-500px
+fa fa-adn
+fa fa-amazon
+fa fa-android
+fa fa-angellist
+fa fa-apple
+fa fa-bandcamp
+fa fa-behance
+fa fa-behance-square
+fa fa-bitbucket
+fa fa-bitbucket-square
+fa fa-bitcoin
+fa fa-black-tie
+fa fa-bluetooth
+fa fa-bluetooth-b
+fa fa-btc
+fa fa-buysellads
+fa fa-cc-amex
+fa fa-cc-diners-club
+fa fa-cc-discover
+fa fa-cc-jcb
+fa fa-cc-mastercard
+fa fa-cc-paypal
+fa fa-cc-stripe
+fa fa-cc-visa
+fa fa-chrome
+fa fa-codepen
+fa fa-codiepie
+fa fa-connectdevelop
+fa fa-contao
+fa fa-css3
+fa fa-dashcube
+fa fa-delicious
+fa fa-deviantart
+fa fa-digg
+fa fa-dribbble
+fa fa-dropbox
+fa fa-drupal
+fa fa-edge
+fa fa-eercast
+fa fa-empire
+fa fa-envira
+fa fa-etsy
+fa fa-expeditedssl
+fa fa-fa
+fa fa-facebook
+fa fa-facebook-f
+fa fa-facebook-official
+fa fa-facebook-square
+fa fa-firefox
+fa fa-first-order
+fa fa-flickr
+fa fa-font-awesome
+fa fa-fonticons
+fa fa-fort-awesome
+fa fa-forumbee
+fa fa-foursquare
+fa fa-free-code-camp
+fa fa-ge
+fa fa-get-pocket
+fa fa-gg
+fa fa-gg-circle
+fa fa-git
+fa fa-git-square
+fa fa-github
+fa fa-github-alt
+fa fa-github-square
+fa fa-gitlab
+fa fa-gittip
+fa fa-glide
+fa fa-glide-g
+fa fa-google
+fa fa-google-plus
+fa fa-google-plus-circle
+fa fa-google-plus-official
+fa fa-google-plus-square
+fa fa-google-wallet
+fa fa-gratipay
+fa fa-grav
+fa fa-hacker-news
+fa fa-houzz
+fa fa-html5
+fa fa-imdb
+fa fa-instagram
+fa fa-internet-explorer
+fa fa-ioxhost
+fa fa-joomla
+fa fa-jsfiddle
+fa fa-lastfm
+fa fa-lastfm-square
+fa fa-leanpub
+fa fa-linkedin
+fa fa-linkedin-square
+fa fa-linode
+fa fa-linux
+fa fa-maxcdn
+fa fa-meanpath
+fa fa-medium
+fa fa-meetup
+fa fa-mixcloud
+fa fa-modx
+fa fa-odnoklassniki
+fa fa-odnoklassniki-square
+fa fa-opencart
+fa fa-openid
+fa fa-opera
+fa fa-optin-monster
+fa fa-pagelines
+fa fa-paypal
+fa fa-pied-piper
+fa fa-pied-piper-alt
+fa fa-pied-piper-pp
+fa fa-pinterest
+fa fa-pinterest-p
+fa fa-pinterest-square
+fa fa-product-hunt
+fa fa-qq
+fa fa-quora
+fa fa-ra
+fa fa-ravelry
+fa fa-rebel
+fa fa-reddit
+fa fa-reddit-alien
+fa fa-reddit-square
+fa fa-renren
+fa fa-resistance
+fa fa-safari
+fa fa-scribd
+fa fa-sellsy
+fa fa-share-alt
+fa fa-share-alt-square
+fa fa-shirtsinbulk
+fa fa-simplybuilt
+fa fa-skyatlas
+fa fa-skype
+fa fa-slack
+fa fa-slideshare
+fa fa-snapchat
+fa fa-snapchat-ghost
+fa fa-snapchat-square
+fa fa-soundcloud
+fa fa-spotify
+fa fa-stack-exchange
+fa fa-stack-overflow
+fa fa-steam
+fa fa-steam-square
+fa fa-stumbleupon
+fa fa-stumbleupon-circle
+fa fa-superpowers
+fa fa-telegram
+fa fa-tencent-weibo
+fa fa-themeisle
+fa fa-trello
+fa fa-tripadvisor
+fa fa-tumblr
+fa fa-tumblr-square
+fa fa-twitch
+fa fa-twitter
+fa fa-twitter-square
+fa fa-usb
+fa fa-viacoin
+fa fa-viadeo
+fa fa-viadeo-square
+fa fa-vimeo
+fa fa-vimeo-square
+fa fa-vine
+fa fa-vk
+fa fa-wechat
+fa fa-weibo
+fa fa-weixin
+fa fa-whatsapp
+fa fa-wikipedia-w
+fa fa-windows
+fa fa-wordpress
+fa fa-wpbeginner
+fa fa-wpexplorer
+fa fa-wpforms
+fa fa-xing
+fa fa-xing-square
+fa fa-y-combinator
+fa fa-y-combinator-square
+fa fa-yahoo
+fa fa-yc
+fa fa-yc-square
+fa fa-yelp
+fa fa-yoast
+fa fa-youtube
+fa fa-youtube-play
+fa fa-youtube-square
+fa fa-ambulance
+fa fa-h-square
+fa fa-heart
+fa fa-heart-o
+fa fa-heartbeat
+fa fa-hospital-o
+fa fa-medkit
+fa fa-plus-square
+fa fa-stethoscope
+fa fa-user-md
+fa fa-wheelchair
+fa fa-wheelchair-alt
+-->
+
+<button class="btn--transparent"><i class="fa fa-address-book"><span class="hide">address-book</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-book-o"><span class="hide">address-book-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-card"><span class="hide">address-card</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-card-o"><span class="hide">address-card-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bandcamp"><span class="hide">bandcamp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bath"><span class="hide">bath</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bathtub"><span class="hide">bathtub</span></i></button>
+<button class="btn--transparent"><i class="fa fa-drivers-license"><span class="hide">drivers-license</span></i></button>
+<button class="btn--transparent"><i class="fa fa-drivers-license-o"><span class="hide">drivers-license-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eercast"><span class="hide">eercast</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope-open"><span class="hide">envelope-open</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope-open-o"><span class="hide">envelope-open-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-etsy"><span class="hide">etsy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-free-code-camp"><span class="hide">free-code-camp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-grav"><span class="hide">grav</span></i></button>
+<button class="btn--transparent"><i class="fa fa-handshake-o"><span class="hide">handshake-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-id-badge"><span class="hide">id-badge</span></i></button>
+<button class="btn--transparent"><i class="fa fa-id-card"><span class="hide">id-card</span></i></button>
+<button class="btn--transparent"><i class="fa fa-id-card-o"><span class="hide">id-card-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-imdb"><span class="hide">imdb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-linode"><span class="hide">linode</span></i></button>
+<button class="btn--transparent"><i class="fa fa-meetup"><span class="hide">meetup</span></i></button>
+<button class="btn--transparent"><i class="fa fa-microchip"><span class="hide">microchip</span></i></button>
+<button class="btn--transparent"><i class="fa fa-podcast"><span class="hide">podcast</span></i></button>
+<button class="btn--transparent"><i class="fa fa-quora"><span class="hide">quora</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ravelry"><span class="hide">ravelry</span></i></button>
+<button class="btn--transparent"><i class="fa fa-s15"><span class="hide">s15</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shower"><span class="hide">shower</span></i></button>
+<button class="btn--transparent"><i class="fa fa-snowflake-o"><span class="hide">snowflake-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-superpowers"><span class="hide">superpowers</span></i></button>
+<button class="btn--transparent"><i class="fa fa-telegram"><span class="hide">telegram</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer"><span class="hide">thermometer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-0"><span class="hide">thermometer-0</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-1"><span class="hide">thermometer-1</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-2"><span class="hide">thermometer-2</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-3"><span class="hide">thermometer-3</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-4"><span class="hide">thermometer-4</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-empty"><span class="hide">thermometer-empty</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-full"><span class="hide">thermometer-full</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-half"><span class="hide">thermometer-half</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-quarter"><span class="hide">thermometer-quarter</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-three-quarters"><span class="hide">thermometer-three-quarters</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times-rectangle"><span class="hide">times-rectangle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times-rectangle-o"><span class="hide">times-rectangle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-circle"><span class="hide">user-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-circle-o"><span class="hide">user-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-o"><span class="hide">user-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vcard"><span class="hide">vcard</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vcard-o"><span class="hide">vcard-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-close"><span class="hide">window-close</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-close-o"><span class="hide">window-close-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-maximize"><span class="hide">window-maximize</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-minimize"><span class="hide">window-minimize</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-restore"><span class="hide">window-restore</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wpexplorer"><span class="hide">wpexplorer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-book"><span class="hide">address-book</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-book-o"><span class="hide">address-book-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-card"><span class="hide">address-card</span></i></button>
+<button class="btn--transparent"><i class="fa fa-address-card-o"><span class="hide">address-card-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-adjust"><span class="hide">adjust</span></i></button>
+<button class="btn--transparent"><i class="fa fa-american-sign-language-interpreting"><span class="hide">american-sign-language-interpreting</span></i></button>
+<button class="btn--transparent"><i class="fa fa-anchor"><span class="hide">anchor</span></i></button>
+<button class="btn--transparent"><i class="fa fa-archive"><span class="hide">archive</span></i></button>
+<button class="btn--transparent"><i class="fa fa-area-chart"><span class="hide">area-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows"><span class="hide">arrows</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows-h"><span class="hide">arrows-h</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows-v"><span class="hide">arrows-v</span></i></button>
+<button class="btn--transparent"><i class="fa fa-asl-interpreting"><span class="hide">asl-interpreting</span></i></button>
+<button class="btn--transparent"><i class="fa fa-assistive-listening-systems"><span class="hide">assistive-listening-systems</span></i></button>
+<button class="btn--transparent"><i class="fa fa-asterisk"><span class="hide">asterisk</span></i></button>
+<button class="btn--transparent"><i class="fa fa-at"><span class="hide">at</span></i></button>
+<button class="btn--transparent"><i class="fa fa-audio-description"><span class="hide">audio-description</span></i></button>
+<button class="btn--transparent"><i class="fa fa-automobile"><span class="hide">automobile</span></i></button>
+<button class="btn--transparent"><i class="fa fa-balance-scale"><span class="hide">balance-scale</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ban"><span class="hide">ban</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bank"><span class="hide">bank</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bar-chart"><span class="hide">bar-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bar-chart-o"><span class="hide">bar-chart-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-barcode"><span class="hide">barcode</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bars"><span class="hide">bars</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bath"><span class="hide">bath</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bathtub"><span class="hide">bathtub</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery"><span class="hide">battery</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-0"><span class="hide">battery-0</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-1"><span class="hide">battery-1</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-2"><span class="hide">battery-2</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-3"><span class="hide">battery-3</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-4"><span class="hide">battery-4</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-empty"><span class="hide">battery-empty</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-full"><span class="hide">battery-full</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-half"><span class="hide">battery-half</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-quarter"><span class="hide">battery-quarter</span></i></button>
+<button class="btn--transparent"><i class="fa fa-battery-three-quarters"><span class="hide">battery-three-quarters</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bed"><span class="hide">bed</span></i></button>
+<button class="btn--transparent"><i class="fa fa-beer"><span class="hide">beer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bell"><span class="hide">bell</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bell-o"><span class="hide">bell-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bell-slash"><span class="hide">bell-slash</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bell-slash-o"><span class="hide">bell-slash-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bicycle"><span class="hide">bicycle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-binoculars"><span class="hide">binoculars</span></i></button>
+<button class="btn--transparent"><i class="fa fa-birthday-cake"><span class="hide">birthday-cake</span></i></button>
+<button class="btn--transparent"><i class="fa fa-blind"><span class="hide">blind</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bluetooth"><span class="hide">bluetooth</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bluetooth-b"><span class="hide">bluetooth-b</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bolt"><span class="hide">bolt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bomb"><span class="hide">bomb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-book"><span class="hide">book</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bookmark"><span class="hide">bookmark</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bookmark-o"><span class="hide">bookmark-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-braille"><span class="hide">braille</span></i></button>
+<button class="btn--transparent"><i class="fa fa-briefcase"><span class="hide">briefcase</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bug"><span class="hide">bug</span></i></button>
+<button class="btn--transparent"><i class="fa fa-building"><span class="hide">building</span></i></button>
+<button class="btn--transparent"><i class="fa fa-building-o"><span class="hide">building-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bullhorn"><span class="hide">bullhorn</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bullseye"><span class="hide">bullseye</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bus"><span class="hide">bus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cab"><span class="hide">cab</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calculator"><span class="hide">calculator</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calendar"><span class="hide">calendar</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calendar-check-o"><span class="hide">calendar-check-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calendar-minus-o"><span class="hide">calendar-minus-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calendar-o"><span class="hide">calendar-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calendar-plus-o"><span class="hide">calendar-plus-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-calendar-times-o"><span class="hide">calendar-times-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-camera"><span class="hide">camera</span></i></button>
+<button class="btn--transparent"><i class="fa fa-camera-retro"><span class="hide">camera-retro</span></i></button>
+<button class="btn--transparent"><i class="fa fa-car"><span class="hide">car</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-down"><span class="hide">caret-square-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-left"><span class="hide">caret-square-o-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-right"><span class="hide">caret-square-o-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-up"><span class="hide">caret-square-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cart-arrow-down"><span class="hide">cart-arrow-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cart-plus"><span class="hide">cart-plus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc"><span class="hide">cc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-certificate"><span class="hide">certificate</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check"><span class="hide">check</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check-circle"><span class="hide">check-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check-circle-o"><span class="hide">check-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check-square"><span class="hide">check-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check-square-o"><span class="hide">check-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-child"><span class="hide">child</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle"><span class="hide">circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle-o"><span class="hide">circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle-o-notch"><span class="hide">circle-o-notch</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle-thin"><span class="hide">circle-thin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-clock-o"><span class="hide">clock-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-clone"><span class="hide">clone</span></i></button>
+<button class="btn--transparent"><i class="fa fa-close"><span class="hide">close</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cloud"><span class="hide">cloud</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cloud-download"><span class="hide">cloud-download</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cloud-upload"><span class="hide">cloud-upload</span></i></button>
+<button class="btn--transparent"><i class="fa fa-code"><span class="hide">code</span></i></button>
+<button class="btn--transparent"><i class="fa fa-code-fork"><span class="hide">code-fork</span></i></button>
+<button class="btn--transparent"><i class="fa fa-coffee"><span class="hide">coffee</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cog"><span class="hide">cog</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cogs"><span class="hide">cogs</span></i></button>
+<button class="btn--transparent"><i class="fa fa-comment"><span class="hide">comment</span></i></button>
+<button class="btn--transparent"><i class="fa fa-comment-o"><span class="hide">comment-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-commenting"><span class="hide">commenting</span></i></button>
+<button class="btn--transparent"><i class="fa fa-commenting-o"><span class="hide">commenting-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-comments"><span class="hide">comments</span></i></button>
+<button class="btn--transparent"><i class="fa fa-comments-o"><span class="hide">comments-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-compass"><span class="hide">compass</span></i></button>
+<button class="btn--transparent"><i class="fa fa-copyright"><span class="hide">copyright</span></i></button>
+<button class="btn--transparent"><i class="fa fa-creative-commons"><span class="hide">creative-commons</span></i></button>
+<button class="btn--transparent"><i class="fa fa-credit-card"><span class="hide">credit-card</span></i></button>
+<button class="btn--transparent"><i class="fa fa-credit-card-alt"><span class="hide">credit-card-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-crop"><span class="hide">crop</span></i></button>
+<button class="btn--transparent"><i class="fa fa-crosshairs"><span class="hide">crosshairs</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cube"><span class="hide">cube</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cubes"><span class="hide">cubes</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cutlery"><span class="hide">cutlery</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dashboard"><span class="hide">dashboard</span></i></button>
+<button class="btn--transparent"><i class="fa fa-database"><span class="hide">database</span></i></button>
+<button class="btn--transparent"><i class="fa fa-deaf"><span class="hide">deaf</span></i></button>
+<button class="btn--transparent"><i class="fa fa-deafness"><span class="hide">deafness</span></i></button>
+<button class="btn--transparent"><i class="fa fa-desktop"><span class="hide">desktop</span></i></button>
+<button class="btn--transparent"><i class="fa fa-diamond"><span class="hide">diamond</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dot-circle-o"><span class="hide">dot-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-download"><span class="hide">download</span></i></button>
+<button class="btn--transparent"><i class="fa fa-drivers-license"><span class="hide">drivers-license</span></i></button>
+<button class="btn--transparent"><i class="fa fa-drivers-license-o"><span class="hide">drivers-license-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-edit"><span class="hide">edit</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ellipsis-h"><span class="hide">ellipsis-h</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ellipsis-v"><span class="hide">ellipsis-v</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope"><span class="hide">envelope</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope-o"><span class="hide">envelope-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope-open"><span class="hide">envelope-open</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope-open-o"><span class="hide">envelope-open-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envelope-square"><span class="hide">envelope-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eraser"><span class="hide">eraser</span></i></button>
+<button class="btn--transparent"><i class="fa fa-exchange"><span class="hide">exchange</span></i></button>
+<button class="btn--transparent"><i class="fa fa-exclamation"><span class="hide">exclamation</span></i></button>
+<button class="btn--transparent"><i class="fa fa-exclamation-circle"><span class="hide">exclamation-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-exclamation-triangle"><span class="hide">exclamation-triangle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-external-link"><span class="hide">external-link</span></i></button>
+<button class="btn--transparent"><i class="fa fa-external-link-square"><span class="hide">external-link-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eye"><span class="hide">eye</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eye-slash"><span class="hide">eye-slash</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eyedropper"><span class="hide">eyedropper</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fax"><span class="hide">fax</span></i></button>
+<button class="btn--transparent"><i class="fa fa-feed"><span class="hide">feed</span></i></button>
+<button class="btn--transparent"><i class="fa fa-female"><span class="hide">female</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fighter-jet"><span class="hide">fighter-jet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-archive-o"><span class="hide">file-archive-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-audio-o"><span class="hide">file-audio-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-code-o"><span class="hide">file-code-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-excel-o"><span class="hide">file-excel-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-image-o"><span class="hide">file-image-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-movie-o"><span class="hide">file-movie-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-pdf-o"><span class="hide">file-pdf-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-photo-o"><span class="hide">file-photo-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-picture-o"><span class="hide">file-picture-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-powerpoint-o"><span class="hide">file-powerpoint-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-sound-o"><span class="hide">file-sound-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-video-o"><span class="hide">file-video-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-word-o"><span class="hide">file-word-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-zip-o"><span class="hide">file-zip-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-film"><span class="hide">film</span></i></button>
+<button class="btn--transparent"><i class="fa fa-filter"><span class="hide">filter</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fire"><span class="hide">fire</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fire-extinguisher"><span class="hide">fire-extinguisher</span></i></button>
+<button class="btn--transparent"><i class="fa fa-flag"><span class="hide">flag</span></i></button>
+<button class="btn--transparent"><i class="fa fa-flag-checkered"><span class="hide">flag-checkered</span></i></button>
+<button class="btn--transparent"><i class="fa fa-flag-o"><span class="hide">flag-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-flash"><span class="hide">flash</span></i></button>
+<button class="btn--transparent"><i class="fa fa-flask"><span class="hide">flask</span></i></button>
+<button class="btn--transparent"><i class="fa fa-folder"><span class="hide">folder</span></i></button>
+<button class="btn--transparent"><i class="fa fa-folder-o"><span class="hide">folder-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-folder-open"><span class="hide">folder-open</span></i></button>
+<button class="btn--transparent"><i class="fa fa-folder-open-o"><span class="hide">folder-open-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-frown-o"><span class="hide">frown-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-futbol-o"><span class="hide">futbol-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gamepad"><span class="hide">gamepad</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gavel"><span class="hide">gavel</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gear"><span class="hide">gear</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gears"><span class="hide">gears</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gift"><span class="hide">gift</span></i></button>
+<button class="btn--transparent"><i class="fa fa-glass"><span class="hide">glass</span></i></button>
+<button class="btn--transparent"><i class="fa fa-globe"><span class="hide">globe</span></i></button>
+<button class="btn--transparent"><i class="fa fa-graduation-cap"><span class="hide">graduation-cap</span></i></button>
+<button class="btn--transparent"><i class="fa fa-group"><span class="hide">group</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-grab-o"><span class="hide">hand-grab-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-lizard-o"><span class="hide">hand-lizard-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-paper-o"><span class="hide">hand-paper-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-peace-o"><span class="hide">hand-peace-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-pointer-o"><span class="hide">hand-pointer-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-rock-o"><span class="hide">hand-rock-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-scissors-o"><span class="hide">hand-scissors-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-spock-o"><span class="hide">hand-spock-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-stop-o"><span class="hide">hand-stop-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-handshake-o"><span class="hide">handshake-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hard-of-hearing"><span class="hide">hard-of-hearing</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hashtag"><span class="hide">hashtag</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hdd-o"><span class="hide">hdd-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-headphones"><span class="hide">headphones</span></i></button>
+<button class="btn--transparent"><i class="fa fa-heart"><span class="hide">heart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-heart-o"><span class="hide">heart-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-heartbeat"><span class="hide">heartbeat</span></i></button>
+<button class="btn--transparent"><i class="fa fa-history"><span class="hide">history</span></i></button>
+<button class="btn--transparent"><i class="fa fa-home"><span class="hide">home</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hotel"><span class="hide">hotel</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass"><span class="hide">hourglass</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-1"><span class="hide">hourglass-1</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-2"><span class="hide">hourglass-2</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-3"><span class="hide">hourglass-3</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-end"><span class="hide">hourglass-end</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-half"><span class="hide">hourglass-half</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-o"><span class="hide">hourglass-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hourglass-start"><span class="hide">hourglass-start</span></i></button>
+<button class="btn--transparent"><i class="fa fa-i-cursor"><span class="hide">i-cursor</span></i></button>
+<button class="btn--transparent"><i class="fa fa-id-badge"><span class="hide">id-badge</span></i></button>
+<button class="btn--transparent"><i class="fa fa-id-card"><span class="hide">id-card</span></i></button>
+<button class="btn--transparent"><i class="fa fa-id-card-o"><span class="hide">id-card-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-image"><span class="hide">image</span></i></button>
+<button class="btn--transparent"><i class="fa fa-inbox"><span class="hide">inbox</span></i></button>
+<button class="btn--transparent"><i class="fa fa-industry"><span class="hide">industry</span></i></button>
+<button class="btn--transparent"><i class="fa fa-info"><span class="hide">info</span></i></button>
+<button class="btn--transparent"><i class="fa fa-info-circle"><span class="hide">info-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-institution"><span class="hide">institution</span></i></button>
+<button class="btn--transparent"><i class="fa fa-key"><span class="hide">key</span></i></button>
+<button class="btn--transparent"><i class="fa fa-keyboard-o"><span class="hide">keyboard-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-language"><span class="hide">language</span></i></button>
+<button class="btn--transparent"><i class="fa fa-laptop"><span class="hide">laptop</span></i></button>
+<button class="btn--transparent"><i class="fa fa-leaf"><span class="hide">leaf</span></i></button>
+<button class="btn--transparent"><i class="fa fa-legal"><span class="hide">legal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-lemon-o"><span class="hide">lemon-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-level-down"><span class="hide">level-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-level-up"><span class="hide">level-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-life-bouy"><span class="hide">life-bouy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-life-buoy"><span class="hide">life-buoy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-life-ring"><span class="hide">life-ring</span></i></button>
+<button class="btn--transparent"><i class="fa fa-life-saver"><span class="hide">life-saver</span></i></button>
+<button class="btn--transparent"><i class="fa fa-lightbulb-o"><span class="hide">lightbulb-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-line-chart"><span class="hide">line-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-location-arrow"><span class="hide">location-arrow</span></i></button>
+<button class="btn--transparent"><i class="fa fa-lock"><span class="hide">lock</span></i></button>
+<button class="btn--transparent"><i class="fa fa-low-vision"><span class="hide">low-vision</span></i></button>
+<button class="btn--transparent"><i class="fa fa-magic"><span class="hide">magic</span></i></button>
+<button class="btn--transparent"><i class="fa fa-magnet"><span class="hide">magnet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mail-forward"><span class="hide">mail-forward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mail-reply"><span class="hide">mail-reply</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mail-reply-all"><span class="hide">mail-reply-all</span></i></button>
+<button class="btn--transparent"><i class="fa fa-male"><span class="hide">male</span></i></button>
+<button class="btn--transparent"><i class="fa fa-map"><span class="hide">map</span></i></button>
+<button class="btn--transparent"><i class="fa fa-map-marker"><span class="hide">map-marker</span></i></button>
+<button class="btn--transparent"><i class="fa fa-map-o"><span class="hide">map-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-map-pin"><span class="hide">map-pin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-map-signs"><span class="hide">map-signs</span></i></button>
+<button class="btn--transparent"><i class="fa fa-meh-o"><span class="hide">meh-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-microchip"><span class="hide">microchip</span></i></button>
+<button class="btn--transparent"><i class="fa fa-microphone"><span class="hide">microphone</span></i></button>
+<button class="btn--transparent"><i class="fa fa-microphone-slash"><span class="hide">microphone-slash</span></i></button>
+<button class="btn--transparent"><i class="fa fa-minus"><span class="hide">minus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-minus-circle"><span class="hide">minus-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-minus-square"><span class="hide">minus-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-minus-square-o"><span class="hide">minus-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mobile"><span class="hide">mobile</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mobile-phone"><span class="hide">mobile-phone</span></i></button>
+<button class="btn--transparent"><i class="fa fa-money"><span class="hide">money</span></i></button>
+<button class="btn--transparent"><i class="fa fa-moon-o"><span class="hide">moon-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mortar-board"><span class="hide">mortar-board</span></i></button>
+<button class="btn--transparent"><i class="fa fa-motorcycle"><span class="hide">motorcycle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mouse-pointer"><span class="hide">mouse-pointer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-music"><span class="hide">music</span></i></button>
+<button class="btn--transparent"><i class="fa fa-navicon"><span class="hide">navicon</span></i></button>
+<button class="btn--transparent"><i class="fa fa-newspaper-o"><span class="hide">newspaper-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-object-group"><span class="hide">object-group</span></i></button>
+<button class="btn--transparent"><i class="fa fa-object-ungroup"><span class="hide">object-ungroup</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paint-brush"><span class="hide">paint-brush</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paper-plane"><span class="hide">paper-plane</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paper-plane-o"><span class="hide">paper-plane-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paw"><span class="hide">paw</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pencil"><span class="hide">pencil</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pencil-square"><span class="hide">pencil-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pencil-square-o"><span class="hide">pencil-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-percent"><span class="hide">percent</span></i></button>
+<button class="btn--transparent"><i class="fa fa-phone"><span class="hide">phone</span></i></button>
+<button class="btn--transparent"><i class="fa fa-phone-square"><span class="hide">phone-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-photo"><span class="hide">photo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-picture-o"><span class="hide">picture-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pie-chart"><span class="hide">pie-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plane"><span class="hide">plane</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plug"><span class="hide">plug</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus"><span class="hide">plus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus-circle"><span class="hide">plus-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus-square"><span class="hide">plus-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus-square-o"><span class="hide">plus-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-podcast"><span class="hide">podcast</span></i></button>
+<button class="btn--transparent"><i class="fa fa-power-off"><span class="hide">power-off</span></i></button>
+<button class="btn--transparent"><i class="fa fa-print"><span class="hide">print</span></i></button>
+<button class="btn--transparent"><i class="fa fa-puzzle-piece"><span class="hide">puzzle-piece</span></i></button>
+<button class="btn--transparent"><i class="fa fa-qrcode"><span class="hide">qrcode</span></i></button>
+<button class="btn--transparent"><i class="fa fa-question"><span class="hide">question</span></i></button>
+<button class="btn--transparent"><i class="fa fa-question-circle"><span class="hide">question-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-question-circle-o"><span class="hide">question-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-quote-left"><span class="hide">quote-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-quote-right"><span class="hide">quote-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-random"><span class="hide">random</span></i></button>
+<button class="btn--transparent"><i class="fa fa-recycle"><span class="hide">recycle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-refresh"><span class="hide">refresh</span></i></button>
+<button class="btn--transparent"><i class="fa fa-registered"><span class="hide">registered</span></i></button>
+<button class="btn--transparent"><i class="fa fa-remove"><span class="hide">remove</span></i></button>
+<button class="btn--transparent"><i class="fa fa-reorder"><span class="hide">reorder</span></i></button>
+<button class="btn--transparent"><i class="fa fa-reply"><span class="hide">reply</span></i></button>
+<button class="btn--transparent"><i class="fa fa-reply-all"><span class="hide">reply-all</span></i></button>
+<button class="btn--transparent"><i class="fa fa-retweet"><span class="hide">retweet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-road"><span class="hide">road</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rocket"><span class="hide">rocket</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rss"><span class="hide">rss</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rss-square"><span class="hide">rss-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-s15"><span class="hide">s15</span></i></button>
+<button class="btn--transparent"><i class="fa fa-search"><span class="hide">search</span></i></button>
+<button class="btn--transparent"><i class="fa fa-search-minus"><span class="hide">search-minus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-search-plus"><span class="hide">search-plus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-send"><span class="hide">send</span></i></button>
+<button class="btn--transparent"><i class="fa fa-send-o"><span class="hide">send-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-server"><span class="hide">server</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share"><span class="hide">share</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share-alt"><span class="hide">share-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share-alt-square"><span class="hide">share-alt-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share-square"><span class="hide">share-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share-square-o"><span class="hide">share-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shield"><span class="hide">shield</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ship"><span class="hide">ship</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shopping-bag"><span class="hide">shopping-bag</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shopping-basket"><span class="hide">shopping-basket</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shopping-cart"><span class="hide">shopping-cart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shower"><span class="hide">shower</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sign-in"><span class="hide">sign-in</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sign-language"><span class="hide">sign-language</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sign-out"><span class="hide">sign-out</span></i></button>
+<button class="btn--transparent"><i class="fa fa-signal"><span class="hide">signal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-signing"><span class="hide">signing</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sitemap"><span class="hide">sitemap</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sliders"><span class="hide">sliders</span></i></button>
+<button class="btn--transparent"><i class="fa fa-smile-o"><span class="hide">smile-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-snowflake-o"><span class="hide">snowflake-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-soccer-ball-o"><span class="hide">soccer-ball-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort"><span class="hide">sort</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-alpha-asc"><span class="hide">sort-alpha-asc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-alpha-desc"><span class="hide">sort-alpha-desc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-amount-asc"><span class="hide">sort-amount-asc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-amount-desc"><span class="hide">sort-amount-desc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-asc"><span class="hide">sort-asc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-desc"><span class="hide">sort-desc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-down"><span class="hide">sort-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-numeric-asc"><span class="hide">sort-numeric-asc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-numeric-desc"><span class="hide">sort-numeric-desc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sort-up"><span class="hide">sort-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-space-shuttle"><span class="hide">space-shuttle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-spinner"><span class="hide">spinner</span></i></button>
+<button class="btn--transparent"><i class="fa fa-spoon"><span class="hide">spoon</span></i></button>
+<button class="btn--transparent"><i class="fa fa-square"><span class="hide">square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-square-o"><span class="hide">square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-star"><span class="hide">star</span></i></button>
+<button class="btn--transparent"><i class="fa fa-star-half"><span class="hide">star-half</span></i></button>
+<button class="btn--transparent"><i class="fa fa-star-half-empty"><span class="hide">star-half-empty</span></i></button>
+<button class="btn--transparent"><i class="fa fa-star-half-full"><span class="hide">star-half-full</span></i></button>
+<button class="btn--transparent"><i class="fa fa-star-half-o"><span class="hide">star-half-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-star-o"><span class="hide">star-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sticky-note"><span class="hide">sticky-note</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sticky-note-o"><span class="hide">sticky-note-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-street-view"><span class="hide">street-view</span></i></button>
+<button class="btn--transparent"><i class="fa fa-suitcase"><span class="hide">suitcase</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sun-o"><span class="hide">sun-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-support"><span class="hide">support</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tablet"><span class="hide">tablet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tachometer"><span class="hide">tachometer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tag"><span class="hide">tag</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tags"><span class="hide">tags</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tasks"><span class="hide">tasks</span></i></button>
+<button class="btn--transparent"><i class="fa fa-taxi"><span class="hide">taxi</span></i></button>
+<button class="btn--transparent"><i class="fa fa-television"><span class="hide">television</span></i></button>
+<button class="btn--transparent"><i class="fa fa-terminal"><span class="hide">terminal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer"><span class="hide">thermometer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-0"><span class="hide">thermometer-0</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-1"><span class="hide">thermometer-1</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-2"><span class="hide">thermometer-2</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-3"><span class="hide">thermometer-3</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-4"><span class="hide">thermometer-4</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-empty"><span class="hide">thermometer-empty</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-full"><span class="hide">thermometer-full</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-half"><span class="hide">thermometer-half</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-quarter"><span class="hide">thermometer-quarter</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thermometer-three-quarters"><span class="hide">thermometer-three-quarters</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumb-tack"><span class="hide">thumb-tack</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-down"><span class="hide">thumbs-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-o-down"><span class="hide">thumbs-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-o-up"><span class="hide">thumbs-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-up"><span class="hide">thumbs-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ticket"><span class="hide">ticket</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times"><span class="hide">times</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times-circle"><span class="hide">times-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times-circle-o"><span class="hide">times-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times-rectangle"><span class="hide">times-rectangle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-times-rectangle-o"><span class="hide">times-rectangle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tint"><span class="hide">tint</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-down"><span class="hide">toggle-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-left"><span class="hide">toggle-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-off"><span class="hide">toggle-off</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-on"><span class="hide">toggle-on</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-right"><span class="hide">toggle-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-up"><span class="hide">toggle-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-trademark"><span class="hide">trademark</span></i></button>
+<button class="btn--transparent"><i class="fa fa-trash"><span class="hide">trash</span></i></button>
+<button class="btn--transparent"><i class="fa fa-trash-o"><span class="hide">trash-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tree"><span class="hide">tree</span></i></button>
+<button class="btn--transparent"><i class="fa fa-trophy"><span class="hide">trophy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-truck"><span class="hide">truck</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tty"><span class="hide">tty</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tv"><span class="hide">tv</span></i></button>
+<button class="btn--transparent"><i class="fa fa-umbrella"><span class="hide">umbrella</span></i></button>
+<button class="btn--transparent"><i class="fa fa-universal-access"><span class="hide">universal-access</span></i></button>
+<button class="btn--transparent"><i class="fa fa-university"><span class="hide">university</span></i></button>
+<button class="btn--transparent"><i class="fa fa-unlock"><span class="hide">unlock</span></i></button>
+<button class="btn--transparent"><i class="fa fa-unlock-alt"><span class="hide">unlock-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-unsorted"><span class="hide">unsorted</span></i></button>
+<button class="btn--transparent"><i class="fa fa-upload"><span class="hide">upload</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user"><span class="hide">user</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-circle"><span class="hide">user-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-circle-o"><span class="hide">user-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-o"><span class="hide">user-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-plus"><span class="hide">user-plus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-secret"><span class="hide">user-secret</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-times"><span class="hide">user-times</span></i></button>
+<button class="btn--transparent"><i class="fa fa-users"><span class="hide">users</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vcard"><span class="hide">vcard</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vcard-o"><span class="hide">vcard-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-video-camera"><span class="hide">video-camera</span></i></button>
+<button class="btn--transparent"><i class="fa fa-volume-control-phone"><span class="hide">volume-control-phone</span></i></button>
+<button class="btn--transparent"><i class="fa fa-volume-down"><span class="hide">volume-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-volume-off"><span class="hide">volume-off</span></i></button>
+<button class="btn--transparent"><i class="fa fa-volume-up"><span class="hide">volume-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-warning"><span class="hide">warning</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair"><span class="hide">wheelchair</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair-alt"><span class="hide">wheelchair-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wifi"><span class="hide">wifi</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-close"><span class="hide">window-close</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-close-o"><span class="hide">window-close-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-maximize"><span class="hide">window-maximize</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-minimize"><span class="hide">window-minimize</span></i></button>
+<button class="btn--transparent"><i class="fa fa-window-restore"><span class="hide">window-restore</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wrench"><span class="hide">wrench</span></i></button>
+<button class="btn--transparent"><i class="fa fa-american-sign-language-interpreting"><span class="hide">american-sign-language-interpreting</span></i></button>
+<button class="btn--transparent"><i class="fa fa-asl-interpreting"><span class="hide">asl-interpreting</span></i></button>
+<button class="btn--transparent"><i class="fa fa-assistive-listening-systems"><span class="hide">assistive-listening-systems</span></i></button>
+<button class="btn--transparent"><i class="fa fa-audio-description"><span class="hide">audio-description</span></i></button>
+<button class="btn--transparent"><i class="fa fa-blind"><span class="hide">blind</span></i></button>
+<button class="btn--transparent"><i class="fa fa-braille"><span class="hide">braille</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc"><span class="hide">cc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-deaf"><span class="hide">deaf</span></i></button>
+<button class="btn--transparent"><i class="fa fa-deafness"><span class="hide">deafness</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hard-of-hearing"><span class="hide">hard-of-hearing</span></i></button>
+<button class="btn--transparent"><i class="fa fa-low-vision"><span class="hide">low-vision</span></i></button>
+<button class="btn--transparent"><i class="fa fa-question-circle-o"><span class="hide">question-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sign-language"><span class="hide">sign-language</span></i></button>
+<button class="btn--transparent"><i class="fa fa-signing"><span class="hide">signing</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tty"><span class="hide">tty</span></i></button>
+<button class="btn--transparent"><i class="fa fa-universal-access"><span class="hide">universal-access</span></i></button>
+<button class="btn--transparent"><i class="fa fa-volume-control-phone"><span class="hide">volume-control-phone</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair"><span class="hide">wheelchair</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair-alt"><span class="hide">wheelchair-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-grab-o"><span class="hide">hand-grab-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-lizard-o"><span class="hide">hand-lizard-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-down"><span class="hide">hand-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-left"><span class="hide">hand-o-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-right"><span class="hide">hand-o-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-up"><span class="hide">hand-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-paper-o"><span class="hide">hand-paper-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-peace-o"><span class="hide">hand-peace-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-pointer-o"><span class="hide">hand-pointer-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-rock-o"><span class="hide">hand-rock-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-scissors-o"><span class="hide">hand-scissors-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-spock-o"><span class="hide">hand-spock-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-stop-o"><span class="hide">hand-stop-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-down"><span class="hide">thumbs-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-o-down"><span class="hide">thumbs-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-o-up"><span class="hide">thumbs-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-thumbs-up"><span class="hide">thumbs-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ambulance"><span class="hide">ambulance</span></i></button>
+<button class="btn--transparent"><i class="fa fa-automobile"><span class="hide">automobile</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bicycle"><span class="hide">bicycle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bus"><span class="hide">bus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cab"><span class="hide">cab</span></i></button>
+<button class="btn--transparent"><i class="fa fa-car"><span class="hide">car</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fighter-jet"><span class="hide">fighter-jet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-motorcycle"><span class="hide">motorcycle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plane"><span class="hide">plane</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rocket"><span class="hide">rocket</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ship"><span class="hide">ship</span></i></button>
+<button class="btn--transparent"><i class="fa fa-space-shuttle"><span class="hide">space-shuttle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-subway"><span class="hide">subway</span></i></button>
+<button class="btn--transparent"><i class="fa fa-taxi"><span class="hide">taxi</span></i></button>
+<button class="btn--transparent"><i class="fa fa-train"><span class="hide">train</span></i></button>
+<button class="btn--transparent"><i class="fa fa-truck"><span class="hide">truck</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair"><span class="hide">wheelchair</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair-alt"><span class="hide">wheelchair-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-genderless"><span class="hide">genderless</span></i></button>
+<button class="btn--transparent"><i class="fa fa-intersex"><span class="hide">intersex</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mars"><span class="hide">mars</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mars-double"><span class="hide">mars-double</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mars-stroke"><span class="hide">mars-stroke</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mars-stroke-h"><span class="hide">mars-stroke-h</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mars-stroke-v"><span class="hide">mars-stroke-v</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mercury"><span class="hide">mercury</span></i></button>
+<button class="btn--transparent"><i class="fa fa-neuter"><span class="hide">neuter</span></i></button>
+<button class="btn--transparent"><i class="fa fa-transgender"><span class="hide">transgender</span></i></button>
+<button class="btn--transparent"><i class="fa fa-transgender-alt"><span class="hide">transgender-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-venus"><span class="hide">venus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-venus-double"><span class="hide">venus-double</span></i></button>
+<button class="btn--transparent"><i class="fa fa-venus-mars"><span class="hide">venus-mars</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file"><span class="hide">file</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-archive-o"><span class="hide">file-archive-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-audio-o"><span class="hide">file-audio-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-code-o"><span class="hide">file-code-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-excel-o"><span class="hide">file-excel-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-image-o"><span class="hide">file-image-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-movie-o"><span class="hide">file-movie-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-o"><span class="hide">file-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-pdf-o"><span class="hide">file-pdf-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-photo-o"><span class="hide">file-photo-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-picture-o"><span class="hide">file-picture-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-powerpoint-o"><span class="hide">file-powerpoint-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-sound-o"><span class="hide">file-sound-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-text"><span class="hide">file-text</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-text-o"><span class="hide">file-text-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-video-o"><span class="hide">file-video-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-word-o"><span class="hide">file-word-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-zip-o"><span class="hide">file-zip-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle-o-notch"><span class="hide">circle-o-notch</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cog"><span class="hide">cog</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gear"><span class="hide">gear</span></i></button>
+<button class="btn--transparent"><i class="fa fa-refresh"><span class="hide">refresh</span></i></button>
+<button class="btn--transparent"><i class="fa fa-spinner"><span class="hide">spinner</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check-square"><span class="hide">check-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-check-square-o"><span class="hide">check-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle"><span class="hide">circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-circle-o"><span class="hide">circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dot-circle-o"><span class="hide">dot-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-minus-square"><span class="hide">minus-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-minus-square-o"><span class="hide">minus-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus-square"><span class="hide">plus-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus-square-o"><span class="hide">plus-square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-square"><span class="hide">square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-square-o"><span class="hide">square-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-amex"><span class="hide">cc-amex</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-diners-club"><span class="hide">cc-diners-club</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-discover"><span class="hide">cc-discover</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-jcb"><span class="hide">cc-jcb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-mastercard"><span class="hide">cc-mastercard</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-paypal"><span class="hide">cc-paypal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-stripe"><span class="hide">cc-stripe</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-visa"><span class="hide">cc-visa</span></i></button>
+<button class="btn--transparent"><i class="fa fa-credit-card"><span class="hide">credit-card</span></i></button>
+<button class="btn--transparent"><i class="fa fa-credit-card-alt"><span class="hide">credit-card-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google-wallet"><span class="hide">google-wallet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paypal"><span class="hide">paypal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-area-chart"><span class="hide">area-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bar-chart"><span class="hide">bar-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bar-chart-o"><span class="hide">bar-chart-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-line-chart"><span class="hide">line-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pie-chart"><span class="hide">pie-chart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bitcoin"><span class="hide">bitcoin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-btc"><span class="hide">btc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cny"><span class="hide">cny</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dollar"><span class="hide">dollar</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eur"><span class="hide">eur</span></i></button>
+<button class="btn--transparent"><i class="fa fa-euro"><span class="hide">euro</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gbp"><span class="hide">gbp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gg"><span class="hide">gg</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gg-circle"><span class="hide">gg-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ils"><span class="hide">ils</span></i></button>
+<button class="btn--transparent"><i class="fa fa-inr"><span class="hide">inr</span></i></button>
+<button class="btn--transparent"><i class="fa fa-jpy"><span class="hide">jpy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-krw"><span class="hide">krw</span></i></button>
+<button class="btn--transparent"><i class="fa fa-money"><span class="hide">money</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rmb"><span class="hide">rmb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rouble"><span class="hide">rouble</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rub"><span class="hide">rub</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ruble"><span class="hide">ruble</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rupee"><span class="hide">rupee</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shekel"><span class="hide">shekel</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sheqel"><span class="hide">sheqel</span></i></button>
+<button class="btn--transparent"><i class="fa fa-try"><span class="hide">try</span></i></button>
+<button class="btn--transparent"><i class="fa fa-turkish-lira"><span class="hide">turkish-lira</span></i></button>
+<button class="btn--transparent"><i class="fa fa-usd"><span class="hide">usd</span></i></button>
+<button class="btn--transparent"><i class="fa fa-viacoin"><span class="hide">viacoin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-won"><span class="hide">won</span></i></button>
+<button class="btn--transparent"><i class="fa fa-yen"><span class="hide">yen</span></i></button>
+<button class="btn--transparent"><i class="fa fa-align-center"><span class="hide">align-center</span></i></button>
+<button class="btn--transparent"><i class="fa fa-align-justify"><span class="hide">align-justify</span></i></button>
+<button class="btn--transparent"><i class="fa fa-align-left"><span class="hide">align-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-align-right"><span class="hide">align-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bold"><span class="hide">bold</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chain"><span class="hide">chain</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chain-broken"><span class="hide">chain-broken</span></i></button>
+<button class="btn--transparent"><i class="fa fa-clipboard"><span class="hide">clipboard</span></i></button>
+<button class="btn--transparent"><i class="fa fa-columns"><span class="hide">columns</span></i></button>
+<button class="btn--transparent"><i class="fa fa-copy"><span class="hide">copy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cut"><span class="hide">cut</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dedent"><span class="hide">dedent</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eraser"><span class="hide">eraser</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file"><span class="hide">file</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-o"><span class="hide">file-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-text"><span class="hide">file-text</span></i></button>
+<button class="btn--transparent"><i class="fa fa-file-text-o"><span class="hide">file-text-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-files-o"><span class="hide">files-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-floppy-o"><span class="hide">floppy-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-font"><span class="hide">font</span></i></button>
+<button class="btn--transparent"><i class="fa fa-header"><span class="hide">header</span></i></button>
+<button class="btn--transparent"><i class="fa fa-indent"><span class="hide">indent</span></i></button>
+<button class="btn--transparent"><i class="fa fa-italic"><span class="hide">italic</span></i></button>
+<button class="btn--transparent"><i class="fa fa-link"><span class="hide">link</span></i></button>
+<button class="btn--transparent"><i class="fa fa-list"><span class="hide">list</span></i></button>
+<button class="btn--transparent"><i class="fa fa-list-alt"><span class="hide">list-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-list-ol"><span class="hide">list-ol</span></i></button>
+<button class="btn--transparent"><i class="fa fa-list-ul"><span class="hide">list-ul</span></i></button>
+<button class="btn--transparent"><i class="fa fa-outdent"><span class="hide">outdent</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paperclip"><span class="hide">paperclip</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paragraph"><span class="hide">paragraph</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paste"><span class="hide">paste</span></i></button>
+<button class="btn--transparent"><i class="fa fa-repeat"><span class="hide">repeat</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rotate-left"><span class="hide">rotate-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rotate-right"><span class="hide">rotate-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-save"><span class="hide">save</span></i></button>
+<button class="btn--transparent"><i class="fa fa-scissors"><span class="hide">scissors</span></i></button>
+<button class="btn--transparent"><i class="fa fa-strikethrough"><span class="hide">strikethrough</span></i></button>
+<button class="btn--transparent"><i class="fa fa-subscript"><span class="hide">subscript</span></i></button>
+<button class="btn--transparent"><i class="fa fa-superscript"><span class="hide">superscript</span></i></button>
+<button class="btn--transparent"><i class="fa fa-table"><span class="hide">table</span></i></button>
+<button class="btn--transparent"><i class="fa fa-text-height"><span class="hide">text-height</span></i></button>
+<button class="btn--transparent"><i class="fa fa-text-width"><span class="hide">text-width</span></i></button>
+<button class="btn--transparent"><i class="fa fa-th"><span class="hide">th</span></i></button>
+<button class="btn--transparent"><i class="fa fa-th-large"><span class="hide">th-large</span></i></button>
+<button class="btn--transparent"><i class="fa fa-th-list"><span class="hide">th-list</span></i></button>
+<button class="btn--transparent"><i class="fa fa-underline"><span class="hide">underline</span></i></button>
+<button class="btn--transparent"><i class="fa fa-undo"><span class="hide">undo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-unlink"><span class="hide">unlink</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-double-down"><span class="hide">angle-double-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-double-left"><span class="hide">angle-double-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-double-right"><span class="hide">angle-double-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-double-up"><span class="hide">angle-double-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-down"><span class="hide">angle-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-left"><span class="hide">angle-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-right"><span class="hide">angle-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angle-up"><span class="hide">angle-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-down"><span class="hide">arrow-circle-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-left"><span class="hide">arrow-circle-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-o-down"><span class="hide">arrow-circle-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-o-left"><span class="hide">arrow-circle-o-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-o-right"><span class="hide">arrow-circle-o-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-o-up"><span class="hide">arrow-circle-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-right"><span class="hide">arrow-circle-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-circle-up"><span class="hide">arrow-circle-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-down"><span class="hide">arrow-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-left"><span class="hide">arrow-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-right"><span class="hide">arrow-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrow-up"><span class="hide">arrow-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows"><span class="hide">arrows</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows-alt"><span class="hide">arrows-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows-h"><span class="hide">arrows-h</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows-v"><span class="hide">arrows-v</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-down"><span class="hide">caret-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-left"><span class="hide">caret-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-right"><span class="hide">caret-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-down"><span class="hide">caret-square-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-left"><span class="hide">caret-square-o-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-right"><span class="hide">caret-square-o-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-square-o-up"><span class="hide">caret-square-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-caret-up"><span class="hide">caret-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-circle-down"><span class="hide">chevron-circle-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-circle-left"><span class="hide">chevron-circle-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-circle-right"><span class="hide">chevron-circle-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-circle-up"><span class="hide">chevron-circle-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-down"><span class="hide">chevron-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-left"><span class="hide">chevron-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-right"><span class="hide">chevron-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chevron-up"><span class="hide">chevron-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-exchange"><span class="hide">exchange</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-down"><span class="hide">hand-o-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-left"><span class="hide">hand-o-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-right"><span class="hide">hand-o-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hand-o-up"><span class="hide">hand-o-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-long-arrow-down"><span class="hide">long-arrow-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-long-arrow-left"><span class="hide">long-arrow-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-long-arrow-right"><span class="hide">long-arrow-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-long-arrow-up"><span class="hide">long-arrow-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-down"><span class="hide">toggle-down</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-left"><span class="hide">toggle-left</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-right"><span class="hide">toggle-right</span></i></button>
+<button class="btn--transparent"><i class="fa fa-toggle-up"><span class="hide">toggle-up</span></i></button>
+<button class="btn--transparent"><i class="fa fa-arrows-alt"><span class="hide">arrows-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-backward"><span class="hide">backward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-compress"><span class="hide">compress</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eject"><span class="hide">eject</span></i></button>
+<button class="btn--transparent"><i class="fa fa-expand"><span class="hide">expand</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fast-backward"><span class="hide">fast-backward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fast-forward"><span class="hide">fast-forward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-forward"><span class="hide">forward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pause"><span class="hide">pause</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pause-circle"><span class="hide">pause-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pause-circle-o"><span class="hide">pause-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-play"><span class="hide">play</span></i></button>
+<button class="btn--transparent"><i class="fa fa-play-circle"><span class="hide">play-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-play-circle-o"><span class="hide">play-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-random"><span class="hide">random</span></i></button>
+<button class="btn--transparent"><i class="fa fa-step-backward"><span class="hide">step-backward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-step-forward"><span class="hide">step-forward</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stop"><span class="hide">stop</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stop-circle"><span class="hide">stop-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stop-circle-o"><span class="hide">stop-circle-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-youtube-play"><span class="hide">youtube-play</span></i></button>
+<button class="btn--transparent"><i class="fa fa-500px"><span class="hide">500px</span></i></button>
+<button class="btn--transparent"><i class="fa fa-adn"><span class="hide">adn</span></i></button>
+<button class="btn--transparent"><i class="fa fa-amazon"><span class="hide">amazon</span></i></button>
+<button class="btn--transparent"><i class="fa fa-android"><span class="hide">android</span></i></button>
+<button class="btn--transparent"><i class="fa fa-angellist"><span class="hide">angellist</span></i></button>
+<button class="btn--transparent"><i class="fa fa-apple"><span class="hide">apple</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bandcamp"><span class="hide">bandcamp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-behance"><span class="hide">behance</span></i></button>
+<button class="btn--transparent"><i class="fa fa-behance-square"><span class="hide">behance-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bitbucket"><span class="hide">bitbucket</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bitbucket-square"><span class="hide">bitbucket-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bitcoin"><span class="hide">bitcoin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-black-tie"><span class="hide">black-tie</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bluetooth"><span class="hide">bluetooth</span></i></button>
+<button class="btn--transparent"><i class="fa fa-bluetooth-b"><span class="hide">bluetooth-b</span></i></button>
+<button class="btn--transparent"><i class="fa fa-btc"><span class="hide">btc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-buysellads"><span class="hide">buysellads</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-amex"><span class="hide">cc-amex</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-diners-club"><span class="hide">cc-diners-club</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-discover"><span class="hide">cc-discover</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-jcb"><span class="hide">cc-jcb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-mastercard"><span class="hide">cc-mastercard</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-paypal"><span class="hide">cc-paypal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-stripe"><span class="hide">cc-stripe</span></i></button>
+<button class="btn--transparent"><i class="fa fa-cc-visa"><span class="hide">cc-visa</span></i></button>
+<button class="btn--transparent"><i class="fa fa-chrome"><span class="hide">chrome</span></i></button>
+<button class="btn--transparent"><i class="fa fa-codepen"><span class="hide">codepen</span></i></button>
+<button class="btn--transparent"><i class="fa fa-codiepie"><span class="hide">codiepie</span></i></button>
+<button class="btn--transparent"><i class="fa fa-connectdevelop"><span class="hide">connectdevelop</span></i></button>
+<button class="btn--transparent"><i class="fa fa-contao"><span class="hide">contao</span></i></button>
+<button class="btn--transparent"><i class="fa fa-css3"><span class="hide">css3</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dashcube"><span class="hide">dashcube</span></i></button>
+<button class="btn--transparent"><i class="fa fa-delicious"><span class="hide">delicious</span></i></button>
+<button class="btn--transparent"><i class="fa fa-deviantart"><span class="hide">deviantart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-digg"><span class="hide">digg</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dribbble"><span class="hide">dribbble</span></i></button>
+<button class="btn--transparent"><i class="fa fa-dropbox"><span class="hide">dropbox</span></i></button>
+<button class="btn--transparent"><i class="fa fa-drupal"><span class="hide">drupal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-edge"><span class="hide">edge</span></i></button>
+<button class="btn--transparent"><i class="fa fa-eercast"><span class="hide">eercast</span></i></button>
+<button class="btn--transparent"><i class="fa fa-empire"><span class="hide">empire</span></i></button>
+<button class="btn--transparent"><i class="fa fa-envira"><span class="hide">envira</span></i></button>
+<button class="btn--transparent"><i class="fa fa-etsy"><span class="hide">etsy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-expeditedssl"><span class="hide">expeditedssl</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fa"><span class="hide">fa</span></i></button>
+<button class="btn--transparent"><i class="fa fa-facebook"><span class="hide">facebook</span></i></button>
+<button class="btn--transparent"><i class="fa fa-facebook-f"><span class="hide">facebook-f</span></i></button>
+<button class="btn--transparent"><i class="fa fa-facebook-official"><span class="hide">facebook-official</span></i></button>
+<button class="btn--transparent"><i class="fa fa-facebook-square"><span class="hide">facebook-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-firefox"><span class="hide">firefox</span></i></button>
+<button class="btn--transparent"><i class="fa fa-first-order"><span class="hide">first-order</span></i></button>
+<button class="btn--transparent"><i class="fa fa-flickr"><span class="hide">flickr</span></i></button>
+<button class="btn--transparent"><i class="fa fa-font-awesome"><span class="hide">font-awesome</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fonticons"><span class="hide">fonticons</span></i></button>
+<button class="btn--transparent"><i class="fa fa-fort-awesome"><span class="hide">fort-awesome</span></i></button>
+<button class="btn--transparent"><i class="fa fa-forumbee"><span class="hide">forumbee</span></i></button>
+<button class="btn--transparent"><i class="fa fa-foursquare"><span class="hide">foursquare</span></i></button>
+<button class="btn--transparent"><i class="fa fa-free-code-camp"><span class="hide">free-code-camp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ge"><span class="hide">ge</span></i></button>
+<button class="btn--transparent"><i class="fa fa-get-pocket"><span class="hide">get-pocket</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gg"><span class="hide">gg</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gg-circle"><span class="hide">gg-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-git"><span class="hide">git</span></i></button>
+<button class="btn--transparent"><i class="fa fa-git-square"><span class="hide">git-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-github"><span class="hide">github</span></i></button>
+<button class="btn--transparent"><i class="fa fa-github-alt"><span class="hide">github-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-github-square"><span class="hide">github-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gitlab"><span class="hide">gitlab</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gittip"><span class="hide">gittip</span></i></button>
+<button class="btn--transparent"><i class="fa fa-glide"><span class="hide">glide</span></i></button>
+<button class="btn--transparent"><i class="fa fa-glide-g"><span class="hide">glide-g</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google"><span class="hide">google</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google-plus"><span class="hide">google-plus</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google-plus-circle"><span class="hide">google-plus-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google-plus-official"><span class="hide">google-plus-official</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google-plus-square"><span class="hide">google-plus-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-google-wallet"><span class="hide">google-wallet</span></i></button>
+<button class="btn--transparent"><i class="fa fa-gratipay"><span class="hide">gratipay</span></i></button>
+<button class="btn--transparent"><i class="fa fa-grav"><span class="hide">grav</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hacker-news"><span class="hide">hacker-news</span></i></button>
+<button class="btn--transparent"><i class="fa fa-houzz"><span class="hide">houzz</span></i></button>
+<button class="btn--transparent"><i class="fa fa-html5"><span class="hide">html5</span></i></button>
+<button class="btn--transparent"><i class="fa fa-imdb"><span class="hide">imdb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-instagram"><span class="hide">instagram</span></i></button>
+<button class="btn--transparent"><i class="fa fa-internet-explorer"><span class="hide">internet-explorer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ioxhost"><span class="hide">ioxhost</span></i></button>
+<button class="btn--transparent"><i class="fa fa-joomla"><span class="hide">joomla</span></i></button>
+<button class="btn--transparent"><i class="fa fa-jsfiddle"><span class="hide">jsfiddle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-lastfm"><span class="hide">lastfm</span></i></button>
+<button class="btn--transparent"><i class="fa fa-lastfm-square"><span class="hide">lastfm-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-leanpub"><span class="hide">leanpub</span></i></button>
+<button class="btn--transparent"><i class="fa fa-linkedin"><span class="hide">linkedin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-linkedin-square"><span class="hide">linkedin-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-linode"><span class="hide">linode</span></i></button>
+<button class="btn--transparent"><i class="fa fa-linux"><span class="hide">linux</span></i></button>
+<button class="btn--transparent"><i class="fa fa-maxcdn"><span class="hide">maxcdn</span></i></button>
+<button class="btn--transparent"><i class="fa fa-meanpath"><span class="hide">meanpath</span></i></button>
+<button class="btn--transparent"><i class="fa fa-medium"><span class="hide">medium</span></i></button>
+<button class="btn--transparent"><i class="fa fa-meetup"><span class="hide">meetup</span></i></button>
+<button class="btn--transparent"><i class="fa fa-mixcloud"><span class="hide">mixcloud</span></i></button>
+<button class="btn--transparent"><i class="fa fa-modx"><span class="hide">modx</span></i></button>
+<button class="btn--transparent"><i class="fa fa-odnoklassniki"><span class="hide">odnoklassniki</span></i></button>
+<button class="btn--transparent"><i class="fa fa-odnoklassniki-square"><span class="hide">odnoklassniki-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-opencart"><span class="hide">opencart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-openid"><span class="hide">openid</span></i></button>
+<button class="btn--transparent"><i class="fa fa-opera"><span class="hide">opera</span></i></button>
+<button class="btn--transparent"><i class="fa fa-optin-monster"><span class="hide">optin-monster</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pagelines"><span class="hide">pagelines</span></i></button>
+<button class="btn--transparent"><i class="fa fa-paypal"><span class="hide">paypal</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pied-piper"><span class="hide">pied-piper</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pied-piper-alt"><span class="hide">pied-piper-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pied-piper-pp"><span class="hide">pied-piper-pp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pinterest"><span class="hide">pinterest</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pinterest-p"><span class="hide">pinterest-p</span></i></button>
+<button class="btn--transparent"><i class="fa fa-pinterest-square"><span class="hide">pinterest-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-product-hunt"><span class="hide">product-hunt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-qq"><span class="hide">qq</span></i></button>
+<button class="btn--transparent"><i class="fa fa-quora"><span class="hide">quora</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ra"><span class="hide">ra</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ravelry"><span class="hide">ravelry</span></i></button>
+<button class="btn--transparent"><i class="fa fa-rebel"><span class="hide">rebel</span></i></button>
+<button class="btn--transparent"><i class="fa fa-reddit"><span class="hide">reddit</span></i></button>
+<button class="btn--transparent"><i class="fa fa-reddit-alien"><span class="hide">reddit-alien</span></i></button>
+<button class="btn--transparent"><i class="fa fa-reddit-square"><span class="hide">reddit-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-renren"><span class="hide">renren</span></i></button>
+<button class="btn--transparent"><i class="fa fa-resistance"><span class="hide">resistance</span></i></button>
+<button class="btn--transparent"><i class="fa fa-safari"><span class="hide">safari</span></i></button>
+<button class="btn--transparent"><i class="fa fa-scribd"><span class="hide">scribd</span></i></button>
+<button class="btn--transparent"><i class="fa fa-sellsy"><span class="hide">sellsy</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share-alt"><span class="hide">share-alt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-share-alt-square"><span class="hide">share-alt-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-shirtsinbulk"><span class="hide">shirtsinbulk</span></i></button>
+<button class="btn--transparent"><i class="fa fa-simplybuilt"><span class="hide">simplybuilt</span></i></button>
+<button class="btn--transparent"><i class="fa fa-skyatlas"><span class="hide">skyatlas</span></i></button>
+<button class="btn--transparent"><i class="fa fa-skype"><span class="hide">skype</span></i></button>
+<button class="btn--transparent"><i class="fa fa-slack"><span class="hide">slack</span></i></button>
+<button class="btn--transparent"><i class="fa fa-slideshare"><span class="hide">slideshare</span></i></button>
+<button class="btn--transparent"><i class="fa fa-snapchat"><span class="hide">snapchat</span></i></button>
+<button class="btn--transparent"><i class="fa fa-snapchat-ghost"><span class="hide">snapchat-ghost</span></i></button>
+<button class="btn--transparent"><i class="fa fa-snapchat-square"><span class="hide">snapchat-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-soundcloud"><span class="hide">soundcloud</span></i></button>
+<button class="btn--transparent"><i class="fa fa-spotify"><span class="hide">spotify</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stack-exchange"><span class="hide">stack-exchange</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stack-overflow"><span class="hide">stack-overflow</span></i></button>
+<button class="btn--transparent"><i class="fa fa-steam"><span class="hide">steam</span></i></button>
+<button class="btn--transparent"><i class="fa fa-steam-square"><span class="hide">steam-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stumbleupon"><span class="hide">stumbleupon</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stumbleupon-circle"><span class="hide">stumbleupon-circle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-superpowers"><span class="hide">superpowers</span></i></button>
+<button class="btn--transparent"><i class="fa fa-telegram"><span class="hide">telegram</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tencent-weibo"><span class="hide">tencent-weibo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-themeisle"><span class="hide">themeisle</span></i></button>
+<button class="btn--transparent"><i class="fa fa-trello"><span class="hide">trello</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tripadvisor"><span class="hide">tripadvisor</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tumblr"><span class="hide">tumblr</span></i></button>
+<button class="btn--transparent"><i class="fa fa-tumblr-square"><span class="hide">tumblr-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-twitch"><span class="hide">twitch</span></i></button>
+<button class="btn--transparent"><i class="fa fa-twitter"><span class="hide">twitter</span></i></button>
+<button class="btn--transparent"><i class="fa fa-twitter-square"><span class="hide">twitter-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-usb"><span class="hide">usb</span></i></button>
+<button class="btn--transparent"><i class="fa fa-viacoin"><span class="hide">viacoin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-viadeo"><span class="hide">viadeo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-viadeo-square"><span class="hide">viadeo-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vimeo"><span class="hide">vimeo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vimeo-square"><span class="hide">vimeo-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vine"><span class="hide">vine</span></i></button>
+<button class="btn--transparent"><i class="fa fa-vk"><span class="hide">vk</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wechat"><span class="hide">wechat</span></i></button>
+<button class="btn--transparent"><i class="fa fa-weibo"><span class="hide">weibo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-weixin"><span class="hide">weixin</span></i></button>
+<button class="btn--transparent"><i class="fa fa-whatsapp"><span class="hide">whatsapp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wikipedia-w"><span class="hide">wikipedia-w</span></i></button>
+<button class="btn--transparent"><i class="fa fa-windows"><span class="hide">windows</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wordpress"><span class="hide">wordpress</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wpbeginner"><span class="hide">wpbeginner</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wpexplorer"><span class="hide">wpexplorer</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wpforms"><span class="hide">wpforms</span></i></button>
+<button class="btn--transparent"><i class="fa fa-xing"><span class="hide">xing</span></i></button>
+<button class="btn--transparent"><i class="fa fa-xing-square"><span class="hide">xing-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-y-combinator"><span class="hide">y-combinator</span></i></button>
+<button class="btn--transparent"><i class="fa fa-y-combinator-square"><span class="hide">y-combinator-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-yahoo"><span class="hide">yahoo</span></i></button>
+<button class="btn--transparent"><i class="fa fa-yc"><span class="hide">yc</span></i></button>
+<button class="btn--transparent"><i class="fa fa-yc-square"><span class="hide">yc-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-yelp"><span class="hide">yelp</span></i></button>
+<button class="btn--transparent"><i class="fa fa-yoast"><span class="hide">yoast</span></i></button>
+<button class="btn--transparent"><i class="fa fa-youtube"><span class="hide">youtube</span></i></button>
+<button class="btn--transparent"><i class="fa fa-youtube-play"><span class="hide">youtube-play</span></i></button>
+<button class="btn--transparent"><i class="fa fa-youtube-square"><span class="hide">youtube-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-ambulance"><span class="hide">ambulance</span></i></button>
+<button class="btn--transparent"><i class="fa fa-h-square"><span class="hide">h-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-heart"><span class="hide">heart</span></i></button>
+<button class="btn--transparent"><i class="fa fa-heart-o"><span class="hide">heart-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-heartbeat"><span class="hide">heartbeat</span></i></button>
+<button class="btn--transparent"><i class="fa fa-hospital-o"><span class="hide">hospital-o</span></i></button>
+<button class="btn--transparent"><i class="fa fa-medkit"><span class="hide">medkit</span></i></button>
+<button class="btn--transparent"><i class="fa fa-plus-square"><span class="hide">plus-square</span></i></button>
+<button class="btn--transparent"><i class="fa fa-stethoscope"><span class="hide">stethoscope</span></i></button>
+<button class="btn--transparent"><i class="fa fa-user-md"><span class="hide">user-md</span></i></button>
+<button class="btn--transparent"><i class="fa fa-wheelchair"><span class="hide">wheelchair</span></i></button>
+
+             </h1>
+           </div>
+            
+            <p>
+              <a class="btn--blue pointer" data-action="addicon" data-toggle="icons">Add Icon</a>
+              <a class="btn--green pointer" data-toggle="icons">Close</a>
             </p>
           </div>
         </nav>

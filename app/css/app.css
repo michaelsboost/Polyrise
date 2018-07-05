@@ -265,6 +265,13 @@ input#cookiesAlert:checked + label:after {
   left: 20px;
   box-shadow: inset 0 0 0 1px #13bf11, 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+.iconmodule h2 {
+  text-align: left;
+}
+.iconmodule #icons h1 {
+  height: calc(100vh - 325px);
+  overflow: auto;
+}
 
 /* Animations */
 .bounceIn {
@@ -470,6 +477,12 @@ input#cookiesAlert:checked + label:after {
 }
 
 /* custom button styles */
+.btn--transparent {
+  background: none;
+  color: #656a6d;
+  display: inline-block;
+  width: auto;
+}
 .btndefault {
   color: #52bab3;
 }
