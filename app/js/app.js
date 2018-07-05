@@ -34,7 +34,8 @@ $("[data-editorbar=delete]").click(function() {
   }
 });
 $("[data-notavail]").click(function() {
-  console.error('Error: no function for wysiwyg actions');
+  alertify.error('Error: no function for this wysiwyg action');
+  console.error('Error: no function for this wysiwyg action');
   return false;
 });
 
