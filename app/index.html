@@ -62,7 +62,13 @@
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Italic" data-exec="italic">
         <i class="fa fa-italic"></i>
       </button>
-      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="link" data-notavail>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Underline" data-exec="underline">
+        <i class="fa fa-underline"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Strikethrough" data-exec="strikeThrough">
+        <i class="fa fa-strikethrough"></i>
+      </button>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="link">
         <i class="fa fa-link"></i>
       </button>
       <button class="hint--rounded hint--no-animate hint--bottom chosentxtcolor" aria-label="Color" style="color: #4d9dc6;" data-editorbar="color">
@@ -2035,6 +2041,28 @@
                <i class="fa fa-plus"></i>
              </h1>
             </div>
+            <div class="check4link hide">
+              <h4 class="tl">
+                Hyperlink:
+              </h4>
+              <h4 class="tl">
+                <div class="grid__col--9 nomar">
+                  <input id="iconlink" class="form__input" type="text" placeholder="Link url">
+                </div>
+                <div class="grid__col--3 nomar tl">
+                  <input type='checkbox' class='ios8-switch ios8-switch-lg hide' id='iconnewtab'>
+                  <label for='iconnewtab'>new tab?</label>
+                </div>
+                <div class="grid__col--12">
+                  <input id="iconlinktitle" class="form__input" type="text" placeholder="Title">
+
+                  <p>
+                    <hr style="opacity: 0.5;">
+                  </p>
+                </div>
+              </h4>
+            </div>
+            
            <h4 class="tl">
              <input type="text" id="searchicons" class="form__input" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome">
            </h4>
@@ -3114,6 +3142,7 @@
               <input id="slinktitle" class="form__input" type="text" placeholder="Title">
             </div>
             <p>
+              <a class="btn--blue pointer" data-insert="link">Add Link</a>
               <a class="btn--green pointer" data-toggle="links">Close</a>
             </p>
           </div>
@@ -3162,7 +3191,7 @@
     </div>
     
     <script src="../libraries/alertifyjs/alertify.min.js"></script>
-    <script src="../libraries/jquery/jquery.js"></script>
+    <script src="../libraries/jquery/jquery.min.js"></script>
     <script src="../libraries/jqueryui/jquery.ui.touch-punch.min.js"></script>
     <script src="../libraries/jqueryui/jqueryui.min.js"></script>
     <script src="js/resizeselect.js"></script>

@@ -23,8 +23,8 @@ MIT
 
 ### To Do
 
-- Make dialog window for all links
-- Edit properties panel
+- Edit/Add properties panel
+- Better mobile support
 
 ### Free Software, Hell Yeah!
 

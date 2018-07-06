@@ -221,9 +221,10 @@ nav {
 }
 input[type="checkbox"].ios8-switch {
     position: absolute;
-    margin: 8px 0 0 16px;    
+    margin: 8px 0 0 16px;
 }
 input[type="checkbox"].ios8-switch + label {
+    cursor: pointer;
     position: relative;
     padding: 5px 0 0 50px;
     line-height: 2.0em;
@@ -271,6 +272,7 @@ input[type="checkbox"].ios8-switch-sm {
     margin: 5px 0 0 10px;
 }
 input[type="checkbox"].ios8-switch-sm + label {
+    cursor: pointer;
     position: relative;
     padding: 0 0 0 32px;
     line-height: 1.3em;
@@ -297,6 +299,7 @@ input[type="checkbox"].ios8-switch-lg {
     margin: 10px 0 0 20px;
 }
 input[type="checkbox"].ios8-switch-lg + label {
+    cursor: pointer;
     position: relative;
     padding: 7px 0 0 60px;
     line-height: 2.3em;
@@ -681,4 +684,7 @@ input[type="checkbox"].ios8-switch-lg:checked + label:after {
 }
 .donatebanner {
   background: #ebfff1;
+}
+.alertify-notifier {
+  z-index: 99999999;
 }

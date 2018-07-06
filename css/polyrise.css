@@ -460,6 +460,9 @@ html, body {
 .nomar {
   margin: 0;
 }
+.nopad {
+  padding: 0;
+}
 .posr {
   position: relative;
 }

@@ -214,43 +214,171 @@ $("[data-editorbar=blink]").on('click', function() {
     $('#slink').val($(".selected").attr('href'));
     $('#slinktitle').val($(".selected").attr('title'));
     if (!$(".selected").prop("target")) {
-      $('#snewtab').attr('checked', false);
+      $('#snewtab').prop('checked', false);
     } else {
-      $('#snewtab').attr('checked', true);
+      $('#snewtab').prop('checked', true);
     }
     
     $("[data-toggle=links]").trigger('click');
   }
 });
+// check selector link data for text
+$("[data-editorbar=link]").on('click', function() {
+  if ( $(".selected").is(":visible") ) {
+    var selected = $(".selected").parents('a');
+    $('[data-insert=link]').hide();
+    
+    if (selected.is(":visible")) {
+      $('#slink').val(selected.attr('href'));
+      $('#slinktitle').val(selected.attr('title'));
+      if (!selected.prop("target")) {
+        $('#snewtab').prop('checked', false);
+      } else {
+        $('#snewtab').prop('checked', true);
+      }
+
+      $("[data-module=links]").fadeIn();
+      return false;
+    } else if ($(".selected").prop('tagName').toLowerCase() === "a") {
+      var selected = $(".selected");
+      
+      $('#slink').val(selected.attr('href'));
+      $('#slinktitle').val(selected.attr('title'));
+      if (!selected.prop("target")) {
+        $('#snewtab').prop('checked', false);
+      } else {
+        $('#snewtab').prop('checked', true);
+      }
+
+      $("[data-module=links]").fadeIn();
+      return false;
+    } else {
+      if (!window.getSelection().toString()) {
+        $('[data-insert=link]').hide();
+
+        alertify.error('Error: no anchor parent or editable selection');
+        return false;
+      } else {
+        document.execCommand('insertHTML', false, '<a href="javascript:void(0)">'+window.getSelection().toString()+'</a>');
+        editableFunctions();
+        runBubbleBar();
+        return false;
+      }
+    }
+  }
+  return false;
+});
 
 // change selected elements link data
 $('#slink').on('keyup', function() {
   if ( $(".selected").is(":visible") ) {
-    if (!this.value) {
-      $(".selected").attr('href', '');
-      $(".selected").removeAttr('href');
-    } else {
-      $(".selected").attr('href', this.value);
+    if ($(".selected").parents('a').is(":visible")) {
+      var selected = $(".selected").parents('a');
+
+      if (!this.value) {
+        selected.attr('href', '');
+        selected.removeAttr('href');
+      } else {
+        selected.attr('href', this.value);
+      }
+    } else if ($(".selected").prop('tagName').toLowerCase() === "a") {
+      var selected = $(".selected");
+
+      if (!this.value) {
+        selected.attr('href', '');
+        selected.removeAttr('href');
+      } else {
+        selected.attr('href', this.value);
+      }
     }
   }
 });
 $('#snewtab').on('change', function() {
   if ($(".selected").is(":visible")) {
-    if ($(this).is(":checked")) {
-      $(".selected").prop("target", "_blank");
-    } else {
-      $(".selected").prop("target", "");
-      $(".selected").removeAttr("target");
+    if ($(".selected").parents('a').is(":visible")) {
+      var selected = $(".selected").parents('a');
+
+      if ($(this).is(':checked')) {
+        selected.prop("target", "_blank");
+      } else {
+        selected.prop("target", "");
+        selected.removeAttr("target");
+      }
+    } else if ($(".selected").prop('tagName').toLowerCase() === "a") {
+      var selected = $(".selected");
+
+      if ($(this).is(':checked')) {
+        selected.prop("target", "_blank");
+      } else {
+        selected.prop("target", "");
+        selected.removeAttr("target");
+      }
     }
   }
 });
 $('#slinktitle').on('keyup', function() {
   if ( $(".selected").is(":visible") ) {
-    if (!this.value) {
-      $(".selected").attr('title', '');
-      $(".selected").removeAttr('title');
-    } else {
-      $(".selected").attr('title', this.value);
+    if ($(".selected").parents('a').is(":visible")) {
+      var selected = $(".selected").parents('a');
+
+      if (!this.value) {
+        selected.attr('title', '');
+        selected.removeAttr('title');
+      } else {
+        selected.attr('title', this.value);
+      }
+    } else if ($(".selected").prop('tagName').toLowerCase() === "a") {
+      var selected = $(".selected");
+
+      if (!this.value) {
+        selected.attr('title', '');
+        selected.removeAttr('title');
+      } else {
+        selected.attr('title', this.value);
+      }
+    }
+  }
+});
+
+// change selected elements link data
+$('#iconlink').on('keyup', function() {
+  if ( $(".selectedicon").is(":visible") ) {
+    if ($(".selectedicon").parents('a').is(":visible")) {
+      var selected = $(".selectedicon").parents('a');
+
+      if (!this.value) {
+        selected.attr('href', 'javascript:void(0)');
+      } else {
+        selected.attr('href', this.value);
+      }
+    }
+  }
+});
+$('#iconnewtab').on('change', function() {
+  if ($(".selectedicon").is(":visible")) {
+    if ($(".selectedicon").parents('a').is(":visible")) {
+      var selected = $(".selectedicon").parents('a');
+
+      if ($(this).is(':checked')) {
+        selected.prop("target", "_blank");
+      } else {
+        selected.prop("target", "");
+        selected.removeAttr("target");
+      }
+    }
+  }
+});
+$('#iconlinktitle').on('keyup', function() {
+  if ( $(".selectedicon").is(":visible") ) {
+    if ($(".selectedicon").parents('a').is(":visible")) {
+      var selected = $(".selectedicon").parents('a');
+
+      if (!this.value) {
+        selected.attr('title', '');
+        selected.removeAttr('title');
+      } else {
+        selected.attr('title', this.value);
+      }
     }
   }
 });
@@ -369,8 +497,25 @@ function runBubbleBar() {
     $('[data-action=addicon]').text('Replace Icon').hide();
     $('.currenticon h1 i').attr('class', this.className);
     $('.currenticon').show();
-    $('[data-module=icons]').fadeIn();
+    
     $(this).addClass('selectedicon');
+    if ($(".selectedicon").parents('a').is(":visible")) {
+      var selected = $(".selectedicon").parents('a');
+      
+      $('#iconlink').val(selected.attr('href'));
+      $('#iconlinktitle').val(selected.attr('title'));
+      if (!selected.prop("target")) {
+        $('#iconnewtab').prop('checked', false);
+      } else {
+        $('#iconnewtab').prop('checked', true);
+      }
+      
+      $('.check4link').show();
+    } else {
+      $('.check4link').hide();
+    }
+    
+    $('[data-module=icons]').fadeIn();
   });
   
   // hide bubble editor
@@ -961,5 +1106,7 @@ $("[data-export=publish]").click(function(e) {
 });
 
 // add a theme block onload for testing
-$("[data-filter=header] .addblock img")[3].click();
+//$("[data-filter=header] .addblock img")[3].click();
 //$("[data-filter=testimonials] .addblock img")[4].click();
+//$("[data-filter=footers] .addblock img")[0].click();
+$("[data-filter=social] .addblock img")[1].click();
