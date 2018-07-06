@@ -23,8 +23,9 @@ MIT
 
 ### To Do
 
-- Edit/Add properties panel
 - Better mobile support
+- Adjust input forms somehow
+- Edit/Add properties panel
 
 ### Free Software, Hell Yeah!
 

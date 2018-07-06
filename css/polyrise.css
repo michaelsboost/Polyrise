@@ -466,6 +466,9 @@ html, body {
 .posr {
   position: relative;
 }
+.poss {
+  position: static;
+}
 .vcenter {
   position: relative;
   top: 50%;

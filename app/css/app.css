@@ -118,7 +118,7 @@ html, body {
   position: relative;
 }
 .blockbar {
-  position: relative;
+  position: absolute;
   text-align: right;
   margin: 0 -35px -39px 0;
   top: 0;
@@ -470,6 +470,14 @@ input[type="checkbox"].ios8-switch-lg:checked + label:after {
   box-shadow: 6px 5px 9px -9px black,
               5px 6px 9px -9px black;
   transform:  rotate(45deg) scale(.65);
+}
+
+.editorbar.inputeditorbar input {
+  width: calc(100% - 100px);
+}
+.editorbar.inputeditorbar button {
+  padding: 2px 12px;
+  font-size: 2rem;
 }
 
 /* default dropdown styles */

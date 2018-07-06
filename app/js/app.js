@@ -563,6 +563,10 @@ function editableFunctions() {
   // $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
   
   $(".canvas > .polyriseblock").on("click touchstart mouseover", function() {
+    $(".canvas > .polyriseblock").css('position', '');
+    $(".canvas > .polyriseblock").css('background-attachment', '');
+    this.style.position = "relative";
+    $(this).css('background-attachment', 'local');
     // $(".blockmenu").addClass("hide");
     $(".blockbar").addClass("hide");
     // $(".blockmenu").removeClass("hide");
@@ -972,10 +976,10 @@ $("[data-open=blocks]").on("click touchstart", function() {
 $("[data-call=styles]").on("click touchstart", function() {
   $("#blocktypes").val("styles").trigger("change");
 });
-$("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", function(e) {
+$("[data-call=canvas], [data-call=canvas] *").on("click touchstart", function(e) {
   $("[data-content=blocks]").animate({right: -300 + "px"}, 150);
 });
-$("[data-call=topbar]").on("click touchstart touchmove", function(e) {
+$("[data-call=topbar]").on("click touchstart", function(e) {
   $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
 });
 
@@ -1106,7 +1110,8 @@ $("[data-export=publish]").click(function(e) {
 });
 
 // add a theme block onload for testing
-$("[data-filter=header] .addblock img")[3].click();
+//$("[data-filter=header] .addblock img")[3].click();
+$("[data-filter=header] .addblock img")[9].click();
 //$("[data-filter=testimonials] .addblock img")[4].click();
 //$("[data-filter=footers] .addblock img")[0].click();
 //$("[data-filter=social] .addblock img")[1].click();
