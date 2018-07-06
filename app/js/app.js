@@ -208,6 +208,52 @@ $("[data-editorbar=color]").click(function() {
     $('.colorpicker').css('left', parseInt($('.chosentxtcolor').offset().left + $('.chosentxtcolor').width() * 1.5) + 'px');
   }
 });
+// check selector link data for buttons
+$("[data-editorbar=blink]").on('click', function() {
+  if ( $(".selected").is(":visible") ) {
+    $('#slink').val($(".selected").attr('href'));
+    $('#slinktitle').val($(".selected").attr('title'));
+    if (!$(".selected").prop("target")) {
+      $('#snewtab').attr('checked', false);
+    } else {
+      $('#snewtab').attr('checked', true);
+    }
+    
+    $("[data-toggle=links]").trigger('click');
+  }
+});
+
+// change selected elements link data
+$('#slink').on('keyup', function() {
+  if ( $(".selected").is(":visible") ) {
+    if (!this.value) {
+      $(".selected").attr('href', '');
+      $(".selected").removeAttr('href');
+    } else {
+      $(".selected").attr('href', this.value);
+    }
+  }
+});
+$('#snewtab').on('change', function() {
+  if ($(".selected").is(":visible")) {
+    if ($(this).is(":checked")) {
+      $(".selected").prop("target", "_blank");
+    } else {
+      $(".selected").prop("target", "");
+      $(".selected").removeAttr("target");
+    }
+  }
+});
+$('#slinktitle').on('keyup', function() {
+  if ( $(".selected").is(":visible") ) {
+    if (!this.value) {
+      $(".selected").attr('title', '');
+      $(".selected").removeAttr('title');
+    } else {
+      $(".selected").attr('title', this.value);
+    }
+  }
+});
 
 // WYSIWYG Bubble Editor
 function runBubbleBar() {
@@ -412,9 +458,6 @@ function editableFunctions() {
     $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
     $(".blockbar").addClass("hide");
   });
-  
-  // required by polyrise design
-  $(".bg-overlay, .bg-overlay2").fadeIn();
 
   // change image source via drag, drop and click
   $("[data-call=canvas] img").on("dragover", function(e) {
@@ -498,6 +541,9 @@ function editableFunctions() {
     var file = e.target.files[0];
     Convert2Base64BGIMG(file);
   });
+  
+  // required by polyrise design
+  $(".bg-overlay, .bg-overlay2").fadeIn();
   
   // initialize WYSIWYG Editor
   runBubbleBar();

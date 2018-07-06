@@ -85,7 +85,7 @@
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Move left" data-editorbar="moveleft">
         <i class="fa fa-arrow-left"></i>
       </button>
-      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="link" data-notavail>
+      <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Link" data-editorbar="blink">
         <i class="fa fa-link"></i>
       </button>
       <button class="hint--rounded hint--no-animate hint--bottom" aria-label="Add" data-editorbar="add">
@@ -3089,6 +3089,32 @@
             </div>
             <p>
               <a class="btn--green pointer" data-toggle="bgimages">Close</a>
+            </p>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="module-bg column hide" data-module="links">
+      <div>
+        <nav>
+          <div class="grid tc">
+            <h4 class="tl">
+              Hyperlink:
+            </h4>
+            <div class="grid__col--12">
+              <div class="grid__col--8 nomar">
+                <input id="slink" class="form__input" type="text" placeholder="Link url">
+              </div>
+              <div class="grid__col--3 nomar tl">
+                <input type='checkbox' class='ios8-switch ios8-switch-lg hide' id='snewtab'>
+                <label for='snewtab'>new tab?</label>
+              </div>
+            </div>
+            <div class="grid__col--12">
+              <input id="slinktitle" class="form__input" type="text" placeholder="Title">
+            </div>
+            <p>
+              <a class="btn--green pointer" data-toggle="links">Close</a>
             </p>
           </div>
         </nav>
