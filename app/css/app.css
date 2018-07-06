@@ -82,7 +82,8 @@ html, body {
 .canvas {
   position: absolute;
   top: 66px;
-  bottom: 0;
+/*  bottom: 0;*/
+  height: calc(100vh - 66px);
   width: 100%;
 /*  background: #afe2f2;*/
   background: #fff;
@@ -218,53 +219,105 @@ nav {
 .btn--red {
   background: #f44336;
 }
-input#cookiesAlert {
-  max-height: 0;
-  max-width: 0;
-  opacity: 0;
+input[type="checkbox"].ios8-switch {
+    position: absolute;
+    margin: 8px 0 0 16px;    
 }
-input#cookiesAlert + label {
-  display: inline-block;
-  position: relative;
-  box-shadow: inset 0 0 0px 1px #d5d5d5;
-  text-indent: -5000px;
-  height: 30px;
-  width: 50px;
-  border-radius: 15px;
+input[type="checkbox"].ios8-switch + label {
+    position: relative;
+    padding: 5px 0 0 50px;
+    line-height: 2.0em;
 }
-input#cookiesAlert + label:before {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 30px;
-  width: 30px;
-  top: 0;
-  left: 0;
-  border-radius: 15px;
-  background: rgba(19, 191, 17, 0);
-  transition: .25s ease-in-out;
+input[type="checkbox"].ios8-switch + label:before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 40px; /* x*5 */
+    height: 24px; /* x*3 */
+    border-radius: 16px; /* x*2 */
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
-input#cookiesAlert + label:after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 30px;
-  width: 30px;
-  top: 0;
-  left: 0px;
-  border-radius: 15px;
-  background: white;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: .25s ease-in-out;
+input[type="checkbox"].ios8-switch + label:after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    width: 24px; /* x*3 */
+    height: 24px; /* x*3 */
+    border-radius: 16px; /* x*2 */
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
-input#cookiesAlert:checked + label:before {
-  width: 50px;
-  background: #13bf11;
+input[type="checkbox"].ios8-switch + label:hover:after {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
-input#cookiesAlert:checked + label:after {
-  left: 20px;
-  box-shadow: inset 0 0 0 1px #13bf11, 0 2px 4px rgba(0, 0, 0, 0.2);
+input[type="checkbox"].ios8-switch:checked + label:after {
+    margin-left: 16px;
 }
+input[type="checkbox"].ios8-switch:checked + label:before {
+    background: #55D069;
+}
+
+/* SMALL */
+input[type="checkbox"].ios8-switch-sm {
+    margin: 5px 0 0 10px;
+}
+input[type="checkbox"].ios8-switch-sm + label {
+    position: relative;
+    padding: 0 0 0 32px;
+    line-height: 1.3em;
+}
+input[type="checkbox"].ios8-switch-sm + label:before {
+    width: 25px; /* x*5 */
+    height: 15px; /* x*3 */
+    border-radius: 10px; /* x*2 */
+}
+input[type="checkbox"].ios8-switch-sm + label:after {
+    width: 15px; /* x*3 */
+    height: 15px; /* x*3 */
+    border-radius: 10px; /* x*2 */
+}
+input[type="checkbox"].ios8-switch-sm + label:hover:after {
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+input[type="checkbox"].ios8-switch-sm:checked + label:after {
+    margin-left: 10px; /* x*2 */
+}
+
+/* LARGE */
+input[type="checkbox"].ios8-switch-lg {
+    margin: 10px 0 0 20px;
+}
+input[type="checkbox"].ios8-switch-lg + label {
+    position: relative;
+    padding: 7px 0 0 60px;
+    line-height: 2.3em;
+}
+input[type="checkbox"].ios8-switch-lg + label:before {
+    width: 50px; /* x*5 */
+    height: 30px; /* x*3 */
+    border-radius: 20px; /* x*2 */
+}
+input[type="checkbox"].ios8-switch-lg + label:after {
+    width: 30px; /* x*3 */
+    height: 30px; /* x*3 */
+    border-radius: 20px; /* x*2 */
+}
+input[type="checkbox"].ios8-switch-lg + label:hover:after {
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+input[type="checkbox"].ios8-switch-lg:checked + label:after {
+    margin-left: 20px; /* x*2 */
+}
+
 .iconmodule h2 {
   text-align: left;
 }
