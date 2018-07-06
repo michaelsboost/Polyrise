@@ -81,9 +81,8 @@ html, body {
 /* Canvas */
 .canvas {
   position: absolute;
-  top: 66px;
-/*  bottom: 0;*/
-  height: calc(100vh - 66px);
+  top: 58px;
+  bottom: 0;
   width: 100%;
 /*  background: #afe2f2;*/
   background: #fff;
@@ -423,7 +422,7 @@ input[type="checkbox"].ios8-switch-lg:checked + label:after {
 
 /* Tooltip Menu */
 .editorbar {
-  padding: 12px 3px;
+  padding: 7.5px 3px;
   text-align: center;
   white-space: nowrap;
 /*
