@@ -453,6 +453,7 @@ function editableFunctions() {
       var str = selector.css('background-image');
       var currentbg = str.substr(5, str.length - 7);
       $('#bgimageurl').val(currentbg).trigger('keyup');
+      $('#bgimgalt').val($('[data-call=canvas] .dropbgimg').attr('alt')).trigger('keyup');
       
       // https://images.pexels.com/photos/324658/pexels-photo-324658.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
       
@@ -480,7 +481,7 @@ function editableFunctions() {
       } else {
         $('#newtab').attr('checked', true);
       }
-      $('#linkalt').val(selA.attr('alt')).trigger('keyup');
+      $('#imgalt').val(selector.attr('alt')).trigger('keyup');
       $('#linktitle').val(selA.attr('title')).trigger('keyup');
     } else {
       $('.checkfora').hide();
@@ -700,6 +701,15 @@ $("#bgimageurl").on('keyup', function(e) {
     selector.css('background-image', "url(\""+ this.value +"\")");
   }
 });
+$('#bgimgalt').on('keyup', function() {
+  var selector = $('[data-call=canvas] .dropbgimg');
+  if (selector.is(":visible")) {
+    var selA = selector.parent();
+    selector.attr('alt', this.value);
+    if (!this.value)
+      selector.removeAttr("alt");
+  }
+});
 
 // change image link data
 $('#hyperlink').on('keyup', function() {
@@ -727,15 +737,13 @@ $('#newtab').on('change', function() {
     }
   }
 });
-$('#linkalt').on('keyup', function() {
+$('#imgalt').on('keyup', function() {
   var selector = $('[data-call=canvas] .dropimg');
   if (selector.is(":visible")) {
-    if (selector.parent().prop("tagName").toLowerCase() === "a") {
-      var selA = selector.parent();
-      selA.attr('alt', this.value);
-      if (!this.value)
-        selA.removeAttr("alt");
-    }
+    var selA = selector.parent();
+    selector.attr('alt', this.value);
+    if (!this.value)
+      selector.removeAttr("alt");
   }
 });
 $('#linktitle').on('keyup', function() {
@@ -907,5 +915,5 @@ $("[data-export=publish]").click(function(e) {
 });
 
 // add a theme block onload for testing
-//$("[data-filter=header] .addblock img")[3].click();
-$("[data-filter=testimonials] .addblock img")[4].click();
+$("[data-filter=header] .addblock img")[3].click();
+//$("[data-filter=testimonials] .addblock img")[4].click();
