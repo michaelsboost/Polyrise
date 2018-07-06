@@ -413,6 +413,43 @@ function editableFunctions() {
   
   // required by polyrise design
   $(".bg-overlay, .bg-overlay2").fadeIn();
+
+  // change image source via drag, drop and click
+  $("[data-call=canvas] img").on("dragover", function(e) {
+    e.preventDefault();  
+    e.stopPropagation();
+    if ($(this).hasClass('dropimg')) {
+      return false;
+    } else {
+      $(this).addClass('dropimg');
+    }
+  });
+  $("[data-call=canvas] img").on("dragleave", function(e) {
+    e.preventDefault();  
+    e.stopPropagation();
+    $('.dropimg').removeClass('dropimg');
+  });
+  $("[data-call=canvas] img").on('drop', function(e) {
+    e.preventDefault();  
+    e.stopPropagation();
+    var files = e.target.files;
+    if (!files || files.length === 0)
+        files = (e.dataTransfer ? e.dataTransfer.files : e.originalEvent.dataTransfer.files);
+    Convert2Base64(files);
+    $('.dropimg').removeClass('dropimg');
+  });
+  $("[data-call=canvas] img").on('click', function() {
+    if ($('.dropimg').is(":visible")) {
+      $(this).addClass('dropimg');
+    } else {
+      $(this).addClass('dropimg');
+    }
+    $("#loadimg").trigger('click');
+  });
+  $("#loadimg").on('change', function(e) {
+    var file = e.target.files[0];
+    Convert2Base64(file);
+  });
   
   // initialize WYSIWYG Editor
   runBubbleBar();
@@ -479,7 +516,7 @@ document.body.appendChild(newFaviconContainer);
 var faviconContainer = document.querySelector("[data-favicon=container]");
 
 // Loads and Converts Image To Base64
-function embedImage(AppImg, size) {
+function embedfavIcon(AppImg, size) {
   faviconContainer.innerHTML = '<div data-favicon="holder"></div>';
   
   // Load images
@@ -503,13 +540,12 @@ function embedImage(AppImg, size) {
     faviconContainer.appendChild(favicon_image);
   };
 }
-
 function loadFavIcon(file) {
   var reader = new FileReader();
 
   reader.onload = function(e) {
     document.querySelector(".favicon").src = e.target.result;
-    embedImage(e.target.result, "32");
+    embedfavIcon(e.target.result, "32");
   }
   reader.readAsDataURL(file);
 };
@@ -517,10 +553,10 @@ function loadFavIcon(file) {
 // Load new fav icon by triggering loadFavIcon() Func
 $("[data-load=favicon]").on("change", function(e) {
   var file = e.target.files[0];
-  loadFavIcon(file);
+  embedfavIcon(file);
 });
 
-// Drag and drop image load
+// change favicon image via drag and drop
 holder.ondragover = function() {
   this.className = "pointer favicon fr hover";
   return false;
@@ -533,8 +569,18 @@ holder.ondrop = function(e) {
   this.className = "pointer favicon fr";
   e.preventDefault();
   var file = e.dataTransfer.files[0];
-  loadFavIcon(file);
+  embedfavIcon(file);
 }
+
+// Convert Image to Base84
+function Convert2Base64(file) {
+  var reader = new FileReader;
+  reader.onload = function(e) {
+    document.querySelector('.dropimg').src = e.target.result;
+    $('.dropimg').removeClass('dropimg');
+  };
+  reader.readAsDataURL(file);
+};
 
 // Style Filter for Content Blocks
 $("#blocktypes option").each(function() {
@@ -686,4 +732,4 @@ $("[data-export=publish]").click(function(e) {
 });
 
 // add a theme block onload for testing
-$("[data-filter=header] .addblock img")[4].click();
+$("[data-filter=header] .addblock img")[3].click();
