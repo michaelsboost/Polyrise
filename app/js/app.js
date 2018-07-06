@@ -1111,7 +1111,7 @@ $("[data-export=publish]").click(function(e) {
 
 // add a theme block onload for testing
 //$("[data-filter=header] .addblock img")[3].click();
-$("[data-filter=header] .addblock img")[9].click();
+//$("[data-filter=header] .addblock img")[9].click();
 //$("[data-filter=testimonials] .addblock img")[4].click();
 //$("[data-filter=footers] .addblock img")[0].click();
 //$("[data-filter=social] .addblock img")[1].click();
