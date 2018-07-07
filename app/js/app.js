@@ -693,11 +693,6 @@ function editableFunctions() {
   $("form").submit(function(e) {
     e.preventDefault();
   });
-  $("input[type=button], button[type=submit]").on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-  });
   
   // required by polyrise design
   $(".bg-overlay, .bg-overlay2").fadeIn();
