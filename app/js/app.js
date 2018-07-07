@@ -572,9 +572,7 @@ function editableFunctions() {
     // $(".blockmenu").removeClass("hide");
     $(this).children().first().removeClass("hide");
     
-    $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 47)
-    
-    return false;
+    $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 47);
   }).on("mouseout", function() {
     return false;
   });
@@ -600,7 +598,7 @@ function editableFunctions() {
     cursor: "move"
   });
 
-  $("[data-call=canvas], [data-call=canvas] *").on("click touchstart touchmove", function(e) {
+  $("[data-call=canvas], [data-call=canvas] *").on("click touchstart", function(e) {
     $("[data-content=blocks]").animate({right: -300 + "px"}, 300);
   });
   $("[data-open=blocks]").on("click touchstart", function() {
