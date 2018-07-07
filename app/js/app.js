@@ -557,28 +557,105 @@ runBubbleBar();
 
 // Added blocks should be editable
 function editableFunctions() {
-  $(".blockbar").remove();
-  $(".canvas > .polyriseblock.grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
-  $(".canvas > .polyriseblock.notgrid").prepend('<div class="blockbar hide" style="margin: 0;"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
-  // $(".canvas > .grid").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
+  $(".blockmenu, .blockbar").remove();
+  $(".canvas > .polyriseblock").prepend('<div class="blockmenu hide"><div class="arrow"></div><div class="ascroll h100p"><div class="fl w100p" style="padding: 5px 0;"><span class="fl">Top</span> <input type="range" class="slider fr toppad" min="0" max="100" step=".1" value="0"></div><div class="fl w100p" style="padding: 5px 0;"><span class="fl">Bottom</span> <input type="range" class="slider fr btmpad" min="0" max="100" step=".1" value="0"></div><div class="fl w100p" style="padding: 5px 0;"><span class="fl">BG Color</span> <input type="hidden" class="slider fr bgcolor" value="rgb(255, 97, 97)"></div><div class="fl w100p hasbgoverlaycolor" style="padding: 5px 0;"><span class="fl">BG Overlay Color</span> <input type="hidden" class="slider fr bgoverlaycolor" value="rgb(255, 97, 97)"></div><div class="fl w100p" style="padding: 5px 0;"><span class="fl">BG Image</span> <a class="pointer fr whitetxt removebgimg"><i class="ignorebubble fa fa-times" style="font-size: 21px; margin-top: 4px;"></i></a> <img class="pointer bgimg" alt="Load Background Image" style="margin-top: 1em;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhLS0gR2VuZXJhdG9yOiBHcmF2aXQuaW8gLS0+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBzdHlsZT0iaXNvbGF0aW9uOmlzb2xhdGUiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJfY2xpcFBhdGhfa3lybzhKOUhzbjdsYTM3RExXZ3p4SUZpR2JkdGNOMEkiPjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIi8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwUGF0aF9reXJvOEo5SHNuN2xhMzdETFdnenhJRmlHYmR0Y04wSSkiPjxwYXRoIGQ9IiBNIDE5Ni45NzggODIuNDg5IEwgMTczLjUxMSA4Mi40ODkgTCAyNTYgMCBMIDMzOC40ODkgODIuNDg5IEwgMzE0LjM0MyA4Mi40ODkgTCAyNTUuNjYgMjMuODA3IEwgMTk2Ljk3OCA4Mi40ODkgTCAxOTYuOTc4IDgyLjQ4OSBMIDE5Ni45NzggODIuNDg5IEwgMTk2Ljk3OCA4Mi40ODkgWiAgTSAyNDcuNDY3IDU2Ljg4OSBMIDI2NC41MzMgNTYuODg5IEwgMjY0LjUzMyAzMjkuOTU2IEwgMjQ3LjQ2NyAzMjkuOTU2IEwgMjQ3LjQ2NyA1Ni44ODkgTCAyNDcuNDY3IDU2Ljg4OSBMIDI0Ny40NjcgNTYuODg5IEwgMjQ3LjQ2NyA1Ni44ODkgWiAgTSAyMTMuNDA5IDE0Ny45MTEgTCA3My45NTYgMTQ3LjkxMSBMIDczLjk1NiA1MTIgTCA0MzguMDQ0IDUxMiBMIDQzOC4wNDQgMTQ3LjkxMSBMIDI5OC42ODQgMTQ3LjkxMSBMIDI5OC43MDUgMTY0Ljk3OCBMIDQyMC45NzggMTY0Ljk3OCBMIDQyMC45NzggNDk0LjkzMyBMIDkxLjAyMiA0OTQuOTMzIEwgOTEuMDIyIDE2NC45NzggTCAyMTMuNTI5IDE2NC45NzggTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgWiAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0icmdiKDE1MywxNTcsMTYwKSIvPjwvZz48L3N2Zz4="></div></div></div>');
+  $(".canvas > .polyriseblock").prepend('<div class="blockbar"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
+  // $(".canvas > .polyriseblock").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
   
-  $(".canvas > .polyriseblock").on("click touchstart mouseover", function() {
+  $(".canvas > .polyriseblock").on("click touchstart mouseover", function(e) {
+    $(".canvas > .polyriseblock").removeClass('focusedblock');
+    $(this).addClass('focusedblock');
     $(".canvas > .polyriseblock").css('position', '');
     $(".canvas > .polyriseblock").css('background-attachment', '');
     this.style.position = "relative";
     $(this).css('background-attachment', 'local');
-    // $(".blockmenu").addClass("hide");
-    $(".blockbar").addClass("hide");
-    // $(".blockmenu").removeClass("hide");
-    $(this).children().first().removeClass("hide");
     
-    $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 47);
+    if ($(this).hasClass('focusedblock')) {
+      $(".canvas > .polyriseblock:not(.focusedblock)").find('.blockbar, .blockmenu').addClass("hide");
+      $(this).children().first().removeClass("hide");
+    } else {
+      $('.blockbar, .blockmenu').addClass("hide");
+//      $(this).children().first().next().removeClass("hide");
+      $(this).children().first().removeClass("hide");
+    }
+    
+    // detect padding
+    if ($('.focusedblock .bg-overlay1, .focusedblock .bg-overlay2, .focusedblock .bg-overlay3').is(":visible")) {
+      var str = $('.focusedblock').find('.bg-overlay1, .bg-overlay2, .bg-overlay3').css('padding-top');
+    } else {
+      var str = $('.focusedblock').css('padding-top');
+    }
+    $('.toppad').val( str.substr(0, str.length - 2) ).on('change', function() {
+      if ($('.focusedblock .bg-overlay1, .focusedblock .bg-overlay2, .focusedblock .bg-overlay3').is(":visible")) {
+        $('.focusedblock').find('.bg-overlay1, .bg-overlay2, .bg-overlay3').css('padding-top', this.value + "px");
+      } else {
+        $('.focusedblock').css('padding-top', this.value + "px");
+      }
+    });
+    if ($('.focusedblock .bg-overlay1, .focusedblock .bg-overlay2, .focusedblock .bg-overlay3').is(":visible")) {
+      str = $('.focusedblock').find('.bg-overlay1, .bg-overlay2, .bg-overlay3').css('padding-bottom');
+    } else {
+      str = $('.focusedblock').css('padding-bottom');
+    }
+    $('.btmpad').val( str.substr(0, str.length - 2) ).on('change', function() {
+      if ($('.focusedblock .bg-overlay1, .focusedblock .bg-overlay2, .focusedblock .bg-overlay3').is(":visible")) {
+        $('.focusedblock').find('.bg-overlay1, .bg-overlay2, .bg-overlay3').css('padding-bottom', this.value + "px");
+      } else {
+        $('.focusedblock').css('padding-bottom', this.value + "px");
+      }
+    });
+    
+    // color picker for background-color
+    $(".bgcolor").val($('.focusedblock').css('background-color')).minicolors({
+      control: "rgb",
+      opacity: true,
+      position: "bottom right",
+      change: function(hex, opacity) {
+        var color = tinycolor(hex);
+        color.setAlpha(opacity);
+        color = color.toRgbString();
+        $('.focusedblock').css('background-color', color);
+      },
+      theme: 'default'
+    });
+    
+    // detect and set the inner box-shadow for color picker
+    if ($('.focusedblock').hasClass('bg-overlay3')) {
+      str = $('.focusedblock').css('box-shadow');
+      str.substr(0, str.length - 25);
+      $('.bgoverlaycolor').val( str.substr(0, str.length - 25) ).minicolors({
+        control: "rgb",
+        opacity: true,
+        position: "bottom right",
+        change: function(hex, opacity) {
+          var color = tinycolor(hex);
+          color.setAlpha(opacity);
+          color = color.toRgbString();
+          $('.focusedblock').css('box-shadow', color + " 0px 0px 0px 1600px inset");
+        },
+        theme: 'default'
+      });
+
+      $('.hasbgoverlaycolor').show();
+    } else {
+      $('.hasbgoverlaycolor').hide();
+    }
+    
+    // detect and set the background-image
+    str = $('.focusedblock').css('background-image');
+    if (str.substr(0, 3).toLowerCase() === "url") {
+      str.substr(5, str.length - 7);
+      $('.bgimg').attr('src', str.substr(5, str.length - 7) );
+    }
+    
+    // $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 39);
   }).on("mouseout", function() {
     return false;
   });
   $("[data-edit=block]").click(function() {
-    alertify.message('Edit block properties here');
+    $(this).parent().next().toggleClass("hide");
     $(".editorbar").hide();
+    return false;
   });
   $("[data-del=block]").click(function() {
     var removeElm = $(this).parent().parent();
@@ -603,7 +680,7 @@ function editableFunctions() {
   });
   $("[data-open=blocks]").on("click touchstart", function() {
     $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
-    $(".blockbar").addClass("hide");
+    $(".blockmenu, .blockbar").addClass("hide");
   });
 
   // change image source via drag, drop and click
@@ -973,6 +1050,7 @@ $("#blocktypes").on("change", function() {
 // Open & Close Blocks
 $(".blockbar").addClass("hide");
 $("[data-open=blocks]").on("click", function() {
+  $(".focusedblock").removeClass("focusedblock");
   $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
   $("[data-editorbar=close]").trigger('click');
 });
@@ -1060,6 +1138,7 @@ $(".addblock img").click(function() {
   }
   
   $("[data-call=canvas]").append($(this).next().val());
+  $(".focusedblock").removeClass("focusedblock");
 
   // scroll to newly added block
   $(".canvas").animate({

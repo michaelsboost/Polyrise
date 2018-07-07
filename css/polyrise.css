@@ -445,6 +445,18 @@ html, body {
 .hide {
   display: none;
 }
+.w100p {
+  width: 100%;
+}
+.w100vw {
+  width: 100vw;
+}
+.minw100p {
+  min-width: 100%;
+}
+.minw100vw {
+  min-width: 100vw;
+}
 .minh100p {
   min-height: 100%;
 }
@@ -456,6 +468,9 @@ html, body {
 }
 .minh100vh {
   min-height: 100vh;
+}
+.minh100p {
+  min-height: 100%;
 }
 .nomar {
   margin: 0;
@@ -473,6 +488,9 @@ html, body {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.ascroll {
+  overflow: auto;
 }
 .dg {
   display: grid;
