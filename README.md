@@ -24,8 +24,7 @@ MIT
 ### To Do
 
 - Better mobile support
-- Edit/Add properties panel
-- Properties panel handles (margin, padding, background-color, background-image, overlay color, and amount of columns for features, pricing tables, testimonials)
+- allow to change background image in parameters
 - Adjust input forms somehow
 
 ### Free Software, Hell Yeah!
