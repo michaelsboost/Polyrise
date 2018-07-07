@@ -677,7 +677,7 @@ function editableFunctions() {
       $('.checkfora').hide();
     }
 
-    $("[data-toggle=images]").trigger('click');
+    $("[data-module=images]").fadeIn();
     return false;
   });
   $("#loadimg").on('change', function(e) {
@@ -971,7 +971,7 @@ $("[data-open=blocks]").on("click", function() {
   $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
   $("[data-editorbar=close]").trigger('click');
 });
-$("[data-call=styles]").on("click touchstart", function() {
+$("[data-call=styles]").on("click", function() {
   $("#blocktypes").val("styles").trigger("change");
 });
 $("[data-call=canvas], [data-call=canvas] *").on("click touchstart", function(e) {
