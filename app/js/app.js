@@ -387,7 +387,7 @@ $('#iconlinktitle').on('keyup', function() {
 function runBubbleBar() {
   // display bubble editor
   // for buttons
-  $('[data-call=canvas] [class^="btn--"]').on("click touchstart", function(e) {
+  $('[data-call=canvas] [class^="btn--"], [data-call=canvas] .form--btn').on("click touchstart", function(e) {
     $(".headereditorbar").hide();
     $(".btneditorbar").show();
     isIcon = false;
@@ -687,6 +687,16 @@ function editableFunctions() {
   $("#loadbgimg").on('change', function(e) {
     var file = e.target.files[0];
     Convert2Base64BGIMG(file);
+  });
+  
+  // prevent submit forms from refreshing
+  $("form").submit(function(e) {
+    e.preventDefault();
+  });
+  $("input[type=button], button[type=submit]").on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
   });
   
   // required by polyrise design
