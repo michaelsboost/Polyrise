@@ -967,7 +967,7 @@ $("#blocktypes").on("change", function() {
 
 // Open & Close Blocks
 $(".blockbar").addClass("hide");
-$("[data-open=blocks]").on("click touchstart", function() {
+$("[data-open=blocks]").on("click", function() {
   $("[data-content=blocks]").animate({right: 0 + "px"}, 300);
   $("[data-editorbar=close]").trigger('click');
 });
