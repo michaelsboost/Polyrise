@@ -727,6 +727,8 @@ function editableFunctions() {
         $('#parametersbgimageurl').val(bgimgsrc).trigger('keyup');
         
         $("[data-module=parametersbgimages]").fadeIn();
+      } else {
+        $("[data-module=parametersbgimages]").fadeIn();
       }
       return false;
     }
@@ -951,10 +953,8 @@ function Convert2Base64BGIMG(file) {
 function ParametersBGIMG(file) {
   var reader = new FileReader;
   reader.onload = function(e) {
+    console.log(e.target.result);
     $("#parametersbgimageurl").val(e.target.result).trigger('keyup');
-    $('#parametersdropbgimg').attr('src', bgimgsrc);
-    $('.focusedblock .blockmenu .bgimg').attr('src', e.target.result);
-    $('.focusedblock').css('background-image', "url(\""+ e.target.result +"\")");
     return false;
   };
   reader.readAsDataURL(file);
