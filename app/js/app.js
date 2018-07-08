@@ -644,9 +644,17 @@ function editableFunctions() {
     // detect and set the background-image
     str = $('.focusedblock').css('background-image');
     if (str.substr(0, 3).toLowerCase() === "url") {
-      str.substr(5, str.length - 7);
-      $('.bgimg').attr('src', str.substr(5, str.length - 7) );
+      var bgimgsrc = str.substr(5, str.length - 7);
+      $('#parametersbgimageurl').val(bgimgsrc);
+      $('#parametersdropbgimg').attr('src', bgimgsrc);
+      $('.bgimg').attr('src', bgimgsrc);
     }
+    
+    // remove background images
+    $('.focusedblock .removebgimg').on('click', function() {
+      $('.focusedblock').css('background-image', 'none');
+      $('.focusedblock .bgimg').attr('src', 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhLS0gR2VuZXJhdG9yOiBHcmF2aXQuaW8gLS0+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBzdHlsZT0iaXNvbGF0aW9uOmlzb2xhdGUiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJfY2xpcFBhdGhfa3lybzhKOUhzbjdsYTM3RExXZ3p4SUZpR2JkdGNOMEkiPjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIi8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwUGF0aF9reXJvOEo5SHNuN2xhMzdETFdnenhJRmlHYmR0Y04wSSkiPjxwYXRoIGQ9IiBNIDE5Ni45NzggODIuNDg5IEwgMTczLjUxMSA4Mi40ODkgTCAyNTYgMCBMIDMzOC40ODkgODIuNDg5IEwgMzE0LjM0MyA4Mi40ODkgTCAyNTUuNjYgMjMuODA3IEwgMTk2Ljk3OCA4Mi40ODkgTCAxOTYuOTc4IDgyLjQ4OSBMIDE5Ni45NzggODIuNDg5IEwgMTk2Ljk3OCA4Mi40ODkgWiAgTSAyNDcuNDY3IDU2Ljg4OSBMIDI2NC41MzMgNTYuODg5IEwgMjY0LjUzMyAzMjkuOTU2IEwgMjQ3LjQ2NyAzMjkuOTU2IEwgMjQ3LjQ2NyA1Ni44ODkgTCAyNDcuNDY3IDU2Ljg4OSBMIDI0Ny40NjcgNTYuODg5IEwgMjQ3LjQ2NyA1Ni44ODkgWiAgTSAyMTMuNDA5IDE0Ny45MTEgTCA3My45NTYgMTQ3LjkxMSBMIDczLjk1NiA1MTIgTCA0MzguMDQ0IDUxMiBMIDQzOC4wNDQgMTQ3LjkxMSBMIDI5OC42ODQgMTQ3LjkxMSBMIDI5OC43MDUgMTY0Ljk3OCBMIDQyMC45NzggMTY0Ljk3OCBMIDQyMC45NzggNDk0LjkzMyBMIDkxLjAyMiA0OTQuOTMzIEwgOTEuMDIyIDE2NC45NzggTCAyMTMuNTI5IDE2NC45NzggTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgWiAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0icmdiKDE1MywxNTcsMTYwKSIvPjwvZz48L3N2Zz4=');
+    });
     
     // $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 39);
   }).on("mouseout", function() {
@@ -687,18 +695,22 @@ function editableFunctions() {
   $("[data-call=canvas] img").on("dragover", function(e) {
     e.preventDefault();  
     e.stopPropagation();
+    if ($(this).hasClass('bgimg')) {
+      return false;
+    }
+    
     if ($(this).hasClass('dropimg')) {
       return false;
     } else {
       $(this).addClass('dropimg');
     }
   });
-  $("[data-call=canvas] img").on("dragleave", function(e) {
+  $("[data-call=canvas] img.dropimg").on("dragleave", function(e) {
     e.preventDefault();  
     e.stopPropagation();
     $('[data-call=canvas] .dropimg').removeClass('dropimg');
   });
-  $("[data-call=canvas] img").on('drop', function(e) {
+  $("[data-call=canvas] img.dropimg").on('drop', function(e) {
     e.preventDefault();  
     e.stopPropagation();
     var files = e.target.files;
@@ -708,23 +720,34 @@ function editableFunctions() {
     $('[data-call=canvas] .dropimg').removeClass('dropimg');
   });
   $("[data-call=canvas] img").on('click', function(e) {
+    if ($(this).hasClass('bgimg')) {
+      str = $('.focusedblock').css('background-image');
+      if (str.substr(0, 3).toLowerCase() === "url") {
+        var bgimgsrc = str.substr(5, str.length - 7);
+        $('#parametersbgimageurl').val(bgimgsrc).trigger('keyup');
+        
+        $("[data-module=parametersbgimages]").fadeIn();
+      }
+      return false;
+    }
+    
     if (this.src === transparentImg) {
-      if ($('[data-call=canvas] .dropbgimg').is(":visible")) {
-        $('[data-call=canvas] .dropbgimg').removeClass('dropimg');
-        $(this).addClass('dropbgimg');
+      if ($('[data-call=canvas] .dropbgimgsrc').is(":visible")) {
+        $('[data-call=canvas] .dropbgimgsrc').removeClass('dropimg dropbgimgsrc');
+        $(this).addClass('dropbgimgsrc');
       } else {
-        $(this).addClass('dropbgimg');
+        $(this).addClass('dropbgimgsrc');
       }
       
-      var selector = $('[data-call=canvas] .dropbgimg').parent();
+      var selector = $('[data-call=canvas] .dropbgimgsrc').parent();
       var str = selector.css('background-image');
       var currentbg = str.substr(5, str.length - 7);
       $('#bgimageurl').val(currentbg).trigger('keyup');
-      $('#bgimgalt').val($('[data-call=canvas] .dropbgimg').attr('alt')).trigger('keyup');
+      $('#bgimgalt').val($('[data-call=canvas] .dropbgimgsrc').attr('alt')).trigger('keyup');
       
       // https://images.pexels.com/photos/324658/pexels-photo-324658.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
       
-      $("[data-toggle=bgimages]").trigger('click');
+      $("[data-module=bgimages]").fadeIn();
       return false;
     }
 
@@ -765,10 +788,19 @@ function editableFunctions() {
     var file = e.target.files[0];
     Convert2Base64BGIMG(file);
   });
+  $("#parametersdropbgimg").on('change', function(e) {
+    var file = e.target.files[0];
+    ParametersBGIMG(file);
+  });
   
   // prevent submit forms from refreshing
   $("form").submit(function(e) {
     e.preventDefault();
+  });
+  
+  // remove background images
+  $('.focusedblock .removebgimg').on('click', function() {
+    $('.focusedblock').css('background-image', 'none');
   });
   
   // required by polyrise design
@@ -911,7 +943,18 @@ function Convert2Base64BGIMG(file) {
   var reader = new FileReader;
   reader.onload = function(e) {
     $("#bgimageurl").val(e.target.result).trigger('keyup');
-    $('#dropbgimg').attr('src', e.target.result);
+    $('#dropbgimgsrc').attr('src', e.target.result);
+    return false;
+  };
+  reader.readAsDataURL(file);
+};
+function ParametersBGIMG(file) {
+  var reader = new FileReader;
+  reader.onload = function(e) {
+    $("#parametersbgimageurl").val(e.target.result).trigger('keyup');
+    $('#parametersdropbgimg').attr('src', bgimgsrc);
+    $('.focusedblock .blockmenu .bgimg').attr('src', e.target.result);
+    $('.focusedblock').css('background-image', "url(\""+ e.target.result +"\")");
     return false;
   };
   reader.readAsDataURL(file);
@@ -943,15 +986,15 @@ $("#imageurl").on('keyup', function(e) {
 });
 
 // replace bg image via drag and drop
-$(".dropbgimg").on("dragover", function(e) {
+$(".dropbgimgsrc").on("dragover", function(e) {
   e.preventDefault();  
   e.stopPropagation();
 });
-$(".dropbgimg").on("dragleave", function(e) {
+$(".dropbgimgsrc").on("dragleave", function(e) {
   e.preventDefault();  
   e.stopPropagation();
 });
-$(".dropbgimg").on('drop', function(e) {
+$(".dropbgimgsrc").on('drop', function(e) {
   e.preventDefault();  
   e.stopPropagation();
   var files = e.target.files;
@@ -960,29 +1003,46 @@ $(".dropbgimg").on('drop', function(e) {
   Convert2Base64(files);
 });
 $("#bgimageurl").on('keyup', function(e) {
-  var selector = $('[data-call=canvas] .dropbgimg').parent();
+  var selector = $('[data-call=canvas] .dropbgimgsrc').parent();
   
   if (!this.value) {
     // set preview
-    $('#dropbgimg').attr('src', defaultimg);
+    $('#dropbgimgsrc, #dropbgimg').attr('src', defaultimg);
 
     // apply to image
     selector.css('background-image', "url(\""+ defaultimg +"\")");
   } else {
     // set preview
-    $('#dropbgimg').attr('src', this.value);
+    $('#dropbgimgsrc, #dropbgimg').attr('src', this.value);
     
     // apply to image
     selector.css('background-image', "url(\""+ this.value +"\")");
   }
 });
 $('#bgimgalt').on('keyup', function() {
-  var selector = $('[data-call=canvas] .dropbgimg');
+  var selector = $('[data-call=canvas] .dropbgimgsrc');
   if (selector.is(":visible")) {
     var selA = selector.parent();
     selector.attr('alt', this.value);
     if (!this.value)
       selector.removeAttr("alt");
+  }
+});
+$("#parametersbgimageurl").on('keyup', function(e) {
+  if (!this.value) {
+    // apply to preview
+    $('#parametersdropbgimg').attr('src', defaultimg);
+    $('.focusedblock .blockmenu .bgimg').attr('src', defaultimg);
+    
+    // apply to background
+    $('.focusedblock').css('background-image', "url(\""+ defaultimg +"\")");
+  } else {
+    // apply to preview
+    $('#parametersdropbgimg').attr('src', this.value);
+    $('.focusedblock .blockmenu .bgimg').attr('src', this.value);
+    
+    // apply to background
+    $('.focusedblock').css('background-image', "url(\""+ this.value +"\")");
   }
 });
 

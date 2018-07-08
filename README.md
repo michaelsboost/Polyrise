@@ -24,7 +24,7 @@ MIT
 ### To Do
 
 - Better mobile support
-- allow to change background image in parameters
+- Integrate LocalStorage
 - Adjust input forms somehow
 
 ### Free Software, Hell Yeah!
