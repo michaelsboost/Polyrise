@@ -18,7 +18,8 @@ Free Mobile Website Builder Design Concept!
 ![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/button-wysiwyg.png)
 ![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/image-dialog.png)
 
-## Polyrise is a proof of concept; not an active project!
+## **As of July 8th Polyrise is no longer an active project. **  
+## **All updates as of that date and on are solely contributor based implementations. **
 
 ### Version
 0.0.1
