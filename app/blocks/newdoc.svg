@@ -1,1 +1,8 @@
-<?xml version="1.0" standalone="no"?><!-- Generator: Gravit.io --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 253 106" width="253" height="106"><rect x="0" y="0" width="253" height="106" transform="matrix(1,0,0,1,0,0)" fill="rgb(239,239,239)"/><g id="new document"><path d=" M 101.604 21.012 L 135.5 21.012 L 151.396 36.958 L 151.396 84.988 L 101.604 84.988 L 101.604 21.012 Z " fill="rgb(105,105,105)"/><path d=" M 102.988 22.79 L 134.999 22.79 L 150.012 37.85 L 150.012 83.21 L 102.988 83.21 L 102.988 22.79 Z " fill="rgb(255,255,255)"/><path d=" M 133.613 21.012 L 135.5 21.012 L 151.396 36.958 L 151.396 38.795 L 133.613 38.795 L 133.613 21.012 Z " fill="rgb(105,105,105)"/><path d=" M 135.392 23.527 L 148.882 36.958 L 135.5 36.958 L 135.392 23.527 Z " fill="rgb(225,225,225)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 253 106" width="253" height="106">
+  <rect x="0" y="0" width="253" height="106" transform="matrix(1,0,0,1,0,0)" fill="rgb(51,68,77)"></rect>
+  <g id="new document">
+    <path d=" M 96.364 14.279 L 137.393 14.279 L 156.636 33.582 L 156.636 91.721 L 96.364 91.721 L 96.364 14.279 Z " fill="rgb(61, 91, 94)"></path>
+    <path d=" M 137.897 15.224 L 155.188 32.438 L 138.036 32.438 L 137.897 15.224 Z " fill="rgb(60, 146, 135)"></path>
+    <path d=" M 138.036 12 L 135.617 12 L 94.59 12 L 94.59 94 L 158.41 94 L 158.41 34.793 L 158.41 32.438 L 138.036 12 Z  M 135.617 14.279 L 96.364 14.279 L 96.364 91.721 L 156.636 91.721 L 156.636 34.793 L 135.617 34.793 L 135.617 14.279 Z  M 137.897 15.224 L 155.188 32.438 L 138.036 32.438 L 137.897 15.224 Z " fill-rule="evenodd" fill="rgb(38, 46, 52)"></path>
+  </g>
+</svg>
