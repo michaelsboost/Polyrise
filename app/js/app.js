@@ -1187,6 +1187,11 @@ $(".addblock img").click(function() {
   if ($(this).hasClass("newdoc")) {
     alertify.confirm("Are you sure you wish to proceed?<br><br>This cannot be undone!", function(){
       $("[data-call=canvas]").empty();
+      sitetitle.value = '';
+      analyticscode.value = '';
+      favicon.value = '';
+      $('.favicon').attr('src', 'upload.svg');
+      localStorage.clear();
     },
     function() {
       // User clicked cancel
