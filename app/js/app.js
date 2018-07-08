@@ -559,8 +559,7 @@ runBubbleBar();
 function editableFunctions() {
   $(".blockmenu, .blockbar").remove();
   $(".canvas > .polyriseblock").prepend('<div class="blockmenu hide"><div class="arrow"></div><div class="ascroll h100p"><div class="fl w100p" style="padding: 5px 0;"><span class="fl">Top</span> <input type="range" class="slider fr toppad" min="0" max="100" step=".1" value="0"></div><div class="fl w100p" style="padding: 5px 0;"><span class="fl">Bottom</span> <input type="range" class="slider fr btmpad" min="0" max="100" step=".1" value="0"></div><div class="fl w100p" style="padding: 5px 0;"><span class="fl">BG Color</span> <input type="hidden" class="slider fr bgcolor" value="rgb(255, 97, 97)"></div><div class="fl w100p hasbgoverlaycolor" style="padding: 5px 0;"><span class="fl">BG Overlay Color</span> <input type="hidden" class="slider fr bgoverlaycolor" value="rgb(255, 97, 97)"></div><div class="fl w100p" style="padding: 5px 0;"><span class="fl">BG Image</span> <a class="pointer fr whitetxt removebgimg"><i class="ignorebubble fa fa-times" style="font-size: 21px; margin-top: 4px;"></i></a> <img class="pointer bgimg" alt="Load Background Image" style="margin-top: 1em;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhLS0gR2VuZXJhdG9yOiBHcmF2aXQuaW8gLS0+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBzdHlsZT0iaXNvbGF0aW9uOmlzb2xhdGUiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJfY2xpcFBhdGhfa3lybzhKOUhzbjdsYTM3RExXZ3p4SUZpR2JkdGNOMEkiPjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIi8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwUGF0aF9reXJvOEo5SHNuN2xhMzdETFdnenhJRmlHYmR0Y04wSSkiPjxwYXRoIGQ9IiBNIDE5Ni45NzggODIuNDg5IEwgMTczLjUxMSA4Mi40ODkgTCAyNTYgMCBMIDMzOC40ODkgODIuNDg5IEwgMzE0LjM0MyA4Mi40ODkgTCAyNTUuNjYgMjMuODA3IEwgMTk2Ljk3OCA4Mi40ODkgTCAxOTYuOTc4IDgyLjQ4OSBMIDE5Ni45NzggODIuNDg5IEwgMTk2Ljk3OCA4Mi40ODkgWiAgTSAyNDcuNDY3IDU2Ljg4OSBMIDI2NC41MzMgNTYuODg5IEwgMjY0LjUzMyAzMjkuOTU2IEwgMjQ3LjQ2NyAzMjkuOTU2IEwgMjQ3LjQ2NyA1Ni44ODkgTCAyNDcuNDY3IDU2Ljg4OSBMIDI0Ny40NjcgNTYuODg5IEwgMjQ3LjQ2NyA1Ni44ODkgWiAgTSAyMTMuNDA5IDE0Ny45MTEgTCA3My45NTYgMTQ3LjkxMSBMIDczLjk1NiA1MTIgTCA0MzguMDQ0IDUxMiBMIDQzOC4wNDQgMTQ3LjkxMSBMIDI5OC42ODQgMTQ3LjkxMSBMIDI5OC43MDUgMTY0Ljk3OCBMIDQyMC45NzggMTY0Ljk3OCBMIDQyMC45NzggNDk0LjkzMyBMIDkxLjAyMiA0OTQuOTMzIEwgOTEuMDIyIDE2NC45NzggTCAyMTMuNTI5IDE2NC45NzggTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgTCAyMTMuNDA5IDE0Ny45MTEgWiAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0icmdiKDE1MywxNTcsMTYwKSIvPjwvZz48L3N2Zz4="></div></div></div>');
-  $(".canvas > .polyriseblock").prepend('<div class="blockbar"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
-  // $(".canvas > .polyriseblock").prepend('<div class="blockbar hide"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
+  $(".canvas > .polyriseblock").prepend('<div class="blockbar"><a class="pointer dragblock hint--rounded hint--bounce hint--bottom" aria-label="Move Block" data-drag="block"><i class="fa fa-arrows-v ignorebubble"></i></a><a class="pointer codeblock hint--rounded hint--bounce hint--bottom" aria-label="Code Editor" data-edit="code"><i class="fa fa-code ignorebubble"></i></a><a class="pointer editblock hint--rounded hint--bounce hint--bottom" aria-label="Block Parameteres" data-edit="block"><i class="fa fa-gear ignorebubble"></i></a><a class="pointer delblock hint--rounded hint--bounce hint--bottom-left" aria-label="Remove Block" data-del="block"><i class="fa fa-trash ignorebubble"></i></a></div>');
   
   $(".canvas > .polyriseblock").on("click touchstart mouseover", function(e) {
     $(".canvas > .polyriseblock").removeClass('focusedblock');
@@ -658,6 +657,25 @@ function editableFunctions() {
     
     // $("[data-place=parameters]").css("top", $(this).children().first().offset().top + 39);
   }).on("mouseout", function() {
+    return false;
+  });
+  $("[data-edit=code]").click(function() {
+    $(".editorbar").hide();
+    $(".canvas .blockbar").remove();
+    $(".canvas .blockmenu").remove();
+    $(".canvas [contentEditable").addClass("editable").removeAttr("contentEditable");
+    $(".canvas > .polyriseblock").css('position', '');
+    $(".canvas > .polyriseblock").css('background-attachment', '');
+    
+    codeEditor.setValue('');
+    codeEditor.setValue('<!-- DO NOT REMOVE THE POLYRISE CONTAINER OR CLASSES! AS YOUR POLYRISE BLOCK WILL NOT RUN PROPERLY WITHOUT THEM AS THEY\'RE REQUIRED -->\n' + document.querySelector(".focusedblock").outerHTML);
+
+    $(".canvas .editable").attr("contentEditable", true);
+    editableFunctions();
+    
+    $("[data-module=codeeditordialog]").fadeIn();
+    
+    codeEditor.setCursor(codeEditor.lineCount(), 0);
     return false;
   });
   $("[data-edit=block]").click(function() {
@@ -1260,6 +1278,62 @@ $("[data-export=publish]").click(function(e) {
     editableFunctions();
     return false;
   });
+});
+
+// Code editor
+// Initialize Editors
+var codeEditor = CodeMirror(document.getElementById("codeeditor"), {
+  mode: "text/html",
+  tabMode: "indent",
+  styleActiveLine: true,
+  lineNumbers: true,
+  lineWrapping: true,
+  autoCloseTags: true,
+  foldGutter: true,
+  dragDrop: true,
+  lint: true,
+  gutters: ["CodeMirror-lint-markers", "CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  value: '<!-- DO NOT REMOVE THE POLYRISE CONTAINER OR CLASSES! AS YOUR POLYRISE BLOCK WILL NOT RUN PROPERLY WITHOUT THEM AS THEY\'RE REQUIRED -->\n<div class="polyriseblock notgrid bg-image bg-overlay3" style="box-shadow: rgba(204, 212, 243, 0.61) 0px 0px 0px 1600px inset;padding: 4em 0;background-color: #333;">\n  <h1 class="headline-primary--grouped tc">hello world</h1>\n</div>',
+  paletteHints: true
+});
+Inlet(codeEditor);
+emmetCodeMirror(codeEditor);
+function updatePreview() {
+  $(".preview-editor").empty();
+  var frame = document.createElement("iframe");
+  frame.setAttribute("id", "preview");
+  frame.setAttribute("sandbox", "allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts");
+  document.querySelector(".preview-editor").appendChild(frame);
+  var previewFrame = document.getElementById("preview");
+  var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+  preview.open();
+  htmlContent = '<!DOCTYPE html>\n<html>\n  <head>\n    <title>'+sitetitle.value+'</title>\n    <meta charset="UTF-8">\n    <meta http-quiv="X-UA-Compatible" content="IE=9" />\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="author" content="Polyrise Website Builder">\n    <link rel="stylesheet" href="../libraries/polyui/polyui.css">\n    <link rel="stylesheet" href="../libraries/font-awesome/font-awesome.css">\n    <link rel="stylesheet" href="../libraries/lity/lity.css">\n    <link rel="stylesheet" href="../css/polyrise.css"><script src=\"js/screenlog.js\"></script>\n  </head>\n  <body>\n    '+ analyticscode.value +'\n    '+ codeEditor.getValue() +'\n    \n    <script src="../libraries/jquery/jquery.js"></script>\n    <script src="../libraries/lity/lity.js"></script>\n    <script src="../js/polyrise.js"></script>\n  </body>\n</html>';
+  preview.write(htmlContent);
+  preview.close();
+}
+updatePreview();
+codeEditor.on("change", function() {
+  updatePreview();
+});
+
+// confirm/add code into editor
+$('.confirmeditorcode').click(function() {
+  $("[data-call=canvas]").append(codeEditor.getValue());
+  $('.canvas').last().find("*").attr('contenteditable', true);
+  $(".focusedblock").removeClass("focusedblock");
+
+  // scroll to newly added block
+  $(".canvas").animate({
+    scrollTop: $('.canvas').prop("scrollHeight")
+  }, "slow");
+
+  editableFunctions();
+  runBubbleBar();
+});
+
+// Focus editor whenever opened
+$('[data-toggle=codeeditordialog]').click(function() {
+  codeEditor.setCursor(codeEditor.lineCount(), 0);
 });
 
 // add a theme block onload for testing

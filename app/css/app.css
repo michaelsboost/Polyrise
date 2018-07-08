@@ -12,6 +12,7 @@ body {
   left: 0;
   right: 0;
 */
+  background: #eee;
   overflow: hidden;
 }
 
@@ -94,8 +95,8 @@ body {
   top: 58px;
   bottom: 0;
   width: 100%;
-/*  background: #afe2f2;*/
-  background: #fff;
+/*  background: #eee;*/
+/*  background: #fff;*/
   overflow: auto;
 }
 .canvasbtns {
@@ -117,7 +118,8 @@ body {
   font-size: 16px;
 }
 .addblocks {
-  background: #f44336;
+/*  background: #f44336;*/
+  background: #d2504d;
 }
 /*
 .canvas .polyriseblock {
@@ -144,7 +146,8 @@ body {
   width: 51px;
   font-size: 21px;
   color: #fff;
-  background: #2196f3;
+/*  background: #2196f3;*/
+  background: #5495ff;
   text-align: center;
 }
 .blockbar a:first-child {
@@ -154,10 +157,18 @@ body {
   border-radius: 0 5px 5px 0;
 }
 .blockbar .dragblock {
-  background: #26a69a;
+/*  background: #26a69a;*/
+  background: #61c3dc;
+}
+.blockbar .codeblock {
+  margin-right: -3px;
+/*  background: #8b81c0;*/
+/*  background: #73c2da;*/
+/*  background: #5495ff;*/
 }
 .blockbar .delblock {
-  background: #f44336;
+/*  background: #f44336;*/
+  background: #ef5268;
 }
 .canvas .sort-placer {
   border-top: 5px dashed #26a69a;
@@ -798,6 +809,89 @@ input[type=range].slider:focus::-ms-fill-lower {
 }
 input[type=range].slider:focus::-ms-fill-upper {
   background: #afccc8;
+}
+
+/* code editor */
+.codeeditorbtns {
+  position: absolute;
+  z-index: 10;
+  font-size: 2rem;
+  right: 50%;
+  top: 0;
+  margin: -3px 12px;
+}
+.confirmeditorcode {
+  top: auto;
+  bottom: 0;
+}
+.CodeMirror {
+  height: 100%;
+}
+.CodeMirror-lines {
+  padding: 4px 3rem 4px 0;
+}
+.CodeMirror .cm-palette-hint {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: -2px 2px 0 6px;
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 1px 2px #fff,
+              0 0 1px 3px #a0a09c;
+}
+.lint-error {
+  background: #ffa;
+  color: #a00;
+}
+.lint-error-icon {
+  color: white;
+  background-color: red;
+}
+#codeeditor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50%;
+  bottom: 0;
+}
+.preview-editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 50%;
+  bottom: 0;
+  background: #fff;
+}
+.preview-editor iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media (max-width: 768px) {
+  .confirmeditorcode {
+    top: auto;
+    bottom: 50%;
+  }
+  .codeeditorbtns {
+    right: 0;
+  }
+  #codeeditor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+  }
+  .preview-editor {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+  }
 }
 
 /* misc */
