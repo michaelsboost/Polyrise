@@ -27,6 +27,7 @@ MIT
 ### To Do
 
 - Better mobile support
+- Fix favicon upload/change function
 - Browse/Select file via hard disk as background image (convert to base64)
 - Integrate code editor for adding custom html code. ([Codemirror](http://codemirror.net/) Recommended)
 - Change button[type=submit] classes
