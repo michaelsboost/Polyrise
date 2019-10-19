@@ -1,5 +1,5 @@
 // Global Variables
-var gridCode, 
+var gridCode, faviconcode,
     holder = document.querySelector(".favicon"),
     grabFileCode = function (url, el) {
       return $.get(url, null, function(data) {
@@ -920,8 +920,16 @@ function loadFavIcon(file) {
   var reader = new FileReader();
 
   reader.onload = function(e) {
-    document.querySelector(".favicon").src = e.target.result;
-    embedfavIcon(e.target.result, "32");
+    var img = new Image();
+    img.src = e.target.result;
+    img.onload = function() {
+      document.querySelector(".favicon").src = e.target.result;
+      embedfavIcon(e.target.result, "16");
+      embedfavIcon(e.target.result, "32");
+      embedfavIcon(e.target.result, "180");
+      embedfavIcon(e.target.result, "192");
+      embedfavIcon(e.target.result, "512");
+    }
   }
   reader.readAsDataURL(file);
 };
@@ -929,7 +937,7 @@ function loadFavIcon(file) {
 // Load new fav icon by triggering loadFavIcon() Func
 $("[data-load=favicon]").on("change", function(e) {
   var file = e.target.files[0];
-  embedfavIcon(file);
+  loadFavIcon(file);
 });
 
 // change favicon image via drag and drop
@@ -937,15 +945,16 @@ holder.ondragover = function() {
   this.className = "pointer favicon fr hover";
   return false;
 }
-holder.ondragend = function() {
+holder.ondragend  = function() {
   this.className = "pointer favicon fr";
   return false;
 }
-holder.ondrop = function(e) {
+holder.ondrop     = function(e) {
   this.className = "pointer favicon fr";
   e.preventDefault();
   var file = e.dataTransfer.files[0];
-  embedfavIcon(file);
+  document.querySelector(".favicon").src = file;
+  loadFavIcon(file);
 }
 
 // Convert Image to Base84
@@ -1254,15 +1263,25 @@ $("[data-export=publish]").click(function(e) {
 
     var zip = new JSZip(data);
     
-    
     var str = document.querySelector(".favicon").src;
     if (str.substr(str.length - 10, str.length) === "upload.svg") {
       alertify.error("Error: No favicon detected!");
-      var faviconcode = '';
+      faviconcode = '';
 //      return false;
     } else {
-      var faviconcode = '\n    <link rel="apple-touch-icon" href="favicon.png">\n    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">';
-      zip.file("favicon.png", document.querySelector("[data-faviconsize=f32]").src.split('base64,')[1],{base64: true});
+      faviconcode180 = '\n    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">';
+      faviconcode16  = '\n    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">';
+      faviconcode32  = '\n    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">';
+      faviconcode192 = '\n    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">';
+      faviconcode512 = '\n    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">';
+      faviconcode    = faviconcode180 + faviconcode16 + faviconcode32 + faviconcode192 + faviconcode512;
+      
+      zip.file("apple-touch-icon.png", document.querySelector("[data-faviconsize=f180]").src.split('base64,')[1],{base64: true});
+      zip.file("favicon-16x16.png", document.querySelector("[data-faviconsize=f16]").src.split('base64,')[1],{base64: true});
+      zip.file("favicon-32x32.png", document.querySelector("[data-faviconsize=f32]").src.split('base64,')[1],{base64: true});
+      zip.file("android-chrome-192x192.png", document.querySelector("[data-faviconsize=f192]").src.split('base64,')[1],{base64: true});
+      zip.file("android-chrome-512x512.png", document.querySelector("[data-faviconsize=f512]").src.split('base64,')[1],{base64: true});
+      zip.file("site.webmanifest", '{\n  "name": "'+ sitetitle.value +'",\n  "short_name": "'+ sitetitle.value +'",\n  "icons": [{\n    "src": "/android-chrome-192x192.png",\n    "sizes": "192x192",\n    "type": "image/png",\n  }, {\n    "src": "/android-chrome-512x512.png",\n    "sizes": "512x512",\n    "type": "image/png",\n  }],\n  "theme_color": "#ffffff",\n  "background_color": "#ffffff",\n  "display": "standalone"\n}');
     }
     
     zip.file("css/polyrise.css", cssCode.value);
