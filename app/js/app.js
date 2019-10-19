@@ -1263,11 +1263,15 @@ $("[data-export=publish]").click(function(e) {
 
     var zip = new JSZip(data);
     
+    // If no title set title
+    if (!sitetitle.value) {
+      sitetitle.value = "Made with Polyrise Website Builder";
+    }
+    
     var str = document.querySelector(".favicon").src;
     if (str.substr(str.length - 10, str.length) === "upload.svg") {
       alertify.error("Error: No favicon detected!");
       faviconcode = '';
-//      return false;
     } else {
       faviconcode180 = '\n    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">';
       faviconcode16  = '\n    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">';
@@ -1284,8 +1288,26 @@ $("[data-export=publish]").click(function(e) {
       zip.file("site.webmanifest", '{\n  "name": "'+ sitetitle.value +'",\n  "short_name": "'+ sitetitle.value +'",\n  "icons": [{\n    "src": "/android-chrome-192x192.png",\n    "sizes": "192x192",\n    "type": "image/png",\n  }, {\n    "src": "/android-chrome-512x512.png",\n    "sizes": "512x512",\n    "type": "image/png",\n  }],\n  "theme_color": "#ffffff",\n  "background_color": "#ffffff",\n  "display": "standalone"\n}');
     }
     
+    // If no description set description
+    if (!sitedesc.value) {
+      sitedesc.value = "This site was created with Polyrise Website Builder. A free and open source website builder!";
+    }
+    
+    // If no website url set url
+    if (!siteurl.value) {
+      siteurl.value = "https://michaelsboost.github.io/Polyrise";
+    } else if (siteurl.value.toLowerCase().substring(0,7) !== "http://" || siteurl.value.toLowerCase().substring(0,8) !== "https://") {
+      alertify.error("Error: URL MUST begin with http:// or https://");
+      siteurl.value = "https://michaelsboost.github.io/Polyrise";
+    } else if (siteurl.value.split(" ")) {
+      alertify.error("Error: URL MUST NOT have spaces.<br>Spaces were automatically removed!");
+      siteurl.value = siteurl.value.split(" ").join("");
+    }
+    
+    socialMetaData = '\n    <meta property="og:url"         content="'+ siteurl.value +'" />    \n    <meta property="og:type"        content="website" />    \n    <meta property="og:title"       content="'+ sitetitle.value +'" />    \n    <meta property="og:description" content="'+ sitedesc.value +'" />    \n    <meta property="og:image"       content="https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/madewithpolyrise.png" />';
+    
     zip.file("css/polyrise.css", cssCode.value);
-    zip.file("index.html", '<!DOCTYPE html>\n<html>\n  <head>\n    <title>'+sitetitle.value+'</title>\n    <meta charset="UTF-8">\n    <meta http-quiv="X-UA-Compatible" content="IE=9" />\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="author" content="Polyrise Website Builder">'+ faviconcode +'\n    <link rel="stylesheet" href="libraries/polyui/polyui.css">\n    <link rel="stylesheet" href="libraries/font-awesome/font-awesome.css">\n    <link rel="stylesheet" href="libraries/lity/lity.css">\n    <link rel="stylesheet" href="css/polyrise.css">\n  </head>\n  <body>\n    '+ analyticscode.value +'\n    '+ canvasHTML +'\n    \n    <script src="libraries/jquery/jquery.js"></script>\n    <script src="libraries/lity/lity.js"></script>\n    <script src="js/polyrise.js"></script>\n  </body>\n</html>');
+    zip.file("index.html", '<!DOCTYPE html>\n<html>\n  <head>\n    <title>'+sitetitle.value+'</title>\n    <meta charset="UTF-8">\n    <meta http-quiv="X-UA-Compatible" content="IE=9" />\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <meta name="author" content="Polyrise Website Builder">'+ faviconcode +'\n    <link rel="stylesheet" href="libraries/polyui/polyui.css">\n    <link rel="stylesheet" href="libraries/font-awesome/font-awesome.css">\n    <link rel="stylesheet" href="libraries/lity/lity.css">\n    <link rel="stylesheet" href="css/polyrise.css">'+ socialMetaData +'\n  </head>\n  <body>\n    '+ analyticscode.value +'\n    '+ canvasHTML +'\n    \n    <script src="libraries/jquery/jquery.js"></script>\n    <script src="libraries/lity/lity.js"></script>\n    <script src="js/polyrise.js"></script>\n  </body>\n</html>');
     zip.file("js/polyrise.js", jsCode.value);
 
     // Export application
