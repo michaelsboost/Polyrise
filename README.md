@@ -18,7 +18,7 @@ Free Mobile Website Builder Design Concept!
 ![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/button-wysiwyg.png)
 ![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/image-dialog.png)
 
-## **As of July 8th Polyrise is no longer an active project. **  
+## **As of October 19, 2019 Polyrise is no longer an active project. **  
 ## **All updates as of that date and on are solely contributor based implementations. **
 
 ### Version
@@ -71,7 +71,7 @@ You can submit a pull request or simply share the project :)
 
 Of course Polyrise is free and open source, so you can always fork the project and have fun :)
 
-**As of July 8th Polyrise is no longer an active project.  
+**As of October 19, 2019 Polyrise is no longer an active project.  
 All updates as of that date and on are solely contributor based implementations.**
 
 [![ko-fi](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0)](https://ko-fi.com/michaelsboost)
