@@ -1015,12 +1015,13 @@ $("#imageurl").on('keyup', function(e) {
 
 // replace bg image via drag and drop
 $("#parametersdropbgimg").on('drop', function(e) {
-  e.preventDefault();  
+  e.preventDefault();
   e.stopPropagation();
   var files = e.target.files;
   if (!files || files.length === 0)
       files = (e.dataTransfer ? e.dataTransfer.files : e.originalEvent.dataTransfer.files);
-  ParametersBGIMG(files);
+  
+  $("#parametersbgimageurl").val(files).trigger('keyup');
 });
 $("#bgimageurl").on('keyup', function(e) {
   var selector = $('[data-call=canvas] .dropbgimgsrc').parent();
@@ -1371,7 +1372,7 @@ $('[data-toggle=codeeditordialog]').click(function() {
 });
 
 // add a theme block onload for testing
-$("[data-filter=header] .addblock img")[3].click();
+//$("[data-filter=header] .addblock img")[3].click();
 //$("[data-filter=header] .addblock img")[9].click();
 //$("[data-filter=testimonials] .addblock img")[4].click();
 //$("[data-filter=footers] .addblock img")[0].click();
