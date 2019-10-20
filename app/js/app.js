@@ -713,9 +713,6 @@ function editableFunctions() {
   $("[data-call=canvas] img").on("dragover", function(e) {
     e.preventDefault();  
     e.stopPropagation();
-    if ($(this).hasClass('bgimg')) {
-      return false;
-    }
     
     if ($(this).hasClass('dropimg')) {
       return false;
@@ -734,7 +731,12 @@ function editableFunctions() {
     var files = e.target.files;
     if (!files || files.length === 0)
         files = (e.dataTransfer ? e.dataTransfer.files : e.originalEvent.dataTransfer.files);
-    Convert2Base64(files);
+    
+    if ($(this).hasClass('bgimg')) {
+      ParametersBGIMG(files);
+    } else {
+      Convert2Base64(files);
+    }
     $('[data-call=canvas] .dropimg').removeClass('dropimg');
   });
   $("[data-call=canvas] img").on('click', function(e) {
@@ -808,7 +810,7 @@ function editableFunctions() {
     var file = e.target.files[0];
     Convert2Base64BGIMG(file);
   });
-  $("#parametersdropbgimg").on('change', function(e) {
+  $("#parametersloadbgimg").on('change', function(e) {
     var file = e.target.files[0];
     ParametersBGIMG(file);
   });
@@ -980,7 +982,6 @@ function Convert2Base64BGIMG(file) {
 function ParametersBGIMG(file) {
   var reader = new FileReader;
   reader.onload = function(e) {
-    console.log(e.target.result);
     $("#parametersbgimageurl").val(e.target.result).trigger('keyup');
     return false;
   };
@@ -988,15 +989,15 @@ function ParametersBGIMG(file) {
 };
 
 // replace image via drag and drop
-$(".dropimg").on("dragover", function(e) {
+$(".dropimg, .dropbgimgsrc, #parametersdropbgimg").on("dragover", function(e) {
   e.preventDefault();  
   e.stopPropagation();
 });
-$(".dropimg").on("dragleave", function(e) {
+$(".dropimg, .dropbgimgsrc, #parametersdropbgimg").on("dragleave", function(e) {
   e.preventDefault();  
   e.stopPropagation();
 });
-$(".dropimg").on('drop', function(e) {
+$(".dropimg, .dropbgimgsrc").on('drop', function(e) {
   e.preventDefault();  
   e.stopPropagation();
   var files = e.target.files;
@@ -1013,21 +1014,13 @@ $("#imageurl").on('keyup', function(e) {
 });
 
 // replace bg image via drag and drop
-$(".dropbgimgsrc").on("dragover", function(e) {
-  e.preventDefault();  
-  e.stopPropagation();
-});
-$(".dropbgimgsrc").on("dragleave", function(e) {
-  e.preventDefault();  
-  e.stopPropagation();
-});
-$(".dropbgimgsrc").on('drop', function(e) {
+$("#parametersdropbgimg").on('drop', function(e) {
   e.preventDefault();  
   e.stopPropagation();
   var files = e.target.files;
   if (!files || files.length === 0)
       files = (e.dataTransfer ? e.dataTransfer.files : e.originalEvent.dataTransfer.files);
-  Convert2Base64(files);
+  ParametersBGIMG(files);
 });
 $("#bgimageurl").on('keyup', function(e) {
   var selector = $('[data-call=canvas] .dropbgimgsrc').parent();
@@ -1378,7 +1371,7 @@ $('[data-toggle=codeeditordialog]').click(function() {
 });
 
 // add a theme block onload for testing
-//$("[data-filter=header] .addblock img")[3].click();
+$("[data-filter=header] .addblock img")[3].click();
 //$("[data-filter=header] .addblock img")[9].click();
 //$("[data-filter=testimonials] .addblock img")[4].click();
 //$("[data-filter=footers] .addblock img")[0].click();
