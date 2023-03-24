@@ -3,7 +3,12 @@
 @import url('../libraries/tailwind/tailwind-mod.min.css');
 @import url('../libraries/font-awesome/css/all.min.css');
 
-/* */
+/* have all Polyrise dialogs display above editor's dialogs */
 body > dialog {
+  z-index: 99999999;
+}
+/* have all Polyrise navbars display above editor's dialogs */
+body > div > nav[data-id] {
+  position: inherit;
   z-index: 9999999;
 }
