@@ -202,6 +202,28 @@
           <hr>
         </h5>
 
+        <!-- background image -->
+        <nav class="h-10 hidden">
+          <ul>
+            <li>
+              <span class="my-2">
+                background-image
+              </span>
+            </li>
+          </ul>
+          <ul>
+            <li class="mb-5">
+              <input class="mt-7 mb-4" type="checkbox" data-id="checkbgimageurl" onchange="(this.checked) ? activeElm.style.backgroundImage = app.elm('bgimageurl').style.backgroundImage : activeElm.style.backgroundImage = ''; app.detectStyles();">
+              <button 
+                data-id="bgimageurl"
+                onclick="document.querySelector('[data-files]').setAttribute('open', true)"
+                class="inline-block w-auto p-4 mb-2 rounded-full bg-transparent border-0 bg-contain bg-center" style="background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNTEyIgogICBoZWlnaHQ9IjUxMiIKICAgdmlld0JveD0iMCAwIDEzNS40NjY2NiAxMzUuNDY2NjciCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzUiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczIiIC8+CiAgPGcKICAgICBpZD0ibGF5ZXIxIj4KICAgIDxjaXJjbGUKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMTE2Njc7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxO3BhaW50LW9yZGVyOmZpbGwgbWFya2VycyBzdHJva2UiCiAgICAgICBpZD0icGF0aDE4NCIKICAgICAgIGN4PSI2Ny43MzMzMyIKICAgICAgIGN5PSI2Ny43MzMzMyIKICAgICAgIHI9IjY2LjYyOTU3IiAvPgogIDwvZz4KPC9zdmc+Cg==')">
+                
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <!-- background color -->
         <nav class="h-10">
           <ul>
             <li>
@@ -229,7 +251,7 @@
             </li>
           </ul>
         </nav>
-
+        <!-- color -->
         <nav class="h-10">
           <ul>
             <li>
@@ -257,7 +279,7 @@
             </li>
           </ul>
         </nav>
-
+        <!-- border-color -->
         <nav class="h-10">
           <ul>
             <li>
@@ -401,7 +423,7 @@
     <dialog data-files>
       <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
         <button 
-          onclick="this.closest('dialog').removeAttribute('open')" 
+          onclick="this.closest('dialog').removeAttribute('open'); app.detectStyles();" 
           name="close dialog" 
           class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
           
