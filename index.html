@@ -203,7 +203,7 @@
         </h5>
 
         <!-- background image -->
-        <nav class="h-10 hidden">
+        <nav class="h-10">
           <ul>
             <li>
               <span class="my-2">
@@ -213,7 +213,7 @@
           </ul>
           <ul>
             <li class="mb-5">
-              <input class="mt-7 mb-4" type="checkbox" data-id="checkbgimageurl" onchange="(this.checked) ? activeElm.style.backgroundImage = app.elm('bgimageurl').style.backgroundImage : activeElm.style.backgroundImage = ''; app.detectStyles();">
+              <input class="mt-7 mb-4" type="checkbox" data-id="checkbgimageurl" onchange="app.toggleBGImage(this)">
               <button 
                 data-id="bgimageurl"
                 onclick="document.querySelector('[data-files]').setAttribute('open', true)"
@@ -341,7 +341,6 @@
           </nav>
         </div>
         <div data-id="outputattr" class="mb-4"></div>
-
 
         <div data-id="activeelmchildren">
           <h5 class="mt-10 mb-4 capitalize">
@@ -1086,13 +1085,15 @@
       </nav>
     </div>
 
-    <!-- <script>
+    <div data-id="notifications" class="absolute bottom-0 right-6" style="z-index: 99999999;"></div>
+
+    <script>
       // service worker for progressive web app
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('./sw.js')
         })
       }
-    </script> -->
+    </script>
   </body>
 </html>
