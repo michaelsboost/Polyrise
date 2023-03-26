@@ -344,7 +344,28 @@
 
         <div data-id="activeelmchildren">
           <h5 class="mt-10 mb-4 capitalize">
-            element children
+            <nav>
+              <span class="py-3 px-4">
+                element children
+              </span>
+
+              <span>
+                <button 
+                  name="clear the children's html" 
+                  onclick="app.clearChildrensHTML();"
+                  class="inline-block w-auto m-0 font-normal">
+                  
+                  clear html
+                </button>
+                <button 
+                  name="clear all children" 
+                  onclick="activeElm.innerHTML = ''; app.grabAttr();"
+                  class="inline-block w-auto m-0">
+                  
+                  <i class="fa fa-trash"></i>
+                </button>
+              </span>
+            </nav>
             <hr>
           </h5>
 
@@ -376,6 +397,7 @@
               <li>
                 <button
                   data-id="applyattr2children"
+                  name="commit attribute to children" 
                   onclick="app.commitChildAttr(activeElm);">
                   
                   <i class="fa fa-plus"></i>
@@ -448,7 +470,9 @@
       <!-- canvas container -->
       <div data-id="canvas" 
         class="absolute inset-x-0 top-12 bottom-16 overflow-hidden">
-        <div data-id="body" class="w-full h-full overflow-auto" contenteditable></div>
+        <div data-id="body" class="w-full h-full overflow-auto" contenteditable>
+          
+        </div>
       </div>
       <!-- preview container (for zooming and panning) -->
       <div data-id="previewwrapper" 
