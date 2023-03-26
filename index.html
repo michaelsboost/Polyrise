@@ -344,28 +344,26 @@
 
         <div data-id="activeelmchildren">
           <h5 class="mt-10 mb-4 capitalize">
-            <nav>
-              <span class="py-3 px-4">
-                element children
-              </span>
-
-              <span>
+            <details>
+              <summary>element children</summary>
+              
+              <figure class="whitespace-nowrap overflow-x-auto overflow-h-auto">
                 <button 
                   name="clear the children's html" 
                   onclick="app.clearChildrensHTML();"
                   class="inline-block w-auto m-0 font-normal">
                   
-                  clear html
+                  clear children's html
                 </button>
                 <button 
-                  name="clear all children" 
+                  name="remove all children" 
                   onclick="activeElm.innerHTML = ''; app.grabAttr();"
-                  class="inline-block w-auto m-0">
+                  class="inline-block w-auto m-0 font-normal">
                   
-                  <i class="fa fa-trash"></i>
+                  remove all children
                 </button>
-              </span>
-            </nav>
+              </figure>
+            </details>
             <hr>
           </h5>
 
@@ -456,7 +454,7 @@
         </h5>
 
         <div>
-          <input data-id="loadasset" type="file" multiple accept="image/png, image/jpeg, image/svg+xml">
+          <input data-id="loadasset" type="file" multiple accept="image/*, audio/*, video/*">
         </div>
         
         <div 
@@ -624,6 +622,15 @@
             </li>
             <li>
               <button 
+                name="open files dialog" 
+                onclick="document.querySelector('[data-files]').setAttribute('open', true)" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-images"></i>
+              </button>
+            </li>
+            <li>
+              <button 
                 name="open site settings dialog"
                 onclick="app.detectStyles(); document.querySelector('[data-elmsettings]').setAttribute('open', true);" 
                 class="py-0 my-0 border-none bg-transparent text-current">
@@ -709,17 +716,26 @@
         <ul class="overflow-x-auto overflow-y-hidden">
           <li>
             <button 
-              name="copy element"
+              name="copy element to clipboard"
               onclick="app.outputHTML('copy')" 
               class="py-0 my-0 border-none bg-transparent text-current">
             
-              <i class="fa fa-copy"></i>
+              <i class="fa fa-clipboard"></i>
             </button>
           </li>
           <li>
             <button 
-              name="paste element"
-              onclick="app.outputHTML('paste')" 
+              name="prepend element"
+              onclick="app.prependClipboard()" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa-regular fa-paste"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="append element"
+              onclick="app.appendClipboard()" 
               class="py-0 my-0 border-none bg-transparent text-current">
             
               <i class="fa fa-paste"></i>
@@ -890,7 +906,7 @@
               name="create span element"
               class="py-0 my-0 border-none bg-transparent text-current">
             
-              Text
+              Span
             </button>
           </li>
           <li>
@@ -945,6 +961,15 @@
               class="py-0 my-0 border-none bg-transparent text-current">
             
               <i class="fa fa-quote-right"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('kbd')" 
+              name="make selection a code snippet"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-code"></i>
             </button>
           </li>
           <li>
@@ -1039,15 +1064,6 @@
           </li>
           <li>
             <button 
-              onclick="app.outputHTML('code')" 
-              name="paste a custom html code snippet"
-              class="py-0 my-0 border-none bg-transparent text-current">
-            
-              <i class="fa fa-code"></i>
-            </button>
-          </li>
-          <li>
-            <button 
               onclick="app.outputHTML('accordion')" 
               name="create an accordion component"
               class="py-0 my-0 border-none bg-transparent text-current">
@@ -1077,8 +1093,8 @@
           <li>
             <button 
               data-id="delElm"
-              name="delete the active element"
-              onclick="let tempElm = activeElm.parentElement; activeElm.remove(); activeElm = tempElm; app.createBreadcrumb(activeElm);" 
+              name="delete the active element or queried elements"
+              onclick="app.deleteElm();" 
               class="py-0 my-0 border-none bg-transparent text-current">
             
               <i class="fa fa-trash"></i>
