@@ -31,7 +31,7 @@ Want to contribute? Great!
 
 You can submit a pull request or simply share the project :)  
 
-*As of March 27th, 2023 Polyrise is no longer an active project. All updates as of that date and on are solely contributor based implementations.*
+*As of March 29th, 2023 Polyrise is no longer an active project. All updates as of that date and on are solely contributor based implementations.*
 
 Of course Polyrise is free and open source, so you can always fork the project and have fun :)  
 
