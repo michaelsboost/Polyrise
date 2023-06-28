@@ -6,6 +6,11 @@ Free Mobile Website Builder! Create awesome responsive websites. Easy and fast -
 ### Version
 0.0.2
 
+### Video Tutorials  
+(Walk-Through)[https://youtu.be/HA081BgMOtg]
+(Responsive Design with Polyrise Web Builder)[https://youtu.be/V-NE8eVUsOY]
+(Arrays in Polyrise Website Builder)[https://youtu.be/mrqtoO0VnLs]
+
 ### Tech
 
 Polyrise uses a number of open source projects to work properly:
