@@ -1,46 +1,1141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
-    <title>Polyrise</title>
-    <meta charset="utf-8">
+    <!-- Title needs to be at within the max 580 pixel length -->
+    <title>Polyrise: Free Mobile Website Builder!</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Description needs to be within the max 1000 pixel length -->
     <meta name="description" content="Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use.">
-    <meta name="author" content="Michael Schwartz">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, interactive-widget=resizes-content">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Polyrise">
-    <meta name="theme-color" content="#13171f">
-    <meta name="apple-mobile-web-app-title" content="Polyrise">
+    <meta property="og:url"         content="https://michaelsboost.github.io/Polyrise/" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="Polyrise: Free Mobile Website Builder!" />
+    <meta property="og:description" content="Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use." />
+    <meta property="og:image"       content="https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/header.png" />
+    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#ffffff">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="msapplication-starturl" content="./index.html">
-    <meta name="msapplication-navbutton-color" content="#13171f">
-    <meta property="og:url"         content="https://michaelsboost.github.io/Polyrise/">
-    <meta property="og:type"        content="website">
-    <meta property="og:title"       content="Polyrise">
-    <meta property="og:description" content="Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use.">
-    <meta property="og:image"       content="https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/imgs/header.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" type="image/x-icon" href="imgs/logo.svg">
-    <link rel="icon" type="image/svg+xml" href="imgs/logo.svg">
-    <link rel="apple-touch-icon" href="imgs/logo.svg">
-    <!-- <link rel="stylesheet" href="libraries/pico/pico.classless.min.css">
-    <script src="libraries/tailwind/tailwind-mod-noreset.min.js"></script>
-    <script src="libraries/font-awesome/js/all.min.js"></script> -->
-    <link rel="stylesheet" href="dist/style.css">
+    <meta name="apple-mobile-web-app-title" content="Polyrise">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    <!-- Must contain only 1 css file -->
+    <link rel="stylesheet"    href="css/style.css">
+    <!-- Must contain only 1 javascript file -->
+    <script src="js/import.js" defer></script>
   </head>
   <body>
-    <header class="absolute inset-0 text-center grid grid-cols-1 items-center">
-      <hgroup>
-        <h1 class="mb-2 text-[#ffffff00]">Polyrise</h1>
-        <h2 class="text-[#ffffff00]">An open source no code app builder/designer free for personal and commercial use.</h2>
-      </hgroup>
-    </header>
-    
-    <div id="app" class="absolute inset-0"></div>
+    <!-- hidden elements -->
+    <div class="hidden">
+      <input 
+        type="checkbox"
+        data-id="theme"
+        onchange="app.toggleTheme(this.checked)">
+    </div>
+    <dialog data-about class="cursor-pointer" onclick="this.removeAttribute('open')">
+      <article class="w-2/3 text-center cursor-default">
+        <div class="mb-8 text-center">
+          <div class="mb-2">
+            <a 
+              href="https://michaelsboost.github.io/donate/" 
+              target="_blank" 
+              role="button" 
+              class="border-none bg-transparent text-blue-500">
 
-    <!-- <script src="src/App.js"></script> -->
-    <script src="dist/App.min.js"></script>
-    <script src="https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js"></script>
+              <i class="fa fa-heart text-3xl"></i>
+            </a>
+          </div>
+          <p>
+            <a href="https://github.com/michaelsboost/Polyrise/" 
+              target="_blank">
+              
+              <img class="w-52" src="img/logo.svg">
+            </a>
+          </p>
+          <div class="mt-8 text-2xl">
+            About Polyrise
+          </div>
+          <div class="my-2">
+            <small>Version 0.0.2</small>
+          </div>
+          <div>
+            <a 
+              href="https://github.com/michaelsboost/Polyrise/blob/gh-pages/LICENSE" 
+              target="_blank">
+              
+              Open Source License
+            </a>
+          </div>
+        </div>
+      </article>
+    </dialog>
+    <dialog data-sitesettings>
+      <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
+        <button 
+          onclick="this.closest('dialog').removeAttribute('open')" 
+          name="close dialog" 
+          class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
+        
+          <i class="fa fa-times"></i>
+        </button>
+
+        <h5 class="capitalize text-3xl">
+          site settings
+        </h5>
+
+        <div class="hidden">
+          <input 
+            data-id="import"
+            type="file"
+            accept="application/json"
+            onchange="app.loadFile(this)">
+
+          <input 
+            data-id="importlogo" 
+            type="file" 
+            accept="image/png, image/jpeg, image/svg+xml" 
+            onchange="app.loadLogo(this)">
+        </div>
+
+        <h5 class="capitalize mt-10">
+          meta
+
+          <span 
+            onclick="app.elm('importlogo').click()"
+            class="cursor-pointer float-right">
+            
+            <img data-id="logo" 
+              class="h-10" 
+              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNTEyIgogICBoZWlnaHQ9IjUxMiIKICAgdmlld0JveD0iMCAwIDEzNS40NjY2NiAxMzUuNDY2NjciCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzUiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczIiIC8+CiAgPGcKICAgICBpZD0ibGF5ZXIxIj4KICAgIDxjaXJjbGUKICAgICAgIHN0eWxlPSJvcGFjaXR5OjAuODMwNjQyO2ZpbGw6IzQ3NDdmZjtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6Ny45Mzc1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIgogICAgICAgaWQ9InBhdGgxODQiCiAgICAgICBjeD0iNjcuNzMzMzMiCiAgICAgICBjeT0iNjcuNzMzMzMiCiAgICAgICByPSI2Ny43MzMzMyIgLz4KICAgIDxwYXRoCiAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjMyMjQzMXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBkPSJNIDc0LjU4MzQxMiw2My43NjcwNDQgODUuMzI0MTY3LDIzLjY4MTk5MiAzOC4xODAxMzgsNzAuODI2MDIzIDYwLjg4MzI1Niw3MS42OTk2MjIgNTAuMTQyNTAxLDExMS43ODQ2NyA5Ny4yODY1MjksNjQuNjQwNjQzIFoiCiAgICAgICBpZD0icGF0aDg5OC0zIiAvPgogIDwvZz4KPC9zdmc+Cg==">
+          </span>
+        </h5>
+
+        <input data-id="sitename"
+          type="text"
+          placeholder="Business Name..."
+          onkeyup="appJSON.name = app.elm('sitename').value;"
+          onchange="appJSON.name = app.elm('sitename').value;">
+
+        <nav class="mt-4">
+          <h5 class="m-0">Pages</h5>
+
+          <a 
+            onclick="app.addPage()"
+            class="cursor-pointer bg-transparent no-underline border-0 text-current">
+    
+            <i class="fa fa-plus"></i>
+          </a>
+        </nav>
+
+        <div data-id="sitepages" class="mt-4 mb-8"></div>
+
+        <h5 class="capitalize">
+          scratchpad
+        </h5>
+        <textarea 
+          data-id="scratchpad"
+          placeholder="Type something..."
+          onkeyup="appJSON.scratchpad = app.elm('scratchpad').value;" 
+          onchange="appJSON.scratchpad = app.elm('scratchpad').value;" 
+          class="h-40 resize-none"></textarea>
+      </article>
+    </dialog>
+    <dialog data-pagesettings>
+      <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
+        <button 
+          onclick="this.closest('dialog').removeAttribute('open')" 
+          name="close dialog"
+          class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
+        
+          <i class="fa fa-times"></i>
+        </button>
+
+        <h5 class="capitalize text-3xl">
+          page settings
+        </h5>
+        
+        <input    data-id="title"    type="text"   placeholder="Title..."                 onkeyup="app.updatePage(0)" onchange="app.updatePage(0)">
+        <textarea data-id="description"            placeholder="Description..."           onkeyup="app.updatePage(0)" onchange="app.updatePage(0)" class="h-40 resize-none"></textarea>
+        <input    data-id="author"   type="text"   placeholder="author name"              onkeyup="app.updatePage(0)" onchange="app.updatePage(0)">
+        <input    data-id="website"  type="text"   placeholder="https://yourwebsite.com/" onkeyup="app.updatePage(0)" onchange="app.updatePage(0)">
+        <textarea data-id="analytics"              placeholder="Paste your Google Analytics code snippet here or paste any other code that you want to have on every page immediately after the opening <body> tag." onkeyup="app.updatePage(0)" onchange="app.updatePage(0)" class="h-40 resize-none"></textarea>
+      </article>
+    </dialog>
+    <dialog data-components>
+      <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
+        <button 
+          onclick="this.closest('dialog').removeAttribute('open')" 
+          name="close dialog" 
+          class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
+
+          <i class="fa fa-times"></i>
+        </button>
+
+        <h5 class="capitalize text-3xl">
+          components
+        </h5>
+
+        <div data-id="outputComponents"></div>
+      </article>
+    </dialog>
+    <dialog data-elmsettings>
+      <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
+        <button 
+          onclick="this.closest('dialog').removeAttribute('open')" 
+          name="close dialog" 
+          class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
+          
+          <i class="fa fa-times"></i>
+        </button>
+
+        <h5 class="capitalize text-3xl">
+          element settings
+        </h5>
+
+        <h5 class="mt-10 mb-4 capitalize">
+          element colors
+          <hr>
+        </h5>
+
+        <!-- background image -->
+        <nav class="h-10">
+          <ul>
+            <li>
+              <span class="my-2">
+                background-image
+              </span>
+            </li>
+          </ul>
+          <ul>
+            <li class="mb-5">
+              <input class="mt-7 mb-4" type="checkbox" data-id="checkbgimageurl" onchange="app.toggleBGImage(this)">
+              <button 
+                data-id="bgimageurl"
+                onclick="document.querySelector('[data-files]').setAttribute('open', true)"
+                class="inline-block w-auto p-4 mb-2 rounded-full bg-transparent border-0 bg-contain bg-center" style="background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNTEyIgogICBoZWlnaHQ9IjUxMiIKICAgdmlld0JveD0iMCAwIDEzNS40NjY2NiAxMzUuNDY2NjciCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzUiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczIiIC8+CiAgPGcKICAgICBpZD0ibGF5ZXIxIj4KICAgIDxjaXJjbGUKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMTE2Njc7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxO3BhaW50LW9yZGVyOmZpbGwgbWFya2VycyBzdHJva2UiCiAgICAgICBpZD0icGF0aDE4NCIKICAgICAgIGN4PSI2Ny43MzMzMyIKICAgICAgIGN5PSI2Ny43MzMzMyIKICAgICAgIHI9IjY2LjYyOTU3IiAvPgogIDwvZz4KPC9zdmc+Cg==')">
+                
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <!-- background color -->
+        <nav class="h-10">
+          <ul>
+            <li>
+              <span class="my-2">
+                background-color
+              </span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input 
+                class="mb-4"
+                type="checkbox"
+                data-id="checkbgcolor"
+                onchange="(this.checked) ? app.setColor(app.elm('bgcolor').value, 'backgroundColor') : app.setColor('', 'backgroundColor'); app.detectStyles();">
+  
+              <input 
+                data-id="bgcolor"
+                value="#000000"
+                type="color"
+                placeholder="background-color"
+                onkeyup="app.setColor(this.value, 'backgroundColor'); app.detectStyles();"
+                onchange="app.setColor(this.value, 'backgroundColor'); app.detectStyles();"
+                style="cursor: pointer; display: inline-block; width: 2rem; height: 2rem; padding: 0; border-radius: 9999999999em; overflow: hidden;">
+            </li>
+          </ul>
+        </nav>
+        <!-- color -->
+        <nav class="h-10">
+          <ul>
+            <li>
+              <span class="my-2">
+                color
+              </span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input 
+                class="mb-4"
+                type="checkbox"
+                data-id="checkcolor"
+                onchange="(this.checked) ? app.setColor(app.elm('color').value, 'color') : app.setColor('', 'color'); app.detectStyles();">
+  
+              <input 
+                data-id="color"
+                value="#000000"
+                type="color"
+                placeholder="color"
+                onkeyup="app.setColor(this.value, 'color'); app.detectStyles();"
+                onchange="app.setColor(this.value, 'color'); app.detectStyles();"
+                style="cursor: pointer; display: inline-block; width: 2rem; height: 2rem; padding: 0; border-radius: 9999999999em; overflow: hidden;">
+            </li>
+          </ul>
+        </nav>
+        <!-- border-color -->
+        <nav class="h-10">
+          <ul>
+            <li>
+              <span class="my-2">
+                border-color
+              </span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input 
+                class="mb-4"
+                type="checkbox"
+                data-id="checkbordercolor"
+                onchange="(this.checked) ? app.setColor(app.elm('bordercolor').value, 'borderColor') : app.setColor('', 'borderColor'); app.detectStyles();">
+  
+              <input 
+                data-id="bordercolor"
+                value="#000000"
+                type="color"
+                placeholder="border-color"
+                onkeyup="app.setColor(this.value, 'borderColor'); app.detectStyles();"
+                onchange="app.setColor(this.value, 'borderColor'); app.detectStyles();"
+                style="cursor: pointer; display: inline-block; width: 2rem; height: 2rem; padding: 0; border-radius: 9999999999em; overflow: hidden;">
+            </li>
+          </ul>
+        </nav>
+
+        <h5 class="mt-10 mb-4 capitalize">
+          element attributes
+          <hr>
+        </h5>
+
+        <div class="mb-4">
+          <nav>
+            <ul>
+              <li>
+                <input 
+                  type="text" 
+                  data-id="attrname" 
+                  placeholder="attribute name">
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <input 
+                  type="text" 
+                  data-id="attrval" 
+                  placeholder="attribute value">
+              </li>
+              <li>
+                <button
+                  data-id="applyattr"
+                  onclick="app.commitAttr(activeElm);">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div data-id="outputattr" class="mb-4"></div>
+
+        <div data-id="activeelmchildren">
+          <h5 class="mt-10 mb-4 capitalize">
+            <details>
+              <summary>element children</summary>
+              
+              <figure class="whitespace-nowrap overflow-x-auto overflow-h-auto">
+                <button 
+                  name="clear the children's html" 
+                  onclick="app.clearChildrensHTML();"
+                  class="inline-block w-auto m-0 font-normal">
+                  
+                  clear children's html
+                </button>
+                <button 
+                  name="remove all children" 
+                  onclick="activeElm.innerHTML = ''; app.grabAttr();"
+                  class="inline-block w-auto m-0 font-normal">
+                  
+                  remove all children
+                </button>
+              </figure>
+            </details>
+            <hr>
+          </h5>
+
+          <div class="mb-4">
+            <figure class="whitespace-nowrap overflow-x-auto overflow-h-auto" data-id="children"></figure>
+          </div>
+
+          <h5 class="mt-10 mb-4 capitalize">
+            element query attributes
+            <hr>
+          </h5>
+
+          <nav>
+            <ul>
+              <li>
+                <input 
+                  type="text" 
+                  data-id="queryattrname" 
+                  placeholder="attribute name">
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <input 
+                  type="text" 
+                  data-id="queryattrval" 
+                  placeholder="attribute value">
+              </li>
+              <li>
+                <button
+                  data-id="applyattr2children"
+                  name="commit attribute to children" 
+                  onclick="app.commitChildAttr(activeElm);">
+                  
+                  <i class="fa fa-plus"></i>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <div data-id="outputqueryattributes"></div>
+        </div>
+      </article>
+    </dialog>
+    <dialog data-customdialog>
+      <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
+        <button 
+          onclick="this.closest('dialog').removeAttribute('open')" 
+          name="close dialog" 
+          class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
+          
+          <i class="fa fa-times"></i>
+        </button>
+
+        <h5 class="capitalize text-3xl">
+          element settings
+        </h5>
+        
+        <div class="absolute top-14 bottom-20 inset-x-0 p-4">
+          <textarea 
+            data-id="customcode" 
+            class="w-full h-full resize-none"
+            placeholder="Paste code snippet to embed here..."></textarea>
+        </div>
+
+        <div class="absolute bottom-2 inset-x-0 p-4">
+          <button
+            class="m-0"
+            onclick="app.elm('body').innerHTML += app.elm('customcode').value; app.updateEditable(); this.closest('dialog').removeAttribute('open'); app.elm('customcode').value = '';">
+
+            Embed code snippet
+          </button>
+        </div>
+      </article>
+    </dialog>
+    <dialog data-files>
+      <article class="absolute inset-0 max-w-full max-h-full m-0 p-4 rounded-none overflow-auto">
+        <button 
+          onclick="this.closest('dialog').removeAttribute('open'); app.detectStyles();" 
+          name="close dialog" 
+          class="cursor-pointer fixed right-5 p-0 w-auto max-h-full rounded-full border-0 float-right text-current bg-transparent">
+          
+          <i class="fa fa-times"></i>
+        </button>
+
+        <h5 class="capitalize text-3xl">
+          assets
+        </h5>
+
+        <div>
+          <input data-id="loadasset" type="file" multiple accept="image/*, audio/*, video/*">
+        </div>
+        
+        <div 
+          data-id="assets"
+          class="grid grid-cols-2"></div>
+      </article>
+    </dialog>
+    
+    <!-- site wrapper -->
+    <div class="absolute inset-0 overflow-hidden">
+      <!-- canvas container -->
+      <div data-id="canvas" 
+        class="absolute inset-x-0 top-12 bottom-16 overflow-hidden">
+        <div data-id="body" class="w-full h-full overflow-auto" contenteditable>
+          
+        </div>
+      </div>
+      <!-- preview container (for zooming and panning) -->
+      <div data-id="previewwrapper" 
+        class="hidden absolute inset-0 p-0 overflow-hidden bg-repeat" 
+        style="background-image: url('img/bg.svg');">
+        <div 
+          data-id="previewElm" 
+          data-theme="light"
+          class="border border-solid" 
+          style="width: 360px; height: 740px;"></div>
+        <div data-id="fill" class="absolute inset-0"></div>
+      </div>
+
+      <!-- top navbar -->
+      <nav data-id="previewnav" 
+        class="hidden absolute w-full h-12 px-4 py-1 z-10 border-0">
+        <ul class="min-w-min pr-10">
+          <a 
+            onclick="document.querySelector('[data-about]').setAttribute('open', true)" 
+            class="cursor-pointer py-0 my-0 border-none bg-transparent text-current">
+            
+            <img class="h-10 min-w-min" src="img/logo.svg">
+          </a>
+        </ul>
+        <ul class="overflow-x-auto overflow-y-hidden">
+          <li>
+            <button 
+              data-zoom="true" 
+              name="toggle panzoom"
+              class="py-0 my-0 border-none bg-transparent text-current">
+
+              <i class="fa fa-light fa-magnifying-glass-plus"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.updatePreview()" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+              
+              <i class="fa fa-rotate"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              data-id="rotateCanvas" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+              
+              <i class="fa fa fa-rotate-right"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              data-device="mobile" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+              
+              <i class="fa fa-mobile"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="close desktop preview"
+              onclick="app.elm('main').classList.remove('hidden'); app.elm('canvas').classList.remove('hidden'); app.elm('previewwrapper').classList.add('hidden'); app.elm('previewnav').classList.add('hidden'); app.elm('mainfooter').className = 'absolute inset-x-0 bottom-0 justify-center w-full h-16 px-4 py-1 z-10 border-0 border-t border-solid border-green-400';" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+              
+              <i class="fa fa-times"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav data-id="main" 
+        class="w-full h-12 pl-4 pr-0 py-1 z-10 border-0 border-b border-solid border-green-400">
+          <ul class="min-w-min pr-10">
+            <button 
+              name="open about polyrise"
+              onclick="document.querySelector('[data-about]').setAttribute('open', true)" 
+              class="p-0 my-0 border-none bg-transparent text-current">
+            
+              <img class="min-w-min h-10" src="img/logo.svg" alt="Polyrise">
+            </button>
+          </ul>
+          <ul class="relative right-2 overflow-x-auto overflow-y-hidden">
+            <li>
+              <button 
+                name="open components dialog"
+                onclick="document.querySelector('[data-components]').setAttribute('open', true)"
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-plus"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="open files dialog"
+                onclick="document.querySelector('[data-files]').setAttribute('open', true)"
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-images"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="open site settings dialog"
+                onclick="document.querySelector('[data-sitesettings]').setAttribute('open', true)" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-cog"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="toggle site theme"
+                onclick="app.elm('theme').click()" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i data-id="themeicon" class="fa fa-sun"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="open panzoom desktop view"
+                onclick="app.updatePreview(); app.elm('main').classList.add('hidden'); app.elm('canvas').classList.add('hidden'); app.elm('previewwrapper').classList.remove('hidden'); app.elm('previewnav').classList.remove('hidden');  app.elm('mainfooter').className = 'absolute inset-x-0 bottom-0 justify-center w-full h-16 px-4 py-1 z-10 border-0'; app.elm('rotateCanvas').onclick(); app.elm('rotateCanvas').onclick();" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-play"></i>
+              </button>
+            </li>
+          </ul>
+      </nav>
+      <nav data-id="breadcrumb"
+        style="justify-content: space-between;" 
+        class="hidden w-full h-12 pl-4 pr-0 py-1 z-10 border-0 border-b border-solid border-green-400 overflow-x-auto overflow-y-hidden">
+          <ul data-id="crumblist" class="overflow-x-auto overflow-y-hidden"></ul>
+          <ul style="margin: 0;" class="overflow-x-auto overflow-y-hidden">
+            <li>
+              <select 
+                data-id="dialogs"
+                onchange="app.openDialog(this);"
+                class="py-0">
+
+                <option value="">dialogs</option>
+              </select>
+            </li>
+            <li>
+              <button 
+                name="open element classes navigation"
+                onclick="app.elm('editor').classList.add('hidden'); app.elm('classes').classList.remove('hidden'); app.elm('classes').querySelector('input').focus();" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa-solid fa-mortar-pestle"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="open files dialog" 
+                onclick="document.querySelector('[data-files]').setAttribute('open', true)" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-images"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="open site settings dialog"
+                onclick="app.detectStyles(); document.querySelector('[data-elmsettings]').setAttribute('open', true);" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-cog"></i>
+              </button>
+            </li>
+            <li>
+              <button 
+                name="close editor menus"
+                onclick="app.openDialog(0); app.elm('main').classList.remove('hidden'); app.elm('breadcrumb').classList.add('hidden'); app.elm('editor').classList.add('hidden'); app.elm('mainfooter').classList.remove('hidden'); app.elm('classes').classList.add('hidden');" 
+                class="py-0 my-0 border-none bg-transparent text-current">
+              
+                <i class="fa fa-times"></i>
+              </button>
+            </li>
+          </ul>
+      </nav>
+
+      <!-- bottom navbar -->
+      <nav data-id="mainfooter" 
+        class="absolute inset-x-0 bottom-0 justify-center w-full h-16 px-4 py-1 z-10 border-0 border-t border-solid border-green-400">
+        <ul class="overflow-x-auto overflow-y-hidden">
+          <li>
+            <button 
+              name="initiate a new polyrise project"
+              onclick="localStorage.clear(); location.reload(true);"
+              class="cursor-pointer border-none bg-transparent text-current">
+            
+              <i class="fa fa-file-text"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="import the json project"
+              onclick="app.elm('import').click()"
+              class="cursor-pointer border-none bg-transparent text-current">
+            
+              <i class="fa fa-file-import"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="export the json project"
+              onclick="app.exportJSON()"
+              class="cursor-pointer border-none bg-transparent text-current">
+            
+              <i class="fa fa-file-export"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="share layout on codepen"
+              onclick="app.shareProject()"
+              class="cursor-pointer border-none bg-transparent text-current">
+            
+              <i class="fa fa-share"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="export zip"
+              onclick="app.exportZip()"
+              class="cursor-pointer border-none bg-transparent text-current">
+            
+              <i class="fa fa-download"></i>
+            </button>
+          </li>
+          <li>
+            <a 
+              name="donate to the project"
+              href="https://michaelsboost.github.io/donate/"
+              role="button"
+              class="border-none bg-transparent text-current">
+            
+              <i class="fa fa-heart text-red-500"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav data-id="editor" 
+        class="hidden absolute inset-x-0 bottom-0 justify-center w-full h-16 px-4 py-1 z-10 border-0 border-t border-solid border-green-400">
+        <ul class="overflow-x-auto overflow-y-hidden">
+          <li>
+            <button 
+              name="copy element to clipboard"
+              onclick="app.outputHTML('copy')" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-clipboard"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="prepend element"
+              onclick="app.prependClipboard()" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa-regular fa-paste"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="append element"
+              onclick="app.appendClipboard()" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-paste"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="create div element"
+              onclick="app.outputHTML('div')" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-square"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('nav')" 
+              name="create nav element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-compass"></i>
+            </button>
+          </li>
+          <li>
+            <select 
+              data-id="textsize"
+              onchange="app.outputHTML('textsize')" 
+              class="w-auto py-0 my-0 border-0">
+              <option value="">size</option>
+              <option value="text-xs">text-xs</option>
+              <option value="text-sm">text-sm</option>
+              <option value="text-base">text-base</option>
+              <option value="text-lg">text-lg</option>
+              <option value="text-xl">text-xl</option>
+              <option value="text-2x1">text-2x1</option>
+              <option value="text-3xl">text-3xl</option>
+              <option value="text-4xl">text-4xl</option>
+              <option value="text-5xl">text-5xl</option>
+              <option value="text-6xl">text-6xl</option>
+              <option value="text-7xl">text-7xl</option>
+              <option value="text-8xl">text-8xl</option>
+              <option value="text-9xl">text-9xl</option>
+            </select>
+          </li>
+          <li>
+            <select 
+              data-id="activeHeading"
+              onchange="app.outputHTML(this.value)" 
+              class="w-auto py-0 my-0 border-0">
+              <option value="h1">h1</option>
+              <option value="h2">h2</option>
+              <option value="h3">h3</option>
+              <option value="h4">h4</option>
+              <option value="h5">h5</option>
+              <option value="h6">h6</option>
+            </select>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('hgroup')" 
+              name="create hgroup element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-heading"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('p')" 
+              name="create paragraph element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-paragraph"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('strong')" 
+              name="create a bold element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-bold"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('em')" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-italic"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('u')" 
+              name="create an underline element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-underline"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('strike')" 
+              name="create a strikethrough element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-strikethrough"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              data-id="textalign" 
+              name="toggle text alignment"
+              onclick="app.alignText(this)" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa-solid fa-align-left"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('a')" 
+              name="create an anhor link element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-link"></i>
+            </button>
+          </li>
+          <li>
+            <input type="checkbox" data-id="targetblank"
+            onchange="(activeElm.tagName.toLowerCase() === 'a') ? (this.checked) ? activeElm.target = '_blank' : activeElm.removeAttribute('target') : '';">
+          </li>
+          <li>
+            <input type="checkbox" data-id="buttonrole" role="switch"
+            onchange="(activeElm.tagName.toLowerCase() === 'a') ? (this.checked) ? activeElm.setAttribute('role', 'button') : activeElm.removeAttribute('role') : '';">
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('image')" 
+              name="create an image element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-image"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('video')" 
+              name="create a video/iframe element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-video"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('button')" 
+              name="create button element"
+              class="py-0 my-0">
+            
+              button
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('span')" 
+              name="create span element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              Span
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('mark')" 
+              name="create mark element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-highlighter"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('ins')" 
+              name="create ins element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-marker"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('del')" 
+              name="create del element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-square-minus"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('sub')" 
+              name="create subscript element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-subscript"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('sup')" 
+              name="create superscript element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-superscript"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('blockquote')" 
+              name="create blockquote element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-quote-right"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('kbd')" 
+              name="make selection a code snippet"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-code"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('hr')" 
+              name="create horizontal rule element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-minus"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('ul')" 
+              name="create an unordered list element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-list-ul"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('ol')" 
+              name="create an ordered list element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-list-ol"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('label')" 
+              name="create label element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-tag"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('textarea')" 
+              name="create textarea element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa-regular fa-keyboard"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('searchfield')" 
+              name="create a searchfield input element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-search"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('form')" 
+              name="create a form element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-baseball-bat-ball"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('checkbox')" 
+              name="create a checkbox element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-check-square"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              name="toggle checkbox switch role"
+              onclick="if (activeElm.tagName.toLowerCase() === 'input') {if (activeElm.getAttribute('type') === 'checkbox') { (activeElm.getAttribute('role', 'switch')) ? activeElm.removeAttribute('role') : activeElm.setAttribute('role', 'switch') }}" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-toggle-on"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('article')" 
+              name="create an article element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-newspaper"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('accordion')" 
+              name="create an accordion component"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa-solid fa-circle-chevron-down"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              onclick="app.outputHTML('icon')" 
+              name="insert an icon into the active element"
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-icons"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              data-id="cloneElm"
+              name="clone element"
+              onclick="app.outputHTML('clone')" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-clone"></i>
+            </button>
+          </li>
+          <li>
+            <button 
+              data-id="delElm"
+              name="delete the active element or queried elements"
+              onclick="app.deleteElm();" 
+              class="py-0 my-0 border-none bg-transparent text-current">
+            
+              <i class="fa fa-trash"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav data-id="classes" 
+        class="hidden absolute inset-x-0 bottom-0 w-full h-16 px-4 py-0 z-10 border-0 border-t border-solid border-green-400">
+        <li class="py-2 w-full">
+          <input 
+            type="text" 
+            class="w-full" 
+            data-id="activechildquery"
+            placeholder="Query for activeElm children"
+            onkeyup="app.elm('activeelmstyle').value = activeElm.querySelector(`${this.value}`).className;">
+        </li>
+        <li class="py-2 w-full">
+          <input 
+            data-id="activeelmstyle"
+            onkeyup="app.changeStyles(this)"
+            type="text" 
+            class="w-full" 
+            placeholder="The active element's classes go here.">
+        </li>
+        <li class="mt-1">
+          <button
+            name="close classes navigation"
+            onclick="app.elm('editor').classList.remove('hidden'); app.elm('classes').classList.add('hidden');"
+            class="py-0 my-0 border-none bg-transparent text-current">
+  
+            <i class="fa fa-times"></i>
+          </button>
+        </li>
+      </nav>
+    </div>
+
+    <div data-id="notifications" class="absolute bottom-0 right-6" style="z-index: 99999999;"></div>
+
     <script>
       // service worker for progressive web app
       if ('serviceWorker' in navigator) {

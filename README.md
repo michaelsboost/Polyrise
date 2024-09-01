@@ -1,20 +1,27 @@
 # Polyrise
 Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use.
 
-![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/imgs/header.png)
+![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/img/header.png)
 
 ### Version
-1.0.0
+0.0.2
+
+### Video Tutorials  
+[Polyrise Walk-Through](https://youtu.be/HA081BgMOtg)  
+[Responsive Design with Polyrise Web Builder](https://youtu.be/V-NE8eVUsOY)
+[Arrays in Polyrise Website Builder](https://youtu.be/mrqtoO0VnLs)
 
 ### Tech
 
 Polyrise uses a number of open source projects to work properly:
 
+* [Font Awesome v5](https://fontawesome.com/) - Beautiful icon library and toolkit
+* [Pico.css](https://picocss.com/) - Pico.css is a minimal css framework for semantic html
 * [Tailwind CSS](https://tailwindcss.com/) - A low-level CSS framework that's entirely utility-first and provides users with low-level CSS classes in PostCSS that can be used to define components and designs independently.
-* [HeroIcons](https://heroicons.com/) and [Font Awesome](https://fontawesome.com/) - used for the svg icons
-* [JSZip](https://stuk.github.io/jszip/) - package zip files in javascript
-* [FileSaver.js](https://github.com/eligrey/FileSaver.js/) - Client-side solution for saving files
-* [html2canvas](https://html2canvas.hertzen.com/) - Used for full website screenshots
+* [JSZip](https://stuk.github.io/jszip/) - Package zip files locally in javascript
+* [FileSaver.js](https://github.com/eligrey/FileSaver.js/) - JSZip comes prebuilt with this. Allows us to save files locally in Javascript
+* [panzoom](https://github.com/anvaka/panzoom/) - Used to pan and zoom the canvas
+* [TinyColors](http://bgrins.github.io/TinyColor/) - library that easily converts rgb, hsl and hex color codes
 
 ### License
 MIT
@@ -28,6 +35,8 @@ MIT
 Want to contribute? Great!  
 
 You can submit a pull request or simply share the project :)  
+
+*As of March 29th, 2023 Polyrise is no longer an active project. All updates as of that date and on are solely contributor based implementations.*
 
 Of course Polyrise is free and open source, so you can always fork the project and have fun :)  
 

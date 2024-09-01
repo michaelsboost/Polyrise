@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 110 40"
+   xml:space="preserve"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs43"><linearGradient
+     id="SVGID_2_-2"
+     gradientUnits="userSpaceOnUse"
+     x1="1.0391001"
+     y1="20"
+     x2="26.3594"
+     y2="20">
+				<stop
+   offset="0"
+   style="stop-color:#5FCF80"
+   id="stop436" />
+				<stop
+   offset="0.348"
+   style="stop-color:#4FC1A1"
+   id="stop438" />
+				<stop
+   offset="0.7713"
+   style="stop-color:#3FB3C4"
+   id="stop440" />
+				<stop
+   offset="1"
+   style="stop-color:#39ADD1"
+   id="stop442" />
+			</linearGradient><linearGradient
+     xlink:href="#SVGID_2_-2"
+     id="linearGradient1333"
+     x1="0"
+     y1="256"
+     x2="512"
+     y2="256"
+     gradientUnits="userSpaceOnUse" /></defs>
+
+<circle
+   style="opacity:1;fill:url(#linearGradient1333);fill-opacity:1;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill"
+   id="path1325"
+   cx="256"
+   cy="256"
+   r="256" /><path
+   style="fill:#ffffff;stroke:none;stroke-width:1.21864px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   d="M 281.89006,241.0093 322.48504,89.506745 144.30288,267.68891 230.10994,270.9907 189.51496,422.49325 367.69712,244.31109 Z"
+   id="path898-3" /></svg>
