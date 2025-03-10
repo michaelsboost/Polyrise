@@ -4,7 +4,7 @@ Free Mobile Website Builder! Create awesome responsive websites. Easy and fast -
 ![](https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/imgs/header.png)
 
 ### Version
-1.0.4
+1.0.5
 
 ### Tech
 

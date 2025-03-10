@@ -52,7 +52,7 @@ let app = {
     href: 'https://michaelsboost.com/',
     src: 'imgs/author.jpg'
   },
-  version: '1.0.4',
+  version: '1.0.5',
   url: 'https://github.com/michaelsboost/Polyrise/',
   license: 'https://github.com/michaelsboost/Polyrise/blob/gh-pages/LICENSE'
 }
@@ -1402,9 +1402,23 @@ function Menu() {
                 <button 
                   class="w-full flex gap-2 text-sm capitalize border-0 p-2 rounded-md bg-transparent" 
                   style="color: unset;" 
-                  onclick="data.menuDialog = null; share()">
+                  onclick="data.menuDialog = null; shareToKodeWeave()">
                   <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+                  </svg>
+                  <span>share to kodeWeave</span>
+                </button>
+              </li>
+              <li class="p-0 list-none">
+                <button 
+                  class="w-full flex gap-2 text-sm capitalize border-0 p-2 rounded-md bg-transparent" 
+                  style="color: unset;" 
+                  onclick="data.menuDialog = null; shareToCodepen()">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                      <path d="M21 9v6M3 15V9m9 12v-6m0-12v6m0 6L3 9l9-6l9 6z"/>
+                      <path d="m12 21l-9-6l9-6l9 6z"/>
+                    </g>
                   </svg>
                   <span>share to codepen</span>
                 </button>
@@ -9129,7 +9143,7 @@ ${(project.pwa ? swinit : '')}
     removeScripts(scriptsToRemove);
   }
 }
-window.share = async () => {
+window.shareToCodepen = async () => {
   try {
     if (navigator.onLine) {
       const shareProject = {
@@ -9178,6 +9192,77 @@ ${json2css(project.css)}`,
     console.error('Error sharing project:', error);
   }
 }
+window.shareToKodeWeave = async () => {
+  try {
+    if (navigator.onLine) {
+      // Prepare the project data for kodeWeave
+      const projectData = {
+        name: project.name || "Polyrise Website", // Default name if not provided
+        version: project.version || "0.0.1", // Default version if not provided
+        title: project.title || "Polyrise: Design with Freedom, Build with Power!", // Default title if not provided
+        description: project.description || "Free Mobile Website Builder! Design with Freedom, Build with Power. Free for personal and commercial use.", // Default description if not provided
+        author: project.author || "Polyrise", // Default author if not provided
+        url: project.url || "https://michaelsboost.com/Polyrise/", // Default URL if not provided
+        meta: project.meta || "", // Meta tags
+        libraries: project.libraries || [], // External libraries (CSS/JS)
+        html_pre_processor: "html", // HTML preprocessor (default to "html")
+        css_pre_processor: "css", // CSS preprocessor (default to "css")
+        javascript_pre_processor: "javascript", // JS preprocessor (default to "javascript")
+        html: `<!-- This site was made with ${app.name}: ${app.summary} -->
+        
+${json2html(project.html)}`, // HTML content
+        css: `/* This site was made with ${app.name}: ${app.summary} */
+
+${json2css(project.css)}`, // CSS content
+        javascript: `// This site was made with ${app.name}: ${app.summary}
+
+${project.js || ''}`, // JavaScript content
+        logo: project.logo || "", // Logo (base64 or URL)
+        console: false, // Enable/disable console
+        dark: project.dark || true, // Dark mode
+        module: true, // Use ES modules
+        autorun: true, // Automatically run code
+        pwa: project.pwa || false, // Enable/disable PWA
+        preview: true, // Enable/disable preview
+        activePanel: "html", // Default active panel
+        columns: false, // Enable/disable columns
+        columnsRight: true // Enable/disable right columns
+      };
+
+      // Convert the project data to JSON and compress it
+      const jsonData = JSON.stringify(projectData);
+      const compressedData = LZString.compressToEncodedURIComponent(jsonData);
+
+      // Check if the compressed data exceeds kodeWeave's limit
+      if (compressedData.length > 50000) {
+        Modal.render({
+          title: "🚨 Project Too Large! 🚨",
+          content: `
+            <div class="p-4 text-center">
+              🛑 <strong>Oops!</strong> Your project is too big to be shared in the URL.<br/><br/>
+              ✂️ Try trimming it down to keep it short and sweet! 🌟<br/><br/>
+              🧑‍💻 Happy Coding! 🚀
+            </div>
+          `
+        });
+        return;
+      }
+
+      // Construct the kodeWeave URL with the compressed data
+      const kodeWeaveUrl = `https://michaelsboost.com/kodeWeave/go/#${compressedData}`;
+
+      // Open the kodeWeave URL in a new tab
+      window.open(kodeWeaveUrl, '_blank');
+    } else {
+      Modal.render({
+        title: "Unable to share!",
+        content: `<div class="p-4 text-center">No internet connection!</div>`
+      });
+    }
+  } catch (error) {
+    console.error('Error sharing project to kodeWeave:', error);
+  }
+};
 window.screenshot = async () => {
   const iframe = document.getElementById('iframe');
   const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
