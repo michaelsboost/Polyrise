@@ -1075,6 +1075,8 @@ const icons = (function() {
     codepen: `<svg class="h-3 -mt-1 transform origin-center scale-125" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path d="M502.285 159.704l-234-156c-7.987-4.915-16.511-4.96-24.571 0l-234 156C3.714 163.703 0 170.847 0 177.989v155.999c0 7.143 3.714 14.286 9.715 18.286l234 156.022c7.987 4.915 16.511 4.96 24.571 0l234-156.022c6-3.999 9.715-11.143 9.715-18.286V177.989c-.001-7.142-3.715-14.286-9.716-18.285zM278 63.131l172.286 114.858-76.857 51.429L278 165.703V63.131zm-44 0v102.572l-95.429 63.715-76.857-51.429L234 63.131zM44 219.132l55.143 36.857L44 292.846v-73.714zm190 229.715L61.714 333.989l76.857-51.429L234 346.275v102.572zm22-140.858l-77.715-52 77.715-52 77.715 52-77.715 52zm22 140.858V346.275l95.429-63.715 76.857 51.429L278 448.847zm190-156.001l-55.143-36.857L468 219.132v73.714z" />
     </svg>`,
+    layerUp: `<svg class="${navIconCSS}" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>`,
+    layerDown: `<svg class="${navIconCSS}" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>`,
     arrowDown: `<svg class="${navIconCSS}" viewBox='0 0 576 512' style='color: unset;'>
       <path 
         fill='currentColor' 
@@ -1253,6 +1255,7 @@ function LeftMenubar() {
       aria-label="toggle layers"
       name="toggle layers"
       class="${buttonSize} text-sm border-0 px-0 py-3 rounded-md bg-transparent ${project.activePanel === 'layers' ? 'text-blue-500' : ''}"
+      style="${project.activePanel === 'layers' ? 'text-blue-500' : 'color: unset;'}"
       onclick="project.activePanel = project.activePanel === 'layers' ? null : 'layers'"
     >
       ${icons.layers}
@@ -1263,6 +1266,7 @@ function LeftMenubar() {
       aria-label="toggle inspector"
       name="toggle inspector"
       class="${buttonSize} text-sm border-0 px-0 py-3 rounded-md bg-transparent ${project.activePanel === 'inspector' ? 'text-blue-500' : ''} lg:hidden"
+      style="${project.activePanel === 'inspector' ? 'text-blue-500' : 'color: unset;'}"
       onclick="project.activePanel = project.activePanel === 'inspector' ? null : 'inspector'"
     >
       ${icons.swatch}
@@ -2132,17 +2136,30 @@ window.attributesModal = () => {
   });
 }
 function LayerTree() {
+  // Check if project.html is defined and is an array
+  if (!Array.isArray(project.html)) {
+    console.error("project.html is not a valid array:", project.html);
+    return "";
+  }
+
   // Function to render each layer recursively
   function renderLayer(layer) {
+    // Defensive check for undefined or null layer
+    if (!layer) {
+      console.error("Undefined or null layer encountered in renderLayer:", layer);
+      return "";
+    }
+
     const { id, name, children, state } = layer;
     const hasChildren = children && children.length > 0;
     const isVisible = state.visible;
+
     if (data.shiftKey && data.cmdKey && layer.style === data.stylesTarget) {
       layer.state.selected = true;
     }
 
-      // HTML structure for each layer
-      const listItem = `
+    // HTML structure for each layer
+    const listItem = `
       <li class="list-none select-none">
         <code class="p-0 flex justify-between whitespace-nowrap min-w-min ${state.selected ? 'bg-[#0172ad] text-white' : ''}" data-layer="${id}">
           <span>
@@ -2178,6 +2195,7 @@ function LayerTree() {
     return listItem;
   }
 
+  // Render all layers in project.html
   return project.html.map(layer => renderLayer(layer)).join('');
 }
 function Inspector() {
@@ -5324,6 +5342,9 @@ window.json2html = input => {
     const renderElement = element => {
       let html = '';
 
+      // Ensure element is not null or undefined before accessing properties
+      if (!element) return html;
+
       // Skip elements that are not visible
       if (element.state && !element.state.visible) return html;
       
@@ -6175,6 +6196,52 @@ window.loadScripts = async srcArray => {
 }
 
 // layers functions
+window.layerUp = (shiftKeyPressed = false) => {
+  saveState(); // Save state before making changes
+
+  // Get the selected layer IDs
+  const selectedLayerIds = data.selectedLayerIds;
+
+  if (selectedLayerIds.length === 0) {
+    console.error("No layers selected.");
+    return;
+  }
+
+  // Process each selected layer
+  selectedLayerIds.forEach((layerId) => {
+    const { layer, parent } = findLayerById(layerId, project.html);
+
+    if (!layer || !parent) {
+      console.error(`Layer or parent not found for ID: ${layerId}`);
+      return;
+    }
+
+    const siblings = parent.children || parent; // Handle root layers or nested layers
+    const currentIndex = siblings.indexOf(layer);
+
+    // If the layer is already at the top, skip it
+    if (currentIndex === siblings.length - 1) return;
+
+    if (shiftKeyPressed) {
+      // Move the layer to the top of its container
+      siblings.splice(currentIndex, 1); // Remove from current position
+      siblings.push(layer); // Add to the end (top)
+    } else {
+      // Move the layer up by one position
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < siblings.length) {
+        // Swap positions
+        [siblings[currentIndex], siblings[nextIndex]] = [
+          siblings[nextIndex],
+          siblings[currentIndex],
+        ];
+      }
+    }
+  });
+
+  clearAllSelections(); // Clear selections after moving
+  saveState(); // Save state after making changes
+};
 window.executeQuery = (queriesString, replaceSelection = true) => {
   if (!queriesString) {
     clearAllSelections();
@@ -6659,7 +6726,7 @@ window.selectedBlock = layerId => {
 }
 window.collectSelectedIDs = layers => {
   layers.forEach(layer => {
-    if (layer.state.selected) {
+    if (layer.state && layer.state.selected) {
       data.selectedLayerIds.push(layer.id);
     }
     if (layer.children && layer.children.length > 0) {
@@ -6689,15 +6756,29 @@ window.clearSelectionExcept = (excludeId, layers) => {
   });
 }
 window.findLayerById = (id, layers, parent = null) => {
+  // Ensure layers is a valid array before looping
+  if (!Array.isArray(layers)) {
+    console.error("findLayerById: layers is not an array or is undefined", layers);
+    return null;
+  }
+
   for (const layer of layers) {
+    // Ensure layer is defined before accessing its properties
+    if (!layer || typeof layer !== "object") {
+      console.error("findLayerById: Encountered an invalid layer", layer);
+      continue;
+    }
+
     if (layer.id === id) return { layer, parent };
-    if (layer.children) {
+
+    if (Array.isArray(layer.children)) {
       const found = findLayerById(id, layer.children, layer);
       if (found) return found;
     }
   }
+  
   return null;
-}
+};
 window.canAcceptChildren = layer => {
   const elementsThatDontAcceptChildren = [
     'audio',
@@ -6815,32 +6896,88 @@ window.selectLayersByStyleRef = (style, layers) => {
 window.deleteLayers = () => {
   saveState(); // Save state before making changes
   data.editorNavState = true;
-  data.selectedLayerIds.forEach(id => {
-    removeLayerById(id, project.html);
+
+  // Create a copy of selectedLayerIds to avoid modifying the array while iterating
+  const selectedIds = [...data.selectedLayerIds];
+
+  selectedIds.forEach((id) => {
+    const layerExists = removeLayerById(id, project.html);
+
+    // If the layer was not found, remove its ID from data.selectedLayerIds
+    if (!layerExists) {
+      const index = data.selectedLayerIds.indexOf(id);
+      if (index !== -1) {
+        data.selectedLayerIds.splice(index, 1);
+      }
+    }
   });
-  data.selectedLayerIds = []; // Clear selection after deletion
-  data.editorNavState = null;
-  saveState(); // Save state after making changes
+
+  // Execute a callback function once all layers are processed
+  onLayersDeleted(() => {
+    data.selectedLayerIds = []; // Clear selection after deletion
+    data.editorNavState = null;
+    saveState(); // Save state after making changes
+  });
+};
+// Callback function to execute when layers are deleted
+function onLayersDeleted(callback) {
+  // Wrap in setTimeout to ensure it runs after the loop
+  setTimeout(() => {
+    if (typeof callback === "function") {
+      callback();
+    }
+  }, 300);
 }
 window.removeLayerById = (id, layers) => {
+  // Check if layers is defined and is an array
+  if (!Array.isArray(layers)) {
+    console.error("Invalid layers array:", layers);
+    return false; // Layer not found
+  }
+
   for (const layer of layers) {
+    // Check if layer is defined
+    if (!layer) {
+      console.error("Undefined layer encountered in removeLayerById:", layer);
+      continue; // Skip undefined layers
+    }
+
+    // Check if layer has an id property
+    if (typeof layer.id === "undefined") {
+      console.error("Layer does not have an id property:", layer);
+      continue; // Skip invalid layers
+    }
+
     if (layer.id === id) {
-      const index = layers.findIndex(l => l.id === id);
-      layers.splice(index, 1); // Remove layer from the main layers array
-      return;
+      const index = layers.findIndex((l) => l.id === id);
+      if (index !== -1) {
+        layers.splice(index, 1); // Remove layer from the main layers array
+        return true; // Layer found and removed
+      }
     }
 
     if (layer.children) {
-      const index = layer.children.findIndex(child => child.id === id);
+      // Check if children is an array
+      if (!Array.isArray(layer.children)) {
+        console.error("Invalid children array in layer:", layer);
+        continue; // Skip invalid children arrays
+      }
+
+      const index = layer.children.findIndex((child) => child && child.id === id);
       if (index !== -1) {
         layer.children.splice(index, 1); // Remove from children
-        return;
+        return true; // Layer found and removed
       } else {
-        removeLayerById(id, layer.children); // Recursively remove from nested layers
+        const layerExistsInChildren = removeLayerById(id, layer.children);
+        if (layerExistsInChildren) {
+          return true; // Layer found and removed in nested children
+        }
       }
     }
   }
-}
+
+  return false; // Layer not found
+};
 window.cloneLayers = () => {
   let modalContent = `<div>
     <input 
@@ -7717,7 +7854,25 @@ window.updateVersionPart = (part, value) => {
   project.version = versionParts.join('.');
 }
 window.createLayerMap = (layers, map = new Map()) => {
-  layers.forEach(layer => {
+  // Check if layers is defined and is an array
+  if (!Array.isArray(layers)) {
+    console.error("Invalid layers array:", layers);
+    return map;
+  }
+
+  layers.forEach((layer) => {
+    // Check if layer is defined
+    if (!layer) {
+      console.error("Undefined or null layer encountered:", layer);
+      return; // Skip this iteration
+    }
+
+    // Check if layer has an id property
+    if (typeof layer.id === "undefined") {
+      console.error("Layer does not have an id property:", layer);
+      return; // Skip this iteration
+    }
+
     // Add the layer to the map
     map.set(layer.id, layer);
 
@@ -7728,7 +7883,7 @@ window.createLayerMap = (layers, map = new Map()) => {
   });
 
   return map;
-}
+};
 
 // iframe functions
 window.resizeCanvas = size => data.selectedSize = size;
