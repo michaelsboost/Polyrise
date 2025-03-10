@@ -1,156 +1,163 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <title>Polyrise: Design with Freedom, Build with Power!</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, interactive-widget=resizes-content">
     <meta name="description" content="Free Mobile Website Builder! Design with Freedom, Build with Power. Free for personal and commercial use.">
     <meta name="author" content="Michael Schwartz">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, interactive-widget=resizes-content">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Polyrise">
-    <meta name="theme-color" content="#13171f">
-    <meta name="apple-mobile-web-app-title" content="Polyrise">
+    <meta name="application-name" content="Polyrise: Design with Freedom, Build with Power!">
+    <meta name="theme-color" content="hsl(205deg 18.75% 87.45%)">
+    <meta name="apple-mobile-web-app-title" content="Polyrise: Design with Freedom, Build with Power!">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="./index.html">
-    <meta name="msapplication-navbutton-color" content="#13171f">
-    <meta property="og:url"         content="https://michaelsboost.github.io/Polyrise/">
-    <meta property="og:type"        content="website">
-    <meta property="og:title"       content="Polyrise">
-    <meta property="og:description" content="Free Mobile Website Builder! Design with Freedom, Build with Power. Free for personal and commercial use.">
+    <meta name="msapplication-navbutton-color" content="hsl(205deg 18.75% 87.45%)">
+    <meta property="og:url" content="https://michaelsboost.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Polyrise: Design with Freedom, Build with Power!" />
+    <meta property="og:description" content="Free Mobile Website Builder! Design with Freedom, Build with Power. Free for personal and commercial use." />
     <meta property="og:image"       content="https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/imgs/header.png">
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" type="image/x-icon" href="imgs/logo.svg">
-    <link rel="icon" type="image/svg+xml" href="imgs/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="imgs/logo.svg" />
     <link rel="apple-touch-icon" href="imgs/logo.svg">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="dist/bundle.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+    <script src="dist/bundle.js"></script>
   </head>
   <body>
-    <div id="home" class="container">
-      <nav class="md:sticky md:top-0 md:inset-x-0 flex-col md:flex-row items-center py-4 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg">
-        <ul class="flex items-center gap-0 md:gap-3">
-          <!-- Logo -->
-          <li>
-            <a href="#home" class="text-2xl font-bold">
-              <img src="imgs/logo.svg" alt="Polyrise Logo" class="h-8">
-            </a>
-          </li>
-        </ul>
-          
-        <!-- Links -->
-        <ul class="hidden md:flex items-center gap-0 md:gap-3 text-xs sm:text-base md:text-base">
-          <li class="flex gap-3 py-2">
-            <div class="bg-[#cf06bc] rounded-md px-2 py-1 md:px-4 md:py-3">
-              <a class="no-underline text-white" href="#home">Home</a>
-            </div>
-            <div class="px-2 py-1 md:px-4 md:py-3">
-              <a class="no-underline text-black" href="https://github.com/michaelsboost/Polyrise" target="_blank">Github</a>
-            </div>
-            <div class="px-2 py-1 md:px-4 md:py-3">
-              <a class="no-underline text-black" href="https://twitter.com/michaelsboost" target="_blank">Twitter</a>
-            </div>
-            <div class="px-2 py-1 md:px-4 md:py-3">
-              <a class="no-underline text-black" href="https://michaelsboost.com/donate" target="_blank">Support</a>
-            </div>
-          </li>
-        </ul>
-          
-        <!-- Get Started Button -->
-        <ul class="hidden md:flex items-center gap-0 md:gap-3">
-          <li>
-            <a href="./app" class="no-underline text-white bg-[#0d6efd] hover:bg-[#0b5ed7] active:bg-[#0a58ca] px-3 py-2 md:px-4 md:py-3 rounded-lg">
-              Get Started
-            </a>
-          </li>
-        </ul>
-      </nav>
-    
-      <main class="flex flex-col items-center justify-center min-h-screen py-12">
-        <hgroup class="text-center mb-8">
-          <h1 class="text-4xl font-bold">
-            Design with Freedom, Build with Power
-          </h1>
-          <h2 class="text-lg mt-4">
-            Unleash your creativity with a flexible website builder for desktop and mobile. Free for personal and commercial use.
-          </h2>
-        </hgroup>
-        
-        <div class="mb-8">
-          <video class="w-full h-full object-cover object-center rounded-lg shadow-lg shadow-blue-900" autoplay="true" controls="false" preload="auto" poster="media/polyrise-desktop.webm" loop="true" poster="media/polyrise-desktop.webp" muted="true">
-            <source src="media/polyrise-desktop.mp4" type="video/mp4">
-            <source src="media/polyrise-desktop.webm" type="video/webm">
-            Your browser does not support the video tag.
-          </video>
-
-          <!-- Fallback Image when Video Fails -->
-          <noscript>
-            <img src="media/polyrise-desktop.webp" alt="Polyrise desktop screenshot" class="w-full h-full object-cover object-center rounded-lg shadow-lg shadow-blue-900">
-          </noscript>
+    <div class="container">
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+          <a href="https://michaelsboost.com/Polyrise/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <svg width="40" height="40" viewbox="0 0 135.46666 135.46667" version="1.1" id="p8gnvn4o7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" class="bi">
+              <defs id="defs1">
+              </defs>
+              <g id="g24">
+                <path id="path22" style="display:inline;fill:#133ad4;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,67.733332 V 135.20053 L 25.387597,126.03107 V 106.9604 67.733332 Z m 85.9689115,0 -57.769083,32.297258 v 18.81073 L 125.88224,67.733332 Z">
+                </path>
+                <path style="display:inline;fill:#04a2ff;fill-opacity:1;stroke-width:14;stroke-linecap:round;stroke-linejoin:round" id="path23" d="m 49.568527,35.819553 -16.970478,9.79791 0,-19.59582 z" transform="matrix(2.2172652,0,0,2.1470293,-34.495269,-9.262162)">
+                </path>
+                <path id="path24" style="display:inline;fill:#8600ef;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,0.26613362 V 67.733332 H 25.387597 V 42.856815 28.326953 l 70.325939,39.315946 -0.161747,0.09043 h 30.330451 l 0.002,-0.001 z">
+                </path>
+              </g>
+            </svg>
+          </a>
         </div>
-      
-        <a href="./app" class="w-full text-center no-underline text-white bg-[#0d6efd] hover:bg-[#0b5ed7] active:bg-[#0a58ca] text-xl px-5 py-4 rounded-lg">
-          Get Started
-        </a>
-      </main>
-    
-      <article id="features">
-        <section class="container py-16">
-          <hgroup class="text-center mb-8">
-            <h1 class="text-4xl font-bold">
-              Why Polyrise?
-            </h1>
-            <h2 class="text-lg mt-4">
-              Discover how our tool empowers you to create, customize, and launch stunning websites with ease.
-            </h2>
-          </hgroup>
-          <div class="w-1/2 m-auto">
-            <hr>
-          </div>
-          <div class="grid md:grid-cols-2 gap-8 p-4">
-            <div class="text-center">
-              <img src="app/imgs/make-work-awesome.gif" alt="Bring Your Vision to Life" loading="lazy" class="mx-auto mb-4">
-              <h3 class="text-xl font-bold mb-2">Bring Your Vision to Life</h3>
-              <p>Design responsive websites with complete creative freedom. Customize every aspect of your project to fit your unique style.</p>
-            </div>
-            <div class="text-center">
-              <img src="app/imgs/button.gif" alt="Custom Components" loading="lazy" class="mx-auto mb-4">
-              <h3 class="text-xl font-bold mb-2">Custom Components</h3>
-              <p>Easily create and use custom components to build your unique designs, and speed up your workflow.</p>
-            </div>
-            <div class="text-center">
-              <img src="media/multiplatform.svg" alt="Mobile and Desktop" loading="lazy" class="mx-auto mb-4">
-              <h3 class="text-xl font-bold mb-2">Mobile and Desktop</h3>
-              <p>Experience the same creative freedom on both desktop and mobile devices.</p>
-            </div>
-            <div class="text-center">
-              <img class="mx-auto mb-4" src="media/github.svg" alt="Open Source and Free" loading="lazy">
-              <h3 class="text-xl font-bold mb-2">Open Source and Free</h3>
-              <p>Polyrise is completely free for personal and commercial use under the MIT license.</p>
-            </div>
-          </div>
-        </section>
-      </article>
-      
-      <footer class="py-8 mt-16">
-        <div class="container mx-auto flex flex-col items-center">
-          <img src="imgs/author.jpg" alt="Michael Schwartz" class="w-64 h-64 rounded-full mb-4 shadow-lg">
-          <p class="text-sm my-4">Created by Michael Schwartz</p>
-          <div class="flex space-x-4 items-center">
-            <!-- Twitter -->
-            <a href="https://twitter.com/michaelsboost" target="_blank" class="no-underline text-2xl hover:text-[#1DA1F2]">
-              <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m.058 1l9.267 12.39L0 23.462h2.099l8.163-8.82l6.596 8.82H24l-9.788-13.087L22.892 1h-2.1l-7.517 8.122L7.2 1zm3.087 1.546h3.28l14.488 19.37h-3.28L3.145 2.547Z"/></svg>
-            </a>
-            <!-- Website -->
-            <a href="https://michaelsboost.com" target="_blank" class="no-underline text-2xl">
-              <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10"></path><path stroke-linecap="round" stroke-linejoin="round" d="M13 2.05S16 6 16 12m-5 9.95S8 18 8 12s3-9.95 3-9.95M2.63 15.5H12m-9.37-7h18.74"></path><path d="M21.879 17.917c.494.304.463 1.043-.045 1.101l-2.567.291l-1.151 2.312c-.228.459-.933.234-1.05-.334l-1.255-6.116c-.099-.48.333-.782.75-.525z" clip-rule="evenodd"></path></g></svg>
-            </a>
-            
-            <!-- Support -->
-            <a class="text-red-400 text-2xl no-underline" href="https://michaelsboost.com/donate/" target="_blank">
-              <svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M240 102c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 228.66 16 172 16 102a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 48.88 157.35 40 178 40a62.07 62.07 0 0 1 62 62"></path></svg>
-            </a>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li>
+            <a href="https://michaelsboost.com/Polyrise/" class="nav-link px-2 link-secondary">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/michaelsboost/Polyrise/" class="nav-link px-2">Github</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/michaelsboost/" class="nav-link px-2">Twitter</a>
+          </li>
+          <li>
+            <a href="https://michaelsboost.com/donate/" class="nav-link px-2">Support</a>
+          </li>
+        </ul>
+        <div class="col-md-3 text-end">
+          <a type="button" class="btn btn-primary" href="./app/" target="_blank">Get Started</a>
+        </div>
+      </header>
+    </div>
+    <main>
+      <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold text-body-emphasis">Create Without Boundaries</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Polyrise empowers you to design and customize responsive websites your way, whether on mobile or desktop. Choose your preferred libraries and frameworks, and build with complete creative freedom. From Bootstrap to Tailwind CSS and Alpine.js, Polyrise is the first website builder that truly liberates your design process, allowing you to craft anything from simple pages to fully interactive apps—anytime, anywhere.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <a type="button" class="btn btn-primary btn-lg px-4 me-sm-3" href="./app/" target="_blank">Get Started</a>
           </div>
         </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+          <div class="container px-5">
+            <img src="app/media/polyrise-desktop.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </main>
+    <main>
+      <div class="container px-4 py-5">
+        <header class="text-center mb-5">
+          <h1 class="fw-bold text-body-emphasis">Explore Our Powerful Features</h1>
+          <p class="text-body-secondary">Discover how our tool empowers you to create, customize, and launch stunning websites with ease.</p>
+        </header>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img src="app/imgs/make-work-awesome.gif" class="card-img-top" alt="Feature 1 in action">
+              <div class="card-body">
+                <h3 class="card-title text-body-emphasis">Bring Your Vision to Life</h3>
+                <p class="card-text">Design responsive websites with complete creative freedom. Customize every aspect of your project to fit your unique style.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="app/imgs/button.gif" class="card-img-top" alt="Feature 1 in action">
+              <div class="card-body">
+                <h3 class="card-title text-body-emphasis">Custom Components</h3>
+                <p class="card-text">Easily create and use custom components to build your unique designs, and speed up your workflow.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="app/imgs/screenshot-todo-app.jpeg" class="card-img-top" alt="Feature 2 in action">
+              <div class="card-body">
+                <h3 class="card-title text-body-emphasis">Full Creative Freedom</h3>
+                <p class="card-text">Unleash your creativity with complete control over design and functionality.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="app/imgs/responsive.gif" class="card-img-top" alt="Feature 3 in action">
+              <div class="card-body">
+                <h3 class="card-title text-body-emphasis">Responsive Design</h3>
+                <p class="card-text">Ensure your site looks great on any device with responsive design options.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="container py-8 mt-16">
+      <div class="text-center">
+        <div class="">
+          <a href="https://michaelsboost.com/" target="_blank">
+            <img src="imgs/author.jpg" class="img-thumbnail rounded mx-auto d-block" alt="Michael Schwartz" style="max-width: 256px; border-radius: 100em!important;">
+          </a>
+          <div class="card-body">
+            <h3 class="pt-4 text-body-emphasis">Michael Schwartz</h3>
+            <p class="card-text pt-2">Creator of Polyrise! 🚀</p>
+            <p class="card-text">Building cool stuff since... well, a while ago. 😅</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-cente align-items-center py-3 my-4 border-top">
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="https://michaelsboost.com/Polyrise/" class="nav-link px-2 text-body-secondary">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://github.com/michaelsboost/Polyrise/" class="nav-link px-2 text-body-secondary">Github</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://twitter.com/michaelsboost" class="nav-link px-2 text-body-secondary">Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://michaelsboost.com/donate/" class="nav-link px-2 text-body-secondary">Support</a>
+          </li>
+        </ul>
       </footer>
     </div>
   </body>
