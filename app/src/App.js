@@ -8956,36 +8956,93 @@ ${app.summary} ${app.description}
       swinit = `
     <script src="https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js"></script>
     <script>
-      // service worker for progressive web app
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./sw.js')
-        })
+        navigator.serviceWorker.register('./sw.js').then(reg => {
+          reg.addEventListener('updatefound', () => {
+            const newSW = reg.installing;
+            newSW.addEventListener('statechange', () => {
+              if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                // Notify the user and reload if they confirm
+                if (confirm('A new version is available. Reload now?')) {
+                  window.location.reload();
+                }
+              }
+            });
+          });
+        });
+
+        // Ensure immediate activation of a new service worker
+        navigator.serviceWorker.ready.then(registration => {
+          registration.active.postMessage({ type: 'SKIP_WAITING' });
+        });
       }
     </script>`;
-      const swjs = `// Service worker code
+      const swjs = `// Import Workbox
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js');
 
 const { registerRoute } = workbox.routing;
-const { CacheFirst } = workbox.strategies;
+const { NetworkFirst, StaleWhileRevalidate, CacheFirst } = workbox.strategies;
+const { CacheableResponsePlugin } = workbox.cacheableResponse;
+const { ExpirationPlugin } = workbox.expiration;
+const { clientsClaim, skipWaiting } = workbox.core;
 
+// Define cache name dynamically based on the project name
 const cacheName = '${project.name.split(' ').join('')}-cache';
 
-workbox.routing.registerRoute(
-  ({ request }) => request.destination === 'script' ||
-            request.destination === 'style' ||
-            request.destination === 'document' ||
-            request.destination === 'image' ||
-            request.destination === 'font' ||
-            request.destination === 'audio' ||
-            request.destination === 'video',
-    new CacheFirst({
+// Force update when a new service worker is available
+self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Immediately apply new service worker
+});
+
+// Clear old caches when activating a new service worker
+self.addEventListener('activate', async (event) => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames
+          .filter(name => name !== cacheName) // Keep only the latest cache
+          .map(name => caches.delete(name)) // Delete old caches
+      );
+    })
+  );
+  clientsClaim(); // Take control of all open clients
+});
+
+// Use Network First for scripts, styles, and documents (ensures updates)
+registerRoute(
+  ({ request }) => request.destination === 'script' || request.destination === 'style' || request.destination === 'document',
+  new NetworkFirst({
     cacheName: cacheName,
     plugins: [
-      // Any additional plugins can be added here
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
     ],
   })
-);`
+);
+
+// Cache images, fonts, audio, and video for performance
+registerRoute(
+  ({ request }) =>
+    request.destination === 'image' || request.destination === 'font' ||
+    request.destination === 'audio' || request.destination === 'video',
+  new CacheFirst({
+    cacheName: cacheName,
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 50, // Limit stored assets
+        maxAgeSeconds: 7 * 24 * 60 * 60, // Cache for 7 days
+      }),
+    ],
+  })
+);
+
+// Listen for messages to skip waiting and apply new updates
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});`
   zip.file("sw.js", swjs);
     }
 
