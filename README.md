@@ -60,9 +60,9 @@ Or, to run locally:
 
 ### **Clone the Repository**
 
-> git clone 
-> https://github.com/michaelsboost/Polyrise.git 
-> cd Polyrise` 
+> git clone  
+> https://github.com/michaelsboost/Polyrise.git  
+> cd Polyrise  
 
 ### **Start a Local Server**
 
@@ -70,7 +70,7 @@ To preview Polyrise locally, use a simple Python server:
 
 bash
 
-> python3 -m http.server 8000` 
+> python3 -m http.server 8000  
 
 Then, open `http://localhost:8000` in your browser.
 
