@@ -1,12 +1,15 @@
 {
-    "theme_color":      "#13171f",
+    "id": "com.michaelsboost.polyrise",
+    "name": "Polyrise",
+    "short_name": "Polyrise",
+    "description": "Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use.",
+    "lang": "en-US",
+    "dir": "ltr",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "theme_color": "#13171f",
     "background_color": "#13171f",
-    "display":      "standalone",
-    "start_url":    "./index.html",
-    "lang":         "en-US",
-    "name":         "Polyrise",
-    "short_name":   "Polyrise",
-    "description" : "Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use.",
     "icons": [
       {
         "src":     "./imgs/icon-192x192.png",
@@ -32,5 +35,17 @@
         "type":    "image/png",
         "purpose": "maskable"
       }
+    ],
+    "categories": [
+      "productivity",
+      "utilities"
+    ],
+    "prefer_related_applications": true,
+    "related_applications": [
+      {
+        "platform": "play",
+        "id": "com.michaelsboost.polyrise"
+      }
     ]
   }
+  
