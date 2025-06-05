@@ -31,7 +31,7 @@
     },
     {
       "name": "footer",
-      "code": "<div class=\"container\">\r\n  <footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">\r\n    <p class=\"col-md-4 mb-0 text-body-secondary\">© 2024 MichaelsBoost LLC, Inc</p>\r\n    <ul class=\"nav col-md-4 justify-content-end\">\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://michaelsboost.com/Polyrise/\" class=\"nav-link px-2 text-body-secondary\">Home</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://github.com/michaelsboost/Polyrise/\" class=\"nav-link px-2 text-body-secondary\">Github</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://twitter.com/michaelsboost\" class=\"nav-link px-2 text-body-secondary\">Twitter</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Learn</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://michaelsboost.com/donate/\" class=\"nav-link px-2 text-body-secondary\">Support</a>\r\n      </li>\r\n    </ul>\r\n  </footer>\r\n</div>"
+      "code": "<div class=\"container\">\r\n  <footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">\r\n    <p class=\"col-md-4 mb-0 text-body-secondary\">© 2024 YourWebsite.com</p>\r\n    <ul class=\"nav col-md-4 justify-content-end\">\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://michaelsboost.com/Polyrise/\" class=\"nav-link px-2 text-body-secondary\">Home</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://github.com/michaelsboost/Polyrise/\" class=\"nav-link px-2 text-body-secondary\">Github</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://twitter.com/michaelsboost\" class=\"nav-link px-2 text-body-secondary\">Twitter</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Learn</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a href=\"https://michaelsboost.com/donate/\" class=\"nav-link px-2 text-body-secondary\">Support</a>\r\n      </li>\r\n    </ul>\r\n  </footer>\r\n</div>"
     }
   ],
   "html": [
@@ -1202,7 +1202,7 @@
               },
               "name": "p",
               "type": "text",
-              "text": "© 2024 MichaelsBoost LLC, Inc",
+              "text": "© 2024 YourWebsite.com",
               "props": {
                 "class": "col-md-4 mb-0 text-body-secondary"
               },
