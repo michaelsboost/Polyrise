@@ -28,7 +28,7 @@ With a **click/tap interface**, **custom components**, **visual CSS editing**, *
 ✅ **Export as ZIP & HTML** – Download and deploy your project anywhere.  
 ✅ **Export as PWA** – Convert your project into a **Progressive Web App (PWA)**.  
 ✅ **Visual CSS Editor** – Edit **CSS styles, root variables, pseudo-elements, animations, breakpoints, and more** through an intuitive interface.  
-✅ **Built-in APIs** – Easily import images, SVGs, and audio from Openverse and Iconify.
+✅ **Built-in APIs** – Easily import images, SVGs, and audio from Openverse and Iconify.  
 ✅ **Offline Support** – Works **without an internet connection** after the first load.  
 ✅ **One-Click Screenshot** – Capture a full project preview with **html2canvas**.  
 ✅ **Fully Responsive** – Optimized for **mobile and desktop**.  
