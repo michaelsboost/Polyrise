@@ -1,12 +1,12 @@
 {
-    "theme_color":      "#13171f",
-    "background_color": "#13171f",
+    "theme_color":      "#04081a",
+    "background_color": "#04081a",
     "display":      "standalone",
     "start_url":    "./index.html",
     "lang":         "en-US",
     "name":         "Polyrise",
     "short_name":   "Polyrise",
-    "description" : "Free Mobile Website Builder! Create awesome responsive websites. Easy and fast - No coding! Free for commercial use.",
+    "description": "Free visual website builder with real-time CSS editing, mobile preview, custom components, and PWA export. Design without coding constraints. Open source and 100% free.",
     "icons": [
       {
         "src":     "./app/imgs/icon-192x192.png",

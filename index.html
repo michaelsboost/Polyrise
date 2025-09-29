@@ -4,161 +4,397 @@
     <title>Polyrise: Design with Freedom, Build with Power!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, interactive-widget=resizes-content">
-    <meta name="description" content="Free Mobile Website Builder! Design with Freedom, Build with Power. Free for personal and commercial use.">
+    <meta name="description" content="Free visual website builder with real-time CSS editing, mobile preview, custom components, and PWA export. Design without coding constraints. Open source and 100% free.">
     <meta name="author" content="Michael Schwartz">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Polyrise: Design with Freedom, Build with Power!">
-    <meta name="theme-color" content="hsl(205deg 18.75% 87.45%)">
+    <meta name="theme-color" content="#04081a">
     <meta name="apple-mobile-web-app-title" content="Polyrise: Design with Freedom, Build with Power!">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="./index.html">
-    <meta name="msapplication-navbutton-color" content="hsl(205deg 18.75% 87.45%)">
-    <meta property="og:url" content="https://michaelsboost.com/" />
+    <meta name="msapplication-navbutton-color" content="#04081a">
+    <meta property="og:url" content="https://michaelsboost.com/Polyrise/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Polyrise: Design with Freedom, Build with Power!" />
-    <meta property="og:description" content="Free Mobile Website Builder! Design with Freedom, Build with Power. Free for personal and commercial use." />
+    <meta property="og:description" content="Free visual website builder with real-time CSS editing, mobile preview, custom components, and PWA export. Design without coding constraints. Open source and 100% free." />
     <meta property="og:image"       content="https://raw.githubusercontent.com/michaelsboost/Polyrise/gh-pages/imgs/header.png">
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" type="image/x-icon" href="imgs/logo.svg">
     <link rel="icon" type="image/svg+xml" href="imgs/logo.svg" />
     <link rel="apple-touch-icon" href="imgs/logo.svg">
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="dist/bundle.css">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
-    <script src="dist/bundle.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="container">
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <div class="col-md-3 mb-2 mb-md-0">
-          <a href="https://michaelsboost.com/Polyrise/" class="d-inline-flex link-body-emphasis text-decoration-none">
-            <svg width="40" height="40" viewbox="0 0 135.46666 135.46667" version="1.1" id="p8gnvn4o7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" class="bi">
-              <defs id="defs1">
-              </defs>
-              <g id="g24">
-                <path id="path22" style="display:inline;fill:#133ad4;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,67.733332 V 135.20053 L 25.387597,126.03107 V 106.9604 67.733332 Z m 85.9689115,0 -57.769083,32.297258 v 18.81073 L 125.88224,67.733332 Z">
-                </path>
-                <path style="display:inline;fill:#04a2ff;fill-opacity:1;stroke-width:14;stroke-linecap:round;stroke-linejoin:round" id="path23" d="m 49.568527,35.819553 -16.970478,9.79791 0,-19.59582 z" transform="matrix(2.2172652,0,0,2.1470293,-34.495269,-9.262162)">
-                </path>
-                <path id="path24" style="display:inline;fill:#8600ef;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,0.26613362 V 67.733332 H 25.387597 V 42.856815 28.326953 l 70.325939,39.315946 -0.161747,0.09043 h 30.330451 l 0.002,-0.001 z">
-                </path>
-              </g>
+  <body class="antialiased">
+    <!-- Enhanced Navigation -->
+    <nav class="fixed w-full z-50 nav-glass">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="#home" class="flex items-center space-x-3">
+            <svg width="40" height="40" viewBox="0 0 135.46666 135.46667" class="text-purple-500">
+              <path style="fill:#8B5CF6;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,67.733332 V 135.20053 L 25.387597,126.03107 V 106.9604 67.733332 Z m 85.9689115,0 -57.769083,32.297258 v 18.81073 L 125.88224,67.733332 Z"></path>
+              <path style="fill:#06B6D4;fill-opacity:1;stroke-width:14;stroke-linecap:round;stroke-linejoin:round" d="m 49.568527,35.819553 -16.970478,9.79791 0,-19.59582 z" transform="matrix(2.2172652,0,0,2.1470293,-34.495269,-9.262162)"></path>
+              <path style="fill:#7C3AED;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,0.26613362 V 67.733332 H 25.387597 V 42.856815 28.326953 l 70.325939,39.315946 -0.161747,0.09043 h 30.330451 l 0.002,-0.001 z"></path>
             </svg>
+            <span class="hidden md:inline-block text-lg font-bold text-white">Polyrise</span>
           </a>
-        </div>
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li>
-            <a href="https://michaelsboost.com/Polyrise/" class="nav-link px-2 link-secondary">Home</a>
-          </li>
-          <li>
-            <a href="https://github.com/michaelsboost/Polyrise/" class="nav-link px-2">Github</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/michaelsboost/" class="nav-link px-2">Twitter</a>
-          </li>
-          <li>
-            <a href="https://michaelsboost.com/donate/" class="nav-link px-2">Support</a>
-          </li>
-        </ul>
-        <div class="col-md-3 text-end">
-          <a type="button" class="btn btn-primary" href="./app/" target="_blank">Get Started</a>
-        </div>
-      </header>
-    </div>
-    <main>
-      <div class="px-4 pt-5 my-5 text-center border-bottom">
-        <h1 class="display-4 fw-bold text-body-emphasis">Create Without Boundaries</h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Polyrise empowers you to design and customize responsive websites your way, whether on mobile or desktop. Choose your preferred libraries and frameworks, and build with complete creative freedom. From Bootstrap to Tailwind CSS and Alpine.js, Polyrise is the first website builder that truly liberates your design process, allowing you to craft anything from simple pages to fully interactive apps—anytime, anywhere.</p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a type="button" class="btn btn-primary btn-lg px-4 me-sm-3" href="./app/" target="_blank">Get Started</a>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#features" class="text-gray-300 hover:text-white transition-all duration-300 font-medium">Features</a>
+            <a href="#performance" class="text-gray-300 hover:text-white transition-all duration-300 font-medium">Speed</a>
+            <a href="#tech" class="text-gray-300 hover:text-white transition-all duration-300 font-medium">Tech</a>
+            <a href="#export" class="text-gray-300 hover:text-white transition-all duration-300 font-medium">Export</a>
           </div>
-        </div>
-        <div class="overflow-hidden" style="max-height: 30vh;">
-          <div class="container px-5">
-            <img src="app/media/polyrise-desktop.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+
+          <div class="flex items-center space-x-4">
+            <a href="https://github.com/michaelsboost/Polyrise/" target="_blank" class="text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://michaelsboost.com/donate/" target="_blank" class="text-purple-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5">
+              <i class="fas fa-heart text-xl"></i>
+            </a>
+            <a href="./app/" target="_blank" class="btn-primary text-white px-5 py-2.5 rounded-lg font-medium glow-hover pulse-animation">
+              Get Started
+            </a>
           </div>
         </div>
       </div>
-    </main>
-    <main>
-      <div class="container px-4 py-5">
-        <header class="text-center mb-5">
-          <h1 class="fw-bold text-body-emphasis">Explore Our Powerful Features</h1>
-          <p class="text-body-secondary">Discover how our tool empowers you to create, customize, and launch stunning websites with ease.</p>
-        </header>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-            <div class="card h-100">
-              <img src="app/imgs/make-work-awesome.gif" class="card-img-top" alt="Feature 1 in action">
-              <div class="card-body">
-                <h3 class="card-title text-body-emphasis">Bring Your Vision to Life</h3>
-                <p class="card-text">Design responsive websites with complete creative freedom. Customize every aspect of your project to fit your unique style.</p>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative gradient-bg overflow-hidden">
+      <div class="hero-gradient absolute inset-0 z-0"></div>
+
+      <!-- Animated background elements -->
+      <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+      <div class="container mx-auto px-6 py-20 z-10">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="md:w-1/2 mb-12 md:mb-0 scroll-fade-in">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6">
+              <i class="fas fa-star text-yellow-400"></i>
+              <span>No Coding Required • Free & Open Source</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+              Design with <span class="gradient-text">Freedom</span>,<br>
+              Build with <span class="text-cyan-400">Power</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+              Polyrise empowers you to design and customize responsive websites your way. Create anything from simple pages to fully interactive apps—anytime, anywhere.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="./app/" target="_blank" class="btn-primary text-white px-8 py-4 rounded-xl font-semibold text-center glow-hover">
+                <i class="fas fa-rocket mr-2"></i>Start Building Now
+              </a>
+              <a href="#features" class="border border-gray-700 hover:border-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-center transition-all duration-300 hover:bg-white/5">
+                <i class="fas fa-play-circle mr-2"></i>Explore Features
+              </a>
+            </div>
+
+            <div class="flex items-center gap-6 mt-8 text-sm text-gray-400">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span>100% Free</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span>No Registration</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span>PWA Export</span>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card h-100">
-              <img src="app/imgs/button.gif" class="card-img-top" alt="Feature 1 in action">
-              <div class="card-body">
-                <h3 class="card-title text-body-emphasis">Custom Components</h3>
-                <p class="card-text">Easily create and use custom components to build your unique designs, and speed up your workflow.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100">
-              <img src="app/imgs/screenshot-todo-app.jpeg" class="card-img-top" alt="Feature 2 in action">
-              <div class="card-body">
-                <h3 class="card-title text-body-emphasis">Full Creative Freedom</h3>
-                <p class="card-text">Unleash your creativity with complete control over design and functionality.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100">
-              <img src="app/imgs/responsive.gif" class="card-img-top" alt="Feature 3 in action">
-              <div class="card-body">
-                <h3 class="card-title text-body-emphasis">Responsive Design</h3>
-                <p class="card-text">Ensure your site looks great on any device with responsive design options.</p>
+
+          <div class="md:w-1/2 scroll-fade-in" style="transition-delay: 0.2s">
+            <div class="relative float-animation">
+              <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-3xl blur-2xl opacity-30"></div>
+              <div class="relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+                <img src="https://michaelsboost.com/Polyrise/app/media/polyrise-desktop.png" alt="Polyrise Interface" class="w-full h-auto">
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-    <div class="container py-8 mt-16">
-      <div class="text-center">
-        <div class="">
-          <a href="https://michaelsboost.com/" target="_blank">
-            <img src="imgs/author.jpg" class="img-thumbnail rounded mx-auto d-block" alt="Michael Schwartz" style="max-width: 256px; border-radius: 100em!important;">
+
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#features" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Performance Metrics Section -->
+    <section id="performance" class="section-padding gradient-bg">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-fade-in">
+          <h2 class="text-3xl md:text-5xl font-black mb-4">Unmatched Performance</h2>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Built for speed with a custom Virtual DOM & Diffing Algorithm using JavaScript Proxies
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div class="metric-card rounded-2xl p-6 text-center scroll-fade-in">
+            <div class="text-3xl md:text-4xl font-black text-green-400 mb-2">99</div>
+            <div class="text-gray-400 font-medium">Performance</div>
+          </div>
+          <div class="metric-card rounded-2xl p-6 text-center scroll-fade-in" style="transition-delay: 0.1s">
+            <div class="text-3xl md:text-4xl font-black text-green-400 mb-2">100</div>
+            <div class="text-gray-400 font-medium">Accessibility</div>
+          </div>
+          <div class="metric-card rounded-2xl p-6 text-center scroll-fade-in" style="transition-delay: 0.2s">
+            <div class="text-3xl md:text-4xl font-black text-green-400 mb-2">100</div>
+            <div class="text-gray-400 font-medium">Best Practices</div>
+          </div>
+          <div class="metric-card rounded-2xl p-6 text-center scroll-fade-in" style="transition-delay: 0.3s">
+            <div class="text-3xl md:text-4xl font-black text-green-400 mb-2">100</div>
+            <div class="text-gray-400 font-medium">SEO</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding gradient-bg">
+      <div class="section-divider my-16"></div>
+
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-fade-in">
+          <h2 class="text-3xl md:text-5xl font-black mb-4">Powerful Features</h2>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Everything you need to create stunning websites without writing a single line of code
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div class="feature-card rounded-2xl p-8 scroll-slide-left">
+            <div class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6">
+              <i class="fas fa-mouse-pointer text-purple-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Click/Tap Interface</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Add blocks instantly to the page or as child elements with a simple click or tap interface.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card rounded-2xl p-8 scroll-fade-in" style="transition-delay: 0.1s">
+            <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center mb-6">
+              <i class="fas fa-palette text-cyan-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Visual CSS Editor</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Edit CSS styles, root variables, animations, and breakpoints through an intuitive visual interface.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card rounded-2xl p-8 scroll-slide-right" style="transition-delay: 0.2s">
+            <div class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6">
+              <i class="fas fa-mobile-alt text-green-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Desktop Preview on Mobile</h3>
+            <p class="text-gray-400 leading-relaxed">
+              View your website's desktop layout while designing on mobile devices for perfect responsiveness.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card rounded-2xl p-8 scroll-slide-left" style="transition-delay: 0.3s">
+            <div class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6">
+              <i class="fas fa-download text-purple-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Export as PWA</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Convert your project into a Progressive Web App with offline support and native app features.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card rounded-2xl p-8 scroll-fade-in" style="transition-delay: 0.4s">
+            <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center mb-6">
+              <i class="fas fa-cube text-cyan-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Custom Components</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Create, save, and reuse components for faster and more consistent design workflows.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card rounded-2xl p-8 scroll-slide-right" style="transition-delay: 0.5s">
+            <div class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6">
+              <i class="fas fa-bolt text-green-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Top Performance</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Virtual DOM & Diffing Algorithm built with JavaScript Proxies for optimal performance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature Images -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="scroll-slide-left">
+            <div class="feature-card rounded-2xl overflow-hidden">
+              <img src="https://michaelsboost.com/Polyrise/app/imgs/make-work-awesome.gif" alt="Bring Your Vision to Life" class="w-full h-auto">
+              <div class="p-8">
+                <h3 class="text-2xl font-bold mb-4">Bring Your Vision to Life</h3>
+                <p class="text-gray-400 leading-relaxed">Design responsive websites with complete creative freedom. Customize every aspect of your project to fit your unique style and brand identity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="scroll-slide-right">
+            <div class="feature-card rounded-2xl overflow-hidden">
+              <img src="https://michaelsboost.com/Polyrise/app/imgs/button.gif" alt="Custom Components" class="w-full h-auto">
+              <div class="p-8">
+                <h3 class="text-2xl font-bold mb-4">Custom Components</h3>
+                <p class="text-gray-400 leading-relaxed">Easily create and use custom components to build your unique designs. Save time and maintain consistency across your projects with reusable elements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="section-padding gradient-bg">
+      <div class="section-divider my-16"></div>
+
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-fade-in">
+          <h2 class="text-3xl md:text-5xl font-black mb-4">Modern Tech Stack</h2>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Powered by the best open-source technologies for maximum performance and flexibility
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+          <div class="tech-card rounded-xl p-6 text-center scroll-fade-in">
+            <i class="fab fa-css3-alt text-5xl text-cyan-500 mb-4"></i>
+            <h3 class="font-bold text-lg">Tailwind CSS</h3>
+            <p class="text-sm text-gray-400 mt-2">Utility-first CSS framework</p>
+          </div>
+
+          <div class="tech-card rounded-xl p-6 text-center scroll-fade-in" style="transition-delay: 0.1s">
+            <i class="fas fa-icons text-5xl text-purple-500 mb-4"></i>
+            <h3 class="font-bold text-lg">HeroIcons & Font Awesome</h3>
+            <p class="text-sm text-gray-400 mt-2">SVG icon integration</p>
+          </div>
+
+          <div class="tech-card rounded-xl p-6 text-center scroll-fade-in" style="transition-delay: 0.2s">
+            <i class="fas fa-file-archive text-5xl text-green-500 mb-4"></i>
+            <h3 class="font-bold text-lg">JSZip</h3>
+            <p class="text-sm text-gray-400 mt-2">ZIP file exports</p>
+          </div>
+
+          <div class="tech-card rounded-xl p-6 text-center scroll-fade-in" style="transition-delay: 0.3s">
+            <i class="fas fa-camera text-5xl text-cyan-500 mb-4"></i>
+            <h3 class="font-bold text-lg">html2canvas</h3>
+            <p class="text-sm text-gray-400 mt-2">Screenshot capture</p>
+          </div>
+
+          <div class="tech-card rounded-xl p-6 text-center scroll-fade-in" style="transition-delay: 0.4s">
+            <i class="fas fa-search text-5xl text-purple-500 mb-4"></i>
+            <h3 class="font-bold text-lg">Openverse API</h3>
+            <p class="text-sm text-gray-400 mt-2">Free images/audio search</p>
+          </div>
+
+          <div class="tech-card rounded-xl p-6 text-center scroll-fade-in" style="transition-delay: 0.5s">
+            <i class="fas fa-icons text-5xl text-green-500 mb-4"></i>
+            <h3 class="font-bold text-lg">Iconify API</h3>
+            <p class="text-sm text-gray-400 mt-2">Thousands of vector icons</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced CTA Section -->
+    <section id="export" class="section-padding gradient-bg">
+      <div class="section-divider my-16"></div>
+
+      <div class="container mx-auto px-6 text-center">
+        <div class="max-w-4xl mx-auto scroll-fade-in">
+          <h2 class="text-4xl md:text-6xl font-black mb-6">Ready to Build Your Website?</h2>
+          <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+            Join thousands of creators who use Polyrise to design, prototype, and deploy stunning websites without writing code. Completely free and open-source.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="./app/" target="_blank" class="btn-primary text-white px-10 py-5 rounded-2xl font-bold text-lg glow-hover">
+              <i class="fas fa-rocket mr-3"></i>Try Polyrise Online
+            </a>
+            <a href="https://github.com/michaelsboost/Polyrise/" class="border border-gray-700 hover:border-cyan-500 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white/5">
+              <i class="fab fa-github mr-3"></i>View on GitHub
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check text-green-400"></i>
+              <span>No registration required</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check text-green-400"></i>
+              <span>Works offline</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check text-green-400"></i>
+              <span>100% free forever</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check text-green-400"></i>
+              <span>PWA export</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-16">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+          <a href="#home" class="flex items-center space-x-3 mb-6 md:mb-0">
+            <svg width="40" height="40" viewBox="0 0 135.46666 135.46667" class="text-purple-500">
+              <path style="fill:#8B5CF6;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,67.733332 V 135.20053 L 25.387597,126.03107 V 106.9604 67.733332 Z m 85.9689115,0 -57.769083,32.297258 v 18.81073 L 125.88224,67.733332 Z"></path>
+              <path style="fill:#06B6D4;fill-opacity:1;stroke-width:14;stroke-linecap:round;stroke-linejoin:round" d="m 49.568527,35.819553 -16.970478,9.79791 0,-19.59582 z" transform="matrix(2.2172652,0,0,2.1470293,-34.495269,-9.262162)"></path>
+              <path style="fill:#7C3AED;fill-opacity:1;stroke-width:96.174;stroke-linecap:round;stroke-linejoin:round" d="M 9.5828775,0.26613362 V 67.733332 H 25.387597 V 42.856815 28.326953 l 70.325939,39.315946 -0.161747,0.09043 h 30.330451 l 0.002,-0.001 z"></path>
+            </svg>
+            <span class="text-2xl font-bold text-white">Polyrise</span>
           </a>
-          <div class="card-body">
-            <h3 class="pt-4 text-body-emphasis">Michael Schwartz</h3>
-            <p class="card-text pt-2">Creator of Polyrise! 🚀</p>
-            <p class="card-text">Building cool stuff since... well, a while ago. 😅</p>
+
+          <div class="flex space-x-8 mb-6 md:mb-0">
+            <a href="#features" class="text-gray-400 hover:text-white transition-colors font-medium">Features</a>
+            <a href="#performance" class="text-gray-400 hover:text-white transition-colors font-medium">Speed</a>
+            <a href="#tech" class="text-gray-400 hover:text-white transition-colors font-medium">Tech</a>
+            <a href="#export" class="text-gray-400 hover:text-white transition-colors font-medium">Export</a>
+          </div>
+
+          <div class="flex space-x-4">
+            <a href="https://github.com/michaelsboost/Polyrise/" target="_blank" class="text-gray-400 hover:text-white transition-colors p-3 rounded-lg hover:bg-white/5">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://michaelsboost.com/donate/" target="_blank" class="text-purple-400 hover:text-white transition-colors p-3 rounded-lg hover:bg-white/5">
+              <i class="fas fa-heart text-xl"></i>
+            </a>
           </div>
         </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+          <p>&copy; 2023 Polyrise. MIT License. Created with ❤️ by Michael Schwartz.</p>
+        </div>
       </div>
-    </div>
-    <div class="container">
-      <footer class="d-flex flex-wrap justify-content-cente align-items-center py-3 my-4 border-top">
-        <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item">
-            <a href="https://michaelsboost.com/Polyrise/" class="nav-link px-2 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/michaelsboost/Polyrise/" class="nav-link px-2 text-body-secondary">Github</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://twitter.com/michaelsboost" class="nav-link px-2 text-body-secondary">Twitter</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://michaelsboost.com/donate/" class="nav-link px-2 text-body-secondary">Support</a>
-          </li>
-        </ul>
-      </footer>
-    </div>
+    </footer>
+
+    <script src="dist/script.js"></script>
   </body>
 </html>
